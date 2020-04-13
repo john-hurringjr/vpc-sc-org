@@ -13,10 +13,17 @@
  * limitations under the License.
  */
 
-terraform_org_service_account                   = ""
-terraform_prod_prj_creator_service_account      = ""
-terraform_prod_resources_service_account        = ""
-terraform_non_prod_prj_creator_service_account  = ""
-terraform_non_prod_resources_service_account    = ""
-billing_admins_group                            = ""
-organization_id                                 = ""
+/******************************************
+  Variables
+ *****************************************/
+variable "terraform_org_service_account" {}
+
+variable "terraform_prod_prj_creator_service_account" {}
+variable "terraform_prod_resources_service_account" {}
+
+variable "terraform_non_prod_prj_creator_service_account" {}
+variable "terraform_non_prod_resources_service_account" {}
+
+variable "billing_admins_group" {}
+variable "billing_accound_id" {}
+variable "organization_id" {}

@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-terraform_org_service_account                   = ""
-terraform_prod_prj_creator_service_account      = ""
-terraform_prod_resources_service_account        = ""
-terraform_non_prod_prj_creator_service_account  = ""
-terraform_non_prod_resources_service_account    = ""
-billing_admins_group                            = ""
-organization_id                                 = ""
+resource "google_folder" "shared_services" {
+  display_name  = "Shared Services"
+  parent        = "organizations/${var.organization_id}"
+}
+
+
