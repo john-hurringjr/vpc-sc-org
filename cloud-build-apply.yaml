@@ -1,12 +1,14 @@
 ---
 steps:
   - name: gcr.io/cloud-builders/gsutil
+    dir: './${_FOLDER}/'
     args: ['cp', 'gs://${_GCS_BUCKET}/${_FOLDER}/*', '.']
     waitFor: ['-']
   - name: hashicorp/terraform
     args:
       - init
   - name: hashicorp/terraform
+    dir: './${_FOLDER}/'
     args:
       - apply
       - -auto-approve
