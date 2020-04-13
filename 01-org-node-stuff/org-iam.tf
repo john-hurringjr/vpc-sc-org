@@ -24,7 +24,7 @@ module "org_iam" {
   terraform_prod_prj_creator_service_account      = var.terraform_prod_prj_creator_service_account
   terraform_non_prod_prj_creator_service_account  = var.terraform_non_prod_prj_creator_service_account
   external_user_os_login_group                    = var.external_user_os_login_group
-  security_admins_group                           = var.security_viewer_group
+  security_viewer_group                           = var.security_viewer_group
   billing_admins_group                            = var.billing_admins_group
   organization_id                                 = var.organization_id
 }
