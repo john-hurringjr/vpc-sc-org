@@ -17,12 +17,21 @@
   Variables
  *****************************************/
 variable "group_break_glass" {}
+
 variable "terraform_org_service_account" {}
+
 variable "terraform_prod_prj_creator_service_account" {}
+
 variable "terraform_non_prod_prj_creator_service_account" {}
+
 variable "external_user_os_login_group" {}
+
 variable "security_viewer_group" {}
+
 variable "billing_admins_group" {}
+
 variable "organization_id" {}
+
 variable "domain_identity_primary" {}
+
 variable "domain_identity_secondary" {}
