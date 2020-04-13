@@ -1,0 +1,15 @@
+---
+steps:
+  - name: gcr.io/cloud-builders/gsutil
+    args: ['cp', 'gs://${_GCS_BUCKET}/${_FOLDER}/*', '.']
+    waitFor: ['-']
+  - name: hashicorp/terraform
+    args:
+      - init
+  - name: hashicorp/terraform
+    args:
+      - apply
+      - -auto-approve
+tags:
+  - 'apply'
+timeout: 7200s
