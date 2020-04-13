@@ -47,14 +47,13 @@ variable "gcs_backend_state_files_unique_id" {
   default     = ""
 }
 
-
 /******************************************
-  Resources
+  Project
  *****************************************/
 
-module "gcs_bucket_builds_bootstrap" {
-  source                            = "github.com/john-hurringjr/test-modules/gcs/iac-build-bootstrap"
-  project_id                        = ""
-  gcs_backend_variables_unique_id   = ""
-  gcs_backend_state_files_unique_id = ""
+module "bootstrap_project" {
+  source              = "github.com/john-hurringjr/test-modules/project-creation/iac-build-bootstrap"
+  unique_project_id   = var.unique_project_id
+  org_id              = var.org_id
+  billing_account_id  = var.billing_account_id
 }
