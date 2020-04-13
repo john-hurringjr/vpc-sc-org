@@ -1,15 +1,15 @@
 ---
 steps:
   - name: gcr.io/cloud-builders/gsutil
-    dir: './vpc-sc-org/${_FOLDER}/'
+    dir: './${_FOLDER}/'
     args: ['cp', 'gs://${_GCS_BUCKET}/${_FOLDER}/*', '.']
     waitFor: ['-']
   - name: hashicorp/terraform
-    dir: './vpc-sc-org/${_FOLDER}/'
+    dir: './${_FOLDER}/'
     args:
       - init
   - name: hashicorp/terraform
-    dir: './vpc-sc-org/${_FOLDER}/'
+    dir: './${_FOLDER}/'
     args:
       - plan
 tags:
