@@ -18,6 +18,9 @@
  *****************************************/
 variable "terraform_org_service_account" {}
 
+variable "terraform_shared_services_prj_creator_service_account" {}
+variable "terraform_shared_services_resources_service_account" {}
+
 variable "terraform_prod_prj_creator_service_account" {}
 variable "terraform_prod_resources_service_account" {}
 

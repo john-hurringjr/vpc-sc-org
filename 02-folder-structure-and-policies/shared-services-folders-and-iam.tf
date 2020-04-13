@@ -12,6 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/******************************************
+  Folders
+ *****************************************/
 
 resource "google_folder" "shared_services" {
   display_name  = "Shared Services"

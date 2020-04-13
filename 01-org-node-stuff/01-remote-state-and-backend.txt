@@ -81,6 +81,6 @@
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
-//    prefix = "06-non-prod-resources"
+//    prefix = "08-non-prod-resources"
 //  }
 //}
