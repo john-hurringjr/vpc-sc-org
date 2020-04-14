@@ -17,7 +17,7 @@ steps:
         terraform apply -auto-approve || exit 0
   - name: gcr.io/cloud-builders/gsutil
     dir: './${_FOLDER}/'
-    args: ['cp', './terraform.log', 'gs://${_GCS_BUCKET}/00-error-logs/']
+    args: ['cp', './terraform.log', 'gs://${_GCS_BUCKET}/00-error-logs/terraform-errors-$BUILD_ID.log']
 tags:
   - 'apply-debug'
 timeout: 7200s

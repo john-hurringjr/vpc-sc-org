@@ -14,7 +14,17 @@
  */
 
 /******************************************
-  Variables
+  Groups
+ *****************************************/
+variable "billing_admins_group" {}
+variable "business-unit-1-developers" {}
+variable "business-unit-2-developers" {}
+variable "network-viewers" {}
+variable "operations-viewers" {}
+variable "security-viewers" {}
+
+/******************************************
+  Terraform Service Accounts
  *****************************************/
 variable "terraform_org_service_account" {}
 
@@ -27,6 +37,8 @@ variable "terraform_prod_resources_service_account" {}
 variable "terraform_non_prod_prj_creator_service_account" {}
 variable "terraform_non_prod_resources_service_account" {}
 
-variable "billing_admins_group" {}
+/******************************************
+  Misc
+ *****************************************/
 variable "billing_accound_id" {}
 variable "organization_id" {}

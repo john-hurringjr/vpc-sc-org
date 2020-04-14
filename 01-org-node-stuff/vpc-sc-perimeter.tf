@@ -30,7 +30,7 @@ Clearing out a policy like this will remove any access levels already created.
 /******************************************
   Acceess Context Manager Perimeter (VPC Service Controls)
  *****************************************/
-resource "google_access_context_manager_service_perimeter" "service-perimeter-resource" {
+resource "google_access_context_manager_service_perimeter" "service_perimeter_configuration" {
   parent = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}"
   name   = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}/servicePerimeters/restrict_all"
   title  = "restrict_all"
