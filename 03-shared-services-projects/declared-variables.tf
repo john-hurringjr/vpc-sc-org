@@ -41,4 +41,4 @@ variable "terraform_non_prod_resources_service_account" {}
   Misc
  *****************************************/
 variable "billing_account_id" {}
-variable "organization_id" {}
+variable "project_unique_shared_id" {}

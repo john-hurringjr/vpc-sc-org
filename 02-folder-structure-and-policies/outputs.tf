@@ -13,12 +13,33 @@
  * limitations under the License.
  */
 /******************************************
-  Folders
+  Outputs
  *****************************************/
 
-resource "google_folder" "shared_services" {
-  display_name  = "Shared Services"
-  parent        = "organizations/${var.organization_id}"
+output "shared_services_folder_id" {
+  value = google_folder.shared_services.id
 }
 
+output "prod_folder_id" {
+  value = google_folder.production.id
+}
 
+output "non_prod_folder_id" {
+  value = google_folder.non_production.id
+}
+
+output "prod_bu_1_folder_id" {
+  value = google_folder.production_bu_1.id
+}
+
+output "prod_bu_2_folder_id" {
+  value = google_folder.production_bu_2.id
+}
+
+output "non_prod_bu_1_folder_id" {
+  value = google_folder.non_production_bu_1.id
+}
+
+output "non_prod_bu_2_folder_id" {
+  value = google_folder.non_production_bu_2.id
+}
