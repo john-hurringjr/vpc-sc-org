@@ -29,9 +29,6 @@ resource "google_folder_organization_policy" "prod_restrict_vpc_host" {
 
 }
 
-
-
-
 /******************************************
   Trusted Image
  *****************************************/
