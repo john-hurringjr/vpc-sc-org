@@ -16,7 +16,3 @@
   Outputs
  *****************************************/
 
-output "test" {
-  value = google_access_context_manager_access_level.allow_all_tf_service_accounts.id
-}
-
