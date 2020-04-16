@@ -43,3 +43,5 @@ output "non_prod_bu_1_folder_id" {
 output "non_prod_bu_2_folder_id" {
   value = google_folder.non_production_bu_2.id
 }
+
+
