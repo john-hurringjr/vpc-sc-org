@@ -29,7 +29,7 @@
   *****************************************/
 # Run init for all remote state references, without it, there is not file for below to reference, so it will fail.
 
-//data "terraform_remote_state" "02_folder_structure_and_policies" {
+//data "terraform_remote_state" "rs02_folder_structure_and_policies" {
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
@@ -37,7 +37,7 @@
 //  }
 //}
 //
-//data "terraform_remote_state" "03_shared_services_projects" {
+//data "terraform_remote_state" "rs03_shared_services_projects" {
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
@@ -45,7 +45,7 @@
 //  }
 //}
 //
-//data "terraform_remote_state" "04_shared_services_resources" {
+//data "terraform_remote_state" "rs04_shared_services_resources" {
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
@@ -53,7 +53,7 @@
 //  }
 //}
 //
-//data "terraform_remote_state" "05_prod_projects" {
+//data "terraform_remote_state" "rs05_prod_projects" {
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
@@ -61,7 +61,7 @@
 //  }
 //}
 //
-//data "terraform_remote_state" "06_non_prod_projects" {
+//data "terraform_remote_state" "rs06_non_prod_projects" {
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
@@ -69,7 +69,7 @@
 //  }
 //}
 //
-//data "terraform_remote_state" "07_prod_resources" {
+//data "terraform_remote_state" "rs07_prod_resources" {
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
@@ -77,7 +77,7 @@
 //  }
 //}
 //
-//data "terraform_remote_state" "08_non_prod_resources" {
+//data "terraform_remote_state" "rs08_non_prod_resources" {
 //  backend = "gcs"
 //  config = {
 //    bucket = ""
