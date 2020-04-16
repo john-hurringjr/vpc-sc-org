@@ -38,11 +38,6 @@ data "google_iam_policy" "billing_account_policy_data" {
 
 }
 
-
-
-
-
-
 /******************************************
   Billing Account IAM - Policy Applied
  *****************************************/
