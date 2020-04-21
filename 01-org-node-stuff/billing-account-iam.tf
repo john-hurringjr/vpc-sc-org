@@ -22,7 +22,8 @@ data "google_iam_policy" "billing_account_policy_data" {
   binding {
     members = [
       "serviceAccount:${var.terraform_org_service_account}",
-      "group:${var.billing_admins_group}"
+      "group:${var.billing_admins_group}",
+      "user:${var.my_id_just_in_case}",
     ]
     role = "roles/billing.admin"
   }
@@ -42,6 +43,6 @@ data "google_iam_policy" "billing_account_policy_data" {
   Billing Account IAM - Policy Applied
  *****************************************/
 resource "google_billing_account_iam_policy" "billing_account_iam" {
-  billing_account_id  = ""
-  policy_data         = ""
+  billing_account_id  = var.billing_account_id
+  policy_data         = data.google_iam_policy.billing_account_policy_data.policy_data
 }
