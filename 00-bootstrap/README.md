@@ -51,3 +51,6 @@ bucket2/prodprojects/
 bucket2/nonprodprojects/
 bucket2/prodresources/
 bucket2/nonprodresources/
+
+After deploying your project, be sure to copy the variables-and-backends folder and everything under it to your desired location in cloud shell home. You will use this to upload the variables and backend files as you manage your environment (unless you deploy a private repo)
+
