@@ -64,6 +64,7 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "storagetransfer.googleapis.com",
       "sqladmin.googleapis.com",
       "vision.googleapis.com",
+      "containeranalysis.googleapis.com",
       "containerregistry.googleapis.com",
       "container.googleapis.com",
       "gkeconnect.googleapis.com",
@@ -78,6 +79,7 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "tpu.googleapis.com",
       "videointelligence.googleapis.com",
       "healthcare.googleapis.com",
+      "servicecontrol.googleapis.com"
     ]
   }
 

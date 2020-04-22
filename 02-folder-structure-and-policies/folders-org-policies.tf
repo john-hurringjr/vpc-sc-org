@@ -17,17 +17,17 @@
   Shared VPC Restrict to Specific Host Prj
  *****************************************/
 # This must be applied after Shared Service Projects is run:
-resource "google_folder_organization_policy" "prod_restrict_vpc_host" {
-  constraint  = "constraints/compute.restrictSharedVpcHostProjects"
-  folder      = google_folder.production.id
-
-  list_policy {
-    allow {
-      values = ["projects/${data.terraform_remote_state.03_shared_services_projects.outputs.project_id}"]
-    }
-  }
-
-}
+//resource "google_folder_organization_policy" "prod_restrict_vpc_host" {
+//  constraint  = "constraints/compute.restrictSharedVpcHostProjects"
+//  folder      = google_folder.production.id
+//
+//  list_policy {
+//    allow {
+//      values = ["projects/${data.terraform_remote_state.03_shared_services_projects.outputs.project_id}"]
+//    }
+//  }
+//
+//}
 
 /******************************************
   Trusted Image
