@@ -1,6 +1,6 @@
 # VPC Service Controls Org
 PreReq:
-- Follow the steps in the 00-bootstrap first, before moving through the rest of the deployment.
+- Follow the steps in the 00-bootstrap first (this folder), before moving through the rest of the deployment.
 - You'll need your own Org Node that you are the Org Admin
 - You'll need your own Billing Account that you are the Billing Admin
 - You'll need your own GitHub account to set up your own repos (which you'll connect to Cloud Build)

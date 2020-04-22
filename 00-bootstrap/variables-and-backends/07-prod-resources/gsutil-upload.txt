@@ -1,0 +1,3 @@
+gsutil cp 07-remote-state-and-backend.tf gs://[YOURBUCKET]/07-prod-resources/
+
+gsutil cp 07-prod-resources-variables.auto.tfvars gs://[YOURBUCKET]/07-prod-resources/

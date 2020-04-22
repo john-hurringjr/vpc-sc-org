@@ -1,0 +1,3 @@
+gsutil cp 05-remote-state-and-backend.tf gs://[YOURBUCKET]/05-prod-projects/
+
+gsutil cp 05-prod-projects-variables.auto.tfvars gs://[YOURBUCKET]/05-prod-projects/

@@ -1,0 +1,3 @@
+gsutil cp 03-remote-state-and-backend.tf gs://[YOURBUCKET]/03-shared-services-projects/
+
+gsutil cp 03-shared-services-projects-variables.auto.tfvars gs://[YOURBUCKET]/03-shared-services-projects/

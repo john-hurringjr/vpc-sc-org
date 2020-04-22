@@ -1,0 +1,3 @@
+gsutil cp 08-remote-state-and-backend.tf gs://[YOURBUCKET]/08-non-prod-resources/
+
+gsutil cp 08-non-prod-resources-variables.auto.tfvars gs://[YOURBUCKET]/08-non-prod-resources/

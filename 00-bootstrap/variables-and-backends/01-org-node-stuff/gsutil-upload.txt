@@ -1,0 +1,3 @@
+gsutil cp 01-remote-state-and-backend.tf  gs://[YOURBUCKET]/01-org-node-stuff/
+
+gsutil cp 01-org-node-stuff-variables.auto.tfvars  gs://[YOURBUCKET]/01-org-node-stuff/

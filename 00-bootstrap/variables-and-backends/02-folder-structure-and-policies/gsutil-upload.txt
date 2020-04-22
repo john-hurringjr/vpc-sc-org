@@ -1,0 +1,3 @@
+gsutil cp 02-remote-state-and-backend.tf gs://[YOURBUCKET]/02-folder-structure-and-policies/
+
+gsutil cp 02-folder-structure-and-policies-variables.auto.tfvars gs://[YOURBUCKET]/02-folder-structure-and-policies/

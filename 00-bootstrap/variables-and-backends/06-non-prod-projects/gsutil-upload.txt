@@ -1,0 +1,3 @@
+gsutil cp 06-remote-state-and-backend.tf gs://[YOURBUCKET]/06-non-prod-projects/
+
+gsutil cp 06-non-prod-projects-variables.auto.tfvars gs://[YOURBUCKET]/06-non-prod-projects/
