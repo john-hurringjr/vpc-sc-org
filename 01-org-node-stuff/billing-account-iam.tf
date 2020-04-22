@@ -23,7 +23,7 @@ data "google_iam_policy" "billing_account_policy_data" {
     members = [
       "serviceAccount:${var.terraform_org_service_account}",
       "group:${var.billing_admins_group}",
-      "user:${var.my_id_just_in_case}",
+      "user:${var.my_id_just_in_case}"
     ]
     role = "roles/billing.admin"
   }
@@ -32,7 +32,7 @@ data "google_iam_policy" "billing_account_policy_data" {
     members = [
       "serviceAccount:${var.terraform_prod_prj_creator_service_account}",
       "serviceAccount:${var.terraform_non_prod_prj_creator_service_account}",
-      "serviceAccount:${var.terraform_shared_services_prj_creator_service_account}",
+      "serviceAccount:${var.terraform_shared_services_prj_creator_service_account}"
     ]
     role = "roles/billing.user"
   }
