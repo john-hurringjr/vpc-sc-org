@@ -71,3 +71,15 @@ resource "google_folder_organization_policy" "prod_bu_1_folder_location_restrict
   }
 
 }
+
+resource "google_folder_organization_policy" "non_prod_bu_1_folder_location_restriction" {
+  constraint  = "constraints/gcp.resourceLocations"
+  folder      = google_folder.non_production_bu_1.id
+
+  list_policy {
+    allow {
+      values = ["us-locations"]
+    }
+  }
+
+}
