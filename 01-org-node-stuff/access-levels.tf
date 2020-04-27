@@ -38,7 +38,6 @@ resource "google_access_context_manager_access_level" "allow_all_tf_service_acco
   }
 }
 
-
 # To be defined later
 //resource "google_access_context_manager_access_level" "org_sinks_service_accounts" {
 //  parent = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}"
