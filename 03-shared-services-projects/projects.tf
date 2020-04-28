@@ -26,8 +26,6 @@ module "shared_vpc_host_project_prod" {
   billing_account_id        = var.billing_account_id
   label_business_unit       = "shared-services"
   label_restrictions        = "highlyconfidential"
-  network_admin_group_id    = var.network_admins_group
-  security_admin_group_id   = var.network_admins_group
 }
 
 //module "shared_vpc_host_project_non_prod" {
