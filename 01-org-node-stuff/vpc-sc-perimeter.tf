@@ -44,7 +44,8 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "ml.googleapis.com",
       "artifactregistry.googleapis.com",
       "automl.googleapis.com",
-      "eu-automl.googleapis.com",
+      # Claims that profiler is not supported, but site says it is...
+      #"eu-automl.googleapis.com",
       "bigquery.googleapis.com",
       "bigtable.googleapis.com",
       "cloudasset.googleapis.com",
