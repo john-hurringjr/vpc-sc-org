@@ -5,6 +5,7 @@ steps:
     args: ['cp', 'gs://${_GCS_BUCKET}/${_FOLDER}/*', '.']
     waitFor: ['-']
   - name: hashicorp/terraform
+    dir: './${_FOLDER}/'
     args:
       - init
   - name: hashicorp/terraform
