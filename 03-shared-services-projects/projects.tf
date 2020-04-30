@@ -22,7 +22,7 @@ module "shared_vpc_host_project_prod" {
   project_friendly_name     = "Shared VPC Host Prod"
   unique_shared_id          = var.project_unique_shared_id
   environment               = "prod"
-  folder_id                 = "${data.terraform_remote_state.02_folder_structure_and_policies.outputs.shared_services_folder_id}"
+  folder_id                 = "${data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id}"
   billing_account_id        = var.billing_account_id
   label_business_unit       = "shared-services"
   label_restrictions        = "highlyconfidential"
