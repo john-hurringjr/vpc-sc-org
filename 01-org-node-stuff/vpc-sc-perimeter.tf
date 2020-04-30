@@ -72,7 +72,8 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "cloudresourcemanager.googleapis.com",
       "logging.googleapis.com",
       "monitoring.googleapis.com",
-      "profiler.googleapis.com",
+      # Claims that profiler is not supported, but site says it is...
+      # "profiler.googleapis.com",
       "texttospeech.googleapis.com",
       "translate.googleapis.com",
       "cloudtrace.googleapis.com",
