@@ -18,30 +18,28 @@
  *****************************************/
 
 module "shared_vpc_host_project_prod" {
-  source                    = "github.com/john-hurringjr/test-modules/project-creation/shared-vpc-host"
+  source                    = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-host"
   project_friendly_name     = "Shared VPC Host Prod"
   unique_shared_id          = var.project_unique_shared_id
   environment               = "prod"
-  folder_id                 = "${data.terraform_remote_state.02_folder_structure_and_policies.outputs.shared_services_folder_id}"
+  folder_id                 = "${data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id}"
   billing_account_id        = var.billing_account_id
-  label_business_unit       = ""
-  label_restrictions        = ""
-  network_admin_group_id    = var.network_admins_group
-  security_admin_group_id   = var.network_admins_group
+  label_business_unit       = "shared-services"
+  label_restrictions        = "highlyconfidential"
 }
 
-module "shared_vpc_host_project_non_prod" {
-  source                    = "github.com/john-hurringjr/test-modules/project-creation/shared-vpc-host"
-  project_friendly_name     = "Shared VPC Host Non-Prod"
-  unique_shared_id          = var.project_unique_shared_id
-  environment               = "non-prod"
-  folder_id                 = data.terraform_remote_state.02-folder-struct....outputs.value
-  billing_account_id        = var.billing_account_id
-  label_business_unit       = ""
-  label_restrictions        = ""
-  network_admin_group_id    = var.network_admins_group
-  security_admin_group_id   = var.network_admins_group
-}
+//module "shared_vpc_host_project_non_prod" {
+//  source                    = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-host"
+//  project_friendly_name     = "Shared VPC Host Non-Prod"
+//  unique_shared_id          = var.project_unique_shared_id
+//  environment               = "non-prod"
+//  folder_id                 = "${data.terraform_remote_state.02_folder_structure_and_policies.outputs.shared_services_folder_id}"
+//  billing_account_id        = var.billing_account_id
+//  label_business_unit       = "shared-services"
+//  label_restrictions        = "confidential"
+//  network_admin_group_id    = var.network_admins_group
+//  security_admin_group_id   = var.network_admins_group
+//}
 
 ///******************************************
 //  Billing Export Project

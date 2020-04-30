@@ -17,11 +17,11 @@
   Groups
  *****************************************/
 variable "billing_admins_group" {}
-variable "business-unit-1-developers" {}
-variable "business-unit-2-developers" {}
-variable "network-viewers" {}
-variable "operations-viewers" {}
-variable "security-viewers" {}
+variable "business_unit_1_developers" {}
+variable "business_unit_2_developers" {}
+variable "network_viewers" {}
+variable "operations_viewers" {}
+variable "security_viewers" {}
 
 /******************************************
   Terraform Service Accounts
