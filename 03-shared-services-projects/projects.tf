@@ -19,7 +19,7 @@
 
 module "shared_vpc_host_project_prod" {
   source                    = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-host"
-  project_friendly_name     = "Shared VPC Host Prod"
+  project_friendly_name     = "Shared VPC Host - Prod"
   unique_shared_id          = var.project_unique_shared_id
   environment               = "prod"
   folder_id                 = "${data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id}"
