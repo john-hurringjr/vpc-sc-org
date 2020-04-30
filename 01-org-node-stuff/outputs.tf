@@ -16,3 +16,6 @@
   Outputs
  *****************************************/
 
+output "vpc_sc_perimeter_name" {
+  value = google_access_context_manager_service_perimeter.service_perimeter_configuration.name
+}
