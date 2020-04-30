@@ -61,7 +61,7 @@ module "non_prod_folder_iam" {
  *****************************************/
 
 resource "google_folder" "non_production_bu_1" {
-  display_name  = "NonP-BU1-USA Only"
+  display_name  = "NonP-BU1 USA Only"
   parent        = google_folder.non_production.id
 }
 
@@ -71,7 +71,7 @@ resource "google_folder" "non_production_bu_2" {
 }
 
 resource "google_folder" "production_bu_1" {
-  display_name  = "Prod-BU1-USA Only"
+  display_name  = "Prod-BU1 USA Only"
   parent        = google_folder.production.id
 }
 
