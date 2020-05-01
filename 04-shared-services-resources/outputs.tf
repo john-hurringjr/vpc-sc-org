@@ -15,3 +15,27 @@
 /******************************************
   Outputs
  *****************************************/
+
+output "subnet_1_region" {
+  value = var.region_1_subnet_1_prod
+}
+
+output "subnet_1_prod_name" {
+  value = module.prod_vpc_region_1_subnet_1.subnet_name
+}
+
+output "subnet_1_non_prod_name" {
+  value = module.non_prod_vpc_region_1_subnet_1.subnet_name
+}
+
+output "subnet_2_region" {
+  value = var.subnet_region_2
+}
+
+output "subnet_2_prod_name" {
+  value = module.prod_vpc_region_2_subnet_1.subnet_name
+}
+
+output "subnet_2_prod_name" {
+  value = module.non_prod_vpc_region_2_subnet_1.subnet_name
+}
