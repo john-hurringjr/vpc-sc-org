@@ -17,7 +17,7 @@
  *****************************************/
 
 resource "google_compute_network" "prod_vpc" {
-  project                         = "${data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id}"
+  project                         = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
   name                            = "prod-vpc"
   routing_mode                    = "GLOBAL"
   auto_create_subnetworks         = false
@@ -26,7 +26,7 @@ resource "google_compute_network" "prod_vpc" {
 
 module "prod_vpc_region_1_subnet_1" {
   source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-  project_id            = "${data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id}"
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
   network_self_link     = google_compute_network.prod_vpc.self_link
   network_name          = google_compute_network.prod_vpc.name
   region                = var.subnet_region_1
@@ -38,7 +38,7 @@ module "prod_vpc_region_1_subnet_1" {
 
 module "prod_vpc_region_2_subnet_1" {
   source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-  project_id            = "${data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id}"
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
   network_self_link     = google_compute_network.prod_vpc.self_link
   network_name          = google_compute_network.prod_vpc.name
   region                = var.subnet_region_2
