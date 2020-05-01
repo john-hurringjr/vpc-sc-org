@@ -12,3 +12,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/******************************************
+  Subnets
+ *****************************************/
+
+subnet_region_1               = ""
+subnet_region_1_prod_cidr     = ""
+subnet_region_1_non_prod_cidr = ""
+
+subnet_region_2               = ""
+subnet_region_2_prod_cidr     = ""
+subnet_region_2_non_prod_cidr = ""
+
+shared_vpc_flow_log_interval = ""
+shared_vpc_flow_log_sampling = ""
