@@ -19,3 +19,7 @@
 output "shared_vpc_prod_project_id" {
   value = module.shared_vpc_host_project_prod.project_id
 }
+
+output "shared_vpc_non_prod_project_id" {
+  value = module.shared_vpc_host_project_non_prod.project_id
+}
