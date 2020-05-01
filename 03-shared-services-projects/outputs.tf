@@ -15,3 +15,7 @@
 /******************************************
   Outputs
  *****************************************/
+
+output "shared_vpc_prod_project_id" {
+  value = module.shared_vpc_host_project_prod.outputs.project_id
+}

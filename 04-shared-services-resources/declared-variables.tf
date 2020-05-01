@@ -14,5 +14,16 @@
  */
 
 /******************************************
-  TBD
+  Subnets
  *****************************************/
+
+variable "subnet_region_1" {}
+variable "subnet_region_1_prod_cidr" {}
+variable "subnet_region_1_non_prod_cidr" {}
+
+variable "subnet_region_2" {}
+variable "subnet_region_2_prod_cidr" {}
+variable "subnet_region_2_non_prod_cidr" {}
+
+variable "shared_vpc_flow_log_interval" {}
+variable "shared_vpc_flow_log_sampling" {}
