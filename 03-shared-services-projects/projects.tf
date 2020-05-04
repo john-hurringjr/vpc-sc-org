@@ -62,7 +62,7 @@ module "billing_export_project" {
   billing_account_id          = var.billing_account_id
   label_business_unit         = ""
   label_restrictions          = ""
-  pproject_viewer_group       = var.billing_admins_group
+  project_viewer_group        = var.billing_admins_group
   shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
   subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_region
