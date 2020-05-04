@@ -141,7 +141,7 @@ module "non_prod_vpc_firewall_allow_ingress_rfc1918_limited" {
 }
 
 # Allows egress on 22, 3389, 443 on all VMs to rfc1918
-module "non_prod_vpc_firewall_allow_ingress_rfc1918_limited" {
+module "non_prod_vpc_firewall_allow_egress_rfc1918_limited" {
   source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-egress-rfc1918-limited"
   project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_self_link = google_compute_network.non_prod_vpc.self_link
