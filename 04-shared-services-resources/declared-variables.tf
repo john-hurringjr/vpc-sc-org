@@ -37,3 +37,12 @@ variable "non_prod_vpc_subnet_2_cidr" {}
 
 variable "non_prod_vpc_flow_log_interval" {}
 variable "non_prod_vpc_flow_log_sampling" {}
+
+/******************************************
+  Firewalls
+ *****************************************/
+variable "prod_deny_all_egress_priority" {}
+variable "prod_deny_all_ingress_priority" {}
+
+variable "non_prod_deny_all_egress_priority" {}
+variable "non_prod_deny_all_ingress_priority" {}
