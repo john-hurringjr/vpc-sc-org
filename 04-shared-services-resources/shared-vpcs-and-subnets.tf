@@ -62,7 +62,7 @@ resource "google_compute_network" "non_prod_vpc" {
 
 module "non_prod_vpc_subnet_1" {
   source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-  project               = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_self_link     = google_compute_network.non_prod_vpc.self_link
   network_name          = google_compute_network.non_prod_vpc.name
   region                = var.non_prod_vpc_subnet_1_region
@@ -74,7 +74,7 @@ module "non_prod_vpc_subnet_1" {
 
 module "non_prod_vpc_subnet_2" {
   source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-  project               = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_self_link     = google_compute_network.non_prod_vpc.self_link
   network_name          = google_compute_network.non_prod_vpc.name
   region                = var.non_prod_vpc_subnet_2_region
