@@ -16,26 +16,73 @@
   Outputs
  *****************************************/
 
-output "subnet_1_region" {
-  value = var.region_1_subnet_1_prod
+
+/******************************************
+  Subnets Prod
+ *****************************************/
+output "prod_vpc_subnet_1_region" {
+  value = var.prod_vpc_subnet_1_region
 }
 
-output "subnet_1_prod_name" {
-  value = module.prod_vpc_region_1_subnet_1.subnet_name
+output "prod_vpc_subnet_1_name" {
+  value = module.prod_vpc_subnet_1.subnet_name
 }
 
-output "subnet_1_non_prod_name" {
-  value = module.non_prod_vpc_region_1_subnet_1.subnet_name
+output "prod_vpc_subnet_1_self_link" {
+  value = module.prod_vpc_subnet_1.subnet_self_link
 }
 
-output "subnet_2_region" {
-  value = var.subnet_region_2
+output "prod_vpc_subnet_1_id" {
+  value = module.prod_vpc_subnet_1.subnet_id
 }
 
-output "subnet_2_prod_name" {
-  value = module.prod_vpc_region_2_subnet_1.subnet_name
+output "prod_vpc_subnet_2_region" {
+  value = var.prod_vpc_subnet_2_region
 }
 
-output "subnet_2_prod_name" {
-  value = module.non_prod_vpc_region_2_subnet_1.subnet_name
+output "prod_vpc_subnet_2_name" {
+  value = module.prod_vpc_subnet_2.subnet_name
+}
+
+output "prod_vpc_subnet_2_self_link" {
+  value = module.prod_vpc_subnet_2.subnet_self_link
+}
+
+output "prod_vpc_subnet_2_id" {
+  value = module.prod_vpc_subnet_2.subnet_id
+}
+
+/******************************************
+  Subnets Non Prod
+ *****************************************/
+output "non_prod_vpc_subnet_1_region" {
+  value = var.non_prod_vpc_subnet_1_region
+}
+
+output "non_prod_vpc_subnet_1_name" {
+  value = module.non_prod_vpc_subnet_1.subnet_name
+}
+
+output "non_prod_vpc_subnet_1_self_link" {
+  value = module.non_prod_vpc_subnet_1.subnet_self_link
+}
+
+output "non_prod_vpc_subnet_1_id" {
+  value = module.non_prod_vpc_subnet_1.subnet_id
+}
+
+output "non_prod_vpc_subnet_2_region" {
+  value = var.non_prod_vpc_subnet_2_region
+}
+
+output "non_prod_vpc_subnet_2_name" {
+  value = module.non_prod_vpc_subnet_2.subnet_name
+}
+
+output "non_prod_vpc_subnet_2_self_link" {
+  value = module.non_prod_vpc_subnet_2.subnet_self_link
+}
+
+output "non_prod_vpc_subnet_2_id" {
+  value = module.non_prod_vpc_subnet_2.subnet_id
 }
