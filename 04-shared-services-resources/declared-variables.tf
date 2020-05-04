@@ -14,16 +14,26 @@
  */
 
 /******************************************
-  Subnets
+  Subnets Prod
  *****************************************/
 
-variable "subnet_region_1" {}
-variable "subnet_region_1_prod_cidr" {}
-variable "subnet_region_1_non_prod_cidr" {}
+variable "prod_vpc_subnet_1_region" {}
+variable "prod_vpc_subnet_1_cidr" {}
 
-variable "subnet_region_2" {}
-variable "subnet_region_2_prod_cidr" {}
-variable "subnet_region_2_non_prod_cidr" {}
+variable "prod_vpc_subnet_2_region" {}
+variable "prod_vpc_subnet_2_cidr" {}
 
-variable "shared_vpc_flow_log_interval" {}
-variable "shared_vpc_flow_log_sampling" {}
+variable "prod_vpc_flow_log_interval" {}
+variable "prod_vpc_flow_log_sampling" {}
+
+/******************************************
+  Subnets Non-Prod
+ *****************************************/
+variable "non_prod_vpc_subnet_1_region" {}
+variable "non_prod_vpc_subnet_1_cidr" {}
+
+variable "non_prod_vpc_subnet_2_region" {}
+variable "non_prod_vpc_subnet_2_cidr" {}
+
+variable "non_prod_vpc_flow_log_interval" {}
+variable "non_prod_vpc_flow_log_sampling" {}
