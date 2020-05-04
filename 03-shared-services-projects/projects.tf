@@ -52,24 +52,24 @@ module "shared_vpc_host_project_non_prod" {
   Billing Export Project
  *****************************************/
 
-//module "billing_export_project" {
-//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-//  project_friendly_name       = "Billing Export"
-//  unique_shared_id            = var.project_unique_shared_id
-//  environment                 = "prod"
-//  unique_project_identifier   = "billing"
-//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-//  billing_account_id          = var.billing_account_id
-//  label_business_unit         = ""
-//  label_restrictions          = ""
-//  project_viewer_group        = var.billing_admins_group
-//  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
-//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-//  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_region
-//  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_name
-//  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_2_region
-//  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs. prod_vpc_subnet_2_name
-//}
+module "billing_export_project" {
+  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+  project_friendly_name       = "Billing Export"
+  unique_shared_id            = var.project_unique_shared_id
+  environment                 = "prod"
+  unique_project_identifier   = "billing2"
+  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+  billing_account_id          = var.billing_account_id
+  label_business_unit         = ""
+  label_restrictions          = ""
+  project_viewer_group        = var.billing_admins_group
+  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
+  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_region
+  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_name
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_2_region
+  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs. prod_vpc_subnet_2_name
+}
 
 ///******************************************
 //  OS Images Projects

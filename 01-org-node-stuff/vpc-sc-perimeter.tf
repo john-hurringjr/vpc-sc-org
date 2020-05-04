@@ -83,16 +83,17 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "healthcare.googleapis.com",
       "servicecontrol.googleapis.com"
     ]
+
+    # Below will need to be added later after you have deployed  necessary projects it will be referencing and
+    # created the necessary access levels
+    access_levels = [
+      google_access_context_manager_access_level.allow_all_tf_service_accounts.id
+    ]
+
   }
 
   lifecycle {
     ignore_changes = [status[0].resources]
   }
-
-  # Below will need to be added later after you have deployed all necessary projects it will be referencing and
-  # created the necessary access levels
-//  access_levels = [
-//
-//  ]
 
 }
