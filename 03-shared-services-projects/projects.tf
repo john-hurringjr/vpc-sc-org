@@ -147,7 +147,7 @@ module "monitoring_project_prod" {
 
 # Monitors all Non-Prod Project
 module "monitoring_project_non_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
   project_friendly_name       = "Non-Prod Monitoring Project"
   unique_shared_id            = var.project_unique_shared_id
   environment                 = "non-prod"
