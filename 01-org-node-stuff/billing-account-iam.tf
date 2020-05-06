@@ -30,6 +30,14 @@ data "google_iam_policy" "billing_account_policy_data" {
 
   binding {
     members = [
+      "serviceAccount:${var.terraform_org_service_account}",
+      "user:${var.my_id_just_in_case}"
+    ]
+    role = "roles/logging.admin"
+  }
+
+  binding {
+    members = [
       "serviceAccount:${var.terraform_prod_prj_creator_service_account}",
       "serviceAccount:${var.terraform_non_prod_prj_creator_service_account}",
       "serviceAccount:${var.terraform_shared_services_prj_creator_service_account}"

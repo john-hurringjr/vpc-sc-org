@@ -46,3 +46,39 @@ variable "billing_account_id" {}
 variable "domain_identity_primary" {}
 variable "domain_identity_secondary" {}
 
+/******************************************
+  Org Sinks
+ *****************************************/
+
+variable "org_log_sink_prod_gcs_age_to_move_to_nearline" {}
+variable "org_log_sink_prod_gcs_age_to_move_to_coldine" {}
+variable "org_log_sink_prod_gcs_sink_name" {}
+variable "org_log_sink_prod_gcs_bucket_name" {}
+
+variable "org_log_sink_prod_bq_dataset_friendly_name" {}
+variable "org_log_sink_prod_bq_dataset_id" {}
+variable "org_log_sink_prod_bq_dataset_location" {}
+variable "org_log_sink_prod_bq_sink_name" {}
+
+/******************************************
+  Billing Log Sink - GCS
+ *****************************************/
+
+variable "billing_log_sink_prod_gcs_age_to_move_to_nearline" {}
+variable "billing_log_sink_prod_gcs_age_to_move_to_coldline" {}
+variable "billing_log_sink_prod_gcs_sink_name" {}
+variable "billing_log_sink_prod_gcs_bucket_name" {}
+
+/******************************************
+  Billing Export - BigQuery
+ *****************************************/
+
+variable "billing_charges_export_prod_bq_dataset_friendly_name" {}
+variable "billing_charges_export_prod_bq_dataset_location" {}
+variable "billing_charges_export_prod_bq_sink_name" {}
+variable "billing_charges_export_prod_bq_dataset_id" {}
+
+  = var.billing_export_bigquery_dataset_friendly_name
+       = var.billing_export_bigquery_dataset_location
+                      = var.billing_export_bigquery_sink_name
+bigquery_dataset_id             = var.billing_export_bigquery_dataset_id

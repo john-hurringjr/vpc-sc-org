@@ -22,7 +22,7 @@ module "shared_vpc_host_project_prod" {
   project_friendly_name     = "Shared VPC Host - Prod"
   unique_shared_id          = var.project_unique_shared_id
   environment               = "prod"
-  folder_id                 = "${data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id}"
+  folder_id                 = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id        = var.billing_account_id
   label_business_unit       = "shared-services"
   label_restrictions        = "highlyconfidential"
@@ -35,7 +35,7 @@ module "shared_vpc_host_project_non_prod" {
   project_friendly_name     = "Shared VPC Host Non-Prod"
   unique_shared_id          = var.project_unique_shared_id
   environment               = "non-prod"
-  folder_id                 = "${data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id}"
+  folder_id                 = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id        = var.billing_account_id
   label_business_unit       = "shared-services"
   label_restrictions        = "highlyconfidential"
@@ -44,12 +44,12 @@ module "shared_vpc_host_project_non_prod" {
 }
 
 /******************************************
-  Billing Export Project
+  Billing Charges Export Project
  *****************************************/
 
-module "billing_export_project" {
+module "billing_charges_export_project" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/billing"
-  project_friendly_name       = "Billing Export"
+  project_friendly_name       = "Billing Charges Export"
   unique_shared_id            = var.project_unique_shared_id
   environment                 = "prod"
   unique_project_identifier   = "billing2"
