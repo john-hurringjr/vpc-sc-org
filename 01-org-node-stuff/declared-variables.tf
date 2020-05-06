@@ -77,8 +77,3 @@ variable "billing_charges_export_prod_bq_dataset_friendly_name" {}
 variable "billing_charges_export_prod_bq_dataset_location" {}
 variable "billing_charges_export_prod_bq_sink_name" {}
 variable "billing_charges_export_prod_bq_dataset_id" {}
-
-  = var.billing_export_bigquery_dataset_friendly_name
-       = var.billing_export_bigquery_dataset_location
-                      = var.billing_export_bigquery_sink_name
-bigquery_dataset_id             = var.billing_export_bigquery_dataset_id

@@ -64,9 +64,9 @@ module "billing_sink_gcs" {
   Billing Account Charges Export - BigQuery
  *****************************************/
 
-module "billing_export_bigquery" {
+module "billing_charges_export_bigquery" {
   source                          = "github.com/john-hurringjr/test-modules/billing-export/bigquery"
-  project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.billing_export_project_id
+  project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.billing_charges_export_project_id
   bigquery_dataset_friendly_name  = var.billing_charges_export_prod_bq_dataset_friendly_name
   bigquery_dataset_location       = var.billing_charges_export_prod_bq_dataset_location
   sink_name                       = var.billing_charges_export_prod_bq_sink_name
