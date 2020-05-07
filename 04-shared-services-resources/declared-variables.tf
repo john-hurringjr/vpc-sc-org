@@ -12,15 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/******************************************
+  Regions
+ *****************************************/
+variable "region_1" {}
+variable "region_2" {}
 
 /******************************************
   Subnets Prod
  *****************************************/
-
-variable "prod_vpc_subnet_1_region" {}
 variable "prod_vpc_subnet_1_cidr" {}
-
-variable "prod_vpc_subnet_2_region" {}
 variable "prod_vpc_subnet_2_cidr" {}
 
 variable "prod_vpc_flow_log_interval" {}
@@ -29,10 +30,7 @@ variable "prod_vpc_flow_log_sampling" {}
 /******************************************
   Subnets Non-Prod
  *****************************************/
-variable "non_prod_vpc_subnet_1_region" {}
 variable "non_prod_vpc_subnet_1_cidr" {}
-
-variable "non_prod_vpc_subnet_2_region" {}
 variable "non_prod_vpc_subnet_2_cidr" {}
 
 variable "non_prod_vpc_flow_log_interval" {}
@@ -51,8 +49,39 @@ variable "non_prod_deny_all_ingress_priority" {}
   On Prem
  *****************************************/
 variable "on_prem_project_id" {}
-variable "on_prem_vpc_name" {}
-variable "on_prem_vpc_subnet_1_cidr" {}
-variable "on_prem_vpc_subnet_2_cidr" {}
-variable "on_prem_vpc_flow_log_interval" {}
-variable "on_prem_vpc_flow_log_sampling" {}
+
+#Prod
+variable "on_prem_prod_vpc_name" {}
+variable "on_prem_prod_vpc_subnet_1_cidr" {}
+variable "on_prem_prod_vpc_subnet_2_cidr" {}
+variable "on_prem_prod_vpc_flow_log_interval" {}
+variable "on_prem_prod_vpc_flow_log_sampling" {}
+
+#Non-Prod
+variable "on_prem_non_prod_vpc_name" {}
+variable "on_prem_non_prod_vpc_subnet_1_cidr" {}
+variable "on_prem_non_prod_vpc_subnet_2_cidr" {}
+variable "on_prem_non_prod_vpc_flow_log_interval" {}
+variable "on_prem_non_prod_vpc_flow_log_sampling" {}
+
+/******************************************
+  HA VPN
+ *****************************************/
+variable "on_prem_vpc_router_region_1_asn" {}
+variable "on_prem_vpc_router_region_2_asn" {}
+
+variable "prod_vpc_router_region_1_asn" {}
+variable "prod_vpc_router_region_2_asn" {}
+
+variable "non_prod_vpc_router_region_1_asn" {}
+variable "non_prod_vpc_router_region_2_asn" {}
+
+variable "vpn_on_prem_prod_region_1_shared_secret_tunnel_1" {}
+variable "vpn_on_prem_prod_region_1_shared_secret_tunnel_2" {}
+variable "vpn_on_prem_prod_region_2_shared_secret_tunnel_1" {}
+variable "vpn_on_prem_prod_region_2_shared_secret_tunnel_2" {}
+
+variable "vpn_on_prem_non_prod_region_1_shared_secret_tunnel_1" {}
+variable "vpn_on_prem_non_prod_region_1_shared_secret_tunnel_2" {}
+variable "vpn_on_prem_non_prod_region_2_shared_secret_tunnel_1" {}
+variable "vpn_on_prem_non_prod_region_2_shared_secret_tunnel_2" {}

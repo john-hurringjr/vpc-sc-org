@@ -13,54 +13,103 @@
  * limitations under the License.
  */
 /******************************************
-  On Prem VPC
+  On Prem VPC - Prod
  *****************************************/
-
-# Network
-resource "google_compute_network" "on_prem_vpc" {
+resource "google_compute_network" "on_prem_vpc_prod" {
   project                         = var.on_prem_project_id
-  name                            = var.on_prem_vpc_name
+  name                            = var.on_prem_prod_vpc_name
   routing_mode                    = "GLOBAL"
   auto_create_subnetworks         = false
   delete_default_routes_on_create = true
 }
 
-module "on_prem_vpc_subnet_1" {
+module "on_prem_vpc_prod_subnet_1" {
   source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
   project_id            = var.on_prem_project_id
-  network_self_link     = google_compute_network.on_prem_vpc.self_link
-  network_name          = google_compute_network.on_prem_vpc.name
-  region                = var.prod_vpc_subnet_1_region
-  cidr                  = var.on_prem_vpc_subnet_1_cidr
-  vpc_flow_log_interval = var.on_prem_vpc_flow_log_interval
-  vpc_flow_log_sampling = var.on_prem_vpc_flow_log_sampling
+  network_self_link     = google_compute_network.on_prem_vpc_prod.self_link
+  network_name          = google_compute_network.on_prem_vpc_prod.name
+  region                = var.region_1
+  cidr                  = var.on_prem_prod_vpc_subnet_1_cidr
+  vpc_flow_log_interval = var.on_prem_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_prod_vpc_flow_log_sampling
   subnet_number         = "1"
   private_google_access = "false"
 }
 
-module "on_prem_vpc_subnet_2" {
+module "on_prem_vpc_prod_subnet_2" {
   source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
   project_id            = var.on_prem_project_id
-  network_self_link     = google_compute_network.on_prem_vpc.self_link
-  network_name          = google_compute_network.on_prem_vpc.name
-  region                = var.prod_vpc_subnet_2_region
-  cidr                  = var.on_prem_vpc_subnet_2_cidr
-  vpc_flow_log_interval = var.on_prem_vpc_flow_log_interval
-  vpc_flow_log_sampling = var.on_prem_vpc_flow_log_sampling
+  network_self_link     = google_compute_network.on_prem_vpc_prod.self_link
+  network_name          = google_compute_network.on_prem_vpc_prod.name
+  region                = var.region_2
+  cidr                  = var.on_prem_prod_vpc_subnet_2_cidr
+  vpc_flow_log_interval = var.on_prem_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_prod_vpc_flow_log_sampling
   subnet_number         = "1"
   private_google_access = "false"
 }
 
-module "on_prem_vpc_firewall_allow_iap_all" {
+module "on_prem_vpc_prod_firewall_allow_iap_all" {
   source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-ingress-iap"
   project_id        = var.on_prem_project_id
-  network_self_link = google_compute_network.on_prem_vpc.self_link
-  network_name      = google_compute_network.on_prem_vpc.name
+  network_self_link = google_compute_network.on_prem_vpc_prod.self_link
+  network_name      = google_compute_network.on_prem_vpc_prod.name
 }
 
-module "on_prem_vpc_firewall_allow_ingress_rfc1918_limited" {
+module "on_prem_vpc_prod_firewall_allow_ingress_rfc1918_limited" {
   source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-ingress-rfc1918-limited"
   project_id        = var.on_prem_project_id
-  network_self_link = google_compute_network.on_prem_vpc.self_link
-  network_name      = google_compute_network.on_prem_vpc.name
+  network_self_link = google_compute_network.on_prem_vpc_prod.self_link
+  network_name      = google_compute_network.on_prem_vpc_prod.name
+}
+
+/******************************************
+  On Prem VPC - Non-Prod
+ *****************************************/
+resource "google_compute_network" "on_prem_vpc_non_prod" {
+  project                         = var.on_prem_project_id
+  name                            = var.on_prem_non_prod_vpc_name
+  routing_mode                    = "GLOBAL"
+  auto_create_subnetworks         = false
+  delete_default_routes_on_create = true
+}
+
+module "on_prem_non_prod_vpc_subnet_1" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = var.on_prem_project_id
+  network_self_link     = google_compute_network.on_prem_vpc_non_prod.self_link
+  network_name          = google_compute_network.on_prem_vpc_non_prod.name
+  region                = var.region_1
+  cidr                  = var.on_prem_non_prod_vpc_subnet_1_cidr
+  vpc_flow_log_interval = var.on_prem_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_non_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+  private_google_access = "false"
+}
+
+module "on_prem_non_prod_vpc_subnet_2" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = var.on_prem_project_id
+  network_self_link     = google_compute_network.on_prem_vpc_non_prod.self_link
+  network_name          = google_compute_network.on_prem_vpc_non_prod.name
+  region                = var.region_2
+  cidr                  = var.on_prem_non_prod_vpc_subnet_2_cidr
+  vpc_flow_log_interval = var.on_prem_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_non_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+  private_google_access = "false"
+}
+
+module "on_prem_non_prod_vpc_firewall_allow_iap_all" {
+  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-ingress-iap"
+  project_id        = var.on_prem_project_id
+  network_self_link = google_compute_network.on_prem_vpc_non_prod.self_link
+  network_name      = google_compute_network.on_prem_vpc_non_prod.name
+}
+
+module "on_prem_non_prod_vpc_firewall_allow_ingress_rfc1918_limited" {
+  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-ingress-rfc1918-limited"
+  project_id        = var.on_prem_project_id
+  network_self_link = google_compute_network.on_prem_vpc_non_prod.self_link
+  network_name      = google_compute_network.on_prem_vpc_non_prod.name
 }
