@@ -31,7 +31,7 @@ module "prod_vpc_subnet_1" {
   project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
   network_self_link     = google_compute_network.prod_vpc.self_link
   network_name          = google_compute_network.prod_vpc.name
-  region                = var.prod_vpc_subnet_1_region
+  region                = var.region_1
   cidr                  = var.prod_vpc_subnet_1_cidr
   vpc_flow_log_interval = var.prod_vpc_flow_log_interval
   vpc_flow_log_sampling = var.prod_vpc_flow_log_sampling
@@ -43,7 +43,7 @@ module "prod_vpc_subnet_2" {
   project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
   network_self_link     = google_compute_network.prod_vpc.self_link
   network_name          = google_compute_network.prod_vpc.name
-  region                = var.prod_vpc_subnet_2_region
+  region                = var.region_2
   cidr                  = var.prod_vpc_subnet_2_cidr
   vpc_flow_log_interval = var.prod_vpc_flow_log_interval
   vpc_flow_log_sampling = var.prod_vpc_flow_log_sampling
@@ -69,7 +69,7 @@ module "non_prod_vpc_subnet_1" {
   project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_self_link     = google_compute_network.non_prod_vpc.self_link
   network_name          = google_compute_network.non_prod_vpc.name
-  region                = var.non_prod_vpc_subnet_1_region
+  region                = var.region_1
   cidr                  = var.non_prod_vpc_subnet_1_cidr
   vpc_flow_log_interval = var.non_prod_vpc_flow_log_interval
   vpc_flow_log_sampling = var.non_prod_vpc_flow_log_sampling
@@ -81,7 +81,7 @@ module "non_prod_vpc_subnet_2" {
   project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_self_link     = google_compute_network.non_prod_vpc.self_link
   network_name          = google_compute_network.non_prod_vpc.name
-  region                = var.non_prod_vpc_subnet_2_region
+  region                = var.region_2
   cidr                  = var.non_prod_vpc_subnet_2_cidr
   vpc_flow_log_interval = var.non_prod_vpc_flow_log_interval
   vpc_flow_log_sampling = var.non_prod_vpc_flow_log_sampling
