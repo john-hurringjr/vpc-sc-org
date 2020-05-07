@@ -46,3 +46,13 @@ variable "prod_deny_all_ingress_priority" {}
 
 variable "non_prod_deny_all_egress_priority" {}
 variable "non_prod_deny_all_ingress_priority" {}
+
+/******************************************
+  On Prem
+ *****************************************/
+variable "on_prem_project_id" {}
+variable "on_prem_vpc_name" {}
+variable "on_prem_vpc_subnet_1_cidr" {}
+variable "on_prem_vpc_subnet_2_cidr" {}
+variable "on_prem_vpc_flow_log_interval" {}
+variable "on_prem_vpc_flow_log_sampling" {}
