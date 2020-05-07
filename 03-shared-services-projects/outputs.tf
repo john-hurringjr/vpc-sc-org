@@ -24,27 +24,27 @@ output "shared_vpc_non_prod_project_id" {
   value = module.shared_vpc_host_project_non_prod.project_id
 }
 
-output "billing_charges_export_project_id" {
-  value = module.billing_charges_export_project.project_id
-}
-
-output "org_log_sink_prod_project_id" {
-  value = module.org_log_sink_project_prod.project_id
-}
-
-output "monitoring_prod_project_id" {
-  value = module.monitoring_project_prod.project_id
-}
-
-output "monitoring_non_prod_project_id" {
-  value = module.monitoring_project_non_prod.project_id
-}
-
-# Uncomment below after created OS image projects
-output "os_images_prod_project_id" {
-  value = module.os_images_project_prod.project_id
-}
-
-output "os_images_non_prod_project_id" {
-  value = module.os_images_project_non_prod.project_id
-}
+//output "billing_charges_export_project_id" {
+//  value = module.billing_charges_export_project.project_id
+//}
+//
+//output "org_log_sink_prod_project_id" {
+//  value = module.org_log_sink_project_prod.project_id
+//}
+//
+//output "monitoring_prod_project_id" {
+//  value = module.monitoring_project_prod.project_id
+//}
+//
+//output "monitoring_non_prod_project_id" {
+//  value = module.monitoring_project_non_prod.project_id
+//}
+//
+//# Uncomment below after created OS image projects
+//output "os_images_prod_project_id" {
+//  value = module.os_images_project_prod.project_id
+//}
+//
+//output "os_images_non_prod_project_id" {
+//  value = module.os_images_project_non_prod.project_id
+//}
