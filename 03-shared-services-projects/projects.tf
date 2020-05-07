@@ -111,6 +111,7 @@ module "monitoring_project_non_prod" {
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
 }
 
+
 /******************************************
   Uncomment below after Host Projects
   & Host VPCs are set up (04 VPCs)
