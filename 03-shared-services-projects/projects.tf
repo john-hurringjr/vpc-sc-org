@@ -22,7 +22,7 @@ module "shared_vpc_host_project_prod" {
   project_friendly_name     = "Shared VPC Host - Prod"
   unique_shared_id          = var.project_unique_shared_id
   environment               = "prod"
-  folder_id                 = "${data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id}"
+  folder_id                 = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id        = var.billing_account_id
   label_business_unit       = "shared-services"
   label_restrictions        = "highlyconfidential"
@@ -35,127 +35,128 @@ module "shared_vpc_host_project_non_prod" {
   project_friendly_name     = "Shared VPC Host Non-Prod"
   unique_shared_id          = var.project_unique_shared_id
   environment               = "non-prod"
-  folder_id                 = "${data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id}"
+  folder_id                 = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id        = var.billing_account_id
   label_business_unit       = "shared-services"
   label_restrictions        = "highlyconfidential"
   network_viewer_group_id   = var.network_viewers
   service_perimeter_name    = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
 }
-
-/******************************************
-  Uncomment below after Host Projects
-  & Host VPCs are set up (04 VPCs)
- *****************************************/
-
-/******************************************
-  Billing Export Project
- *****************************************/
-
-module "billing_export_project" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/billing"
-  project_friendly_name       = "Billing Export"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "billing2"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.billing_admins_group
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-}
-
-/******************************************
-  OS Images Projects
- *****************************************/
-
-# Non-Prod, used to create approved images
-module "os_images_project_non_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-  project_friendly_name       = "OS Images - NonProd"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "non-prod"
-  unique_project_identifier   = "osimage"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.operations_viewers
-  shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_1_region
-  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_2_region
-  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_2_name
-}
-
-# Prod, used to share
-module "os_images_project_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-  project_friendly_name       = "OS Images - Prod"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "osimage"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.operations_viewers
-  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_region
-  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_2_region
-  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_2_name
-}
-
-/******************************************
-  Org Log Sink Project
- *****************************************/
-module "org_log_sink_project_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/log-sink"
-  project_friendly_name       = "Org Log Sink Project"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "orgsink"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.security_viewers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-}
-
-/******************************************
-  Monitoring Project
- *****************************************/
-# Monitors all Shared Service Projects & Prod Projects
-module "monitoring_project_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
-  project_friendly_name       = "Prod Monitoring Project"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "monitoring"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.security_viewers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-}
-
-# Monitors all Non-Prod Project
-module "monitoring_project_non_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
-  project_friendly_name       = "Non-Prod Monitoring Project"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "non-prod"
-  unique_project_identifier   = "monitoring"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.security_viewers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-}
+//
+///******************************************
+//  Billing Charges Export Project
+// *****************************************/
+//
+//module "billing_charges_export_project" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/billing"
+//  project_friendly_name       = "Billing Charges Export"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "prod"
+//  unique_project_identifier   = "billing2"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.billing_admins_group
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//}
+//
+///******************************************
+//  Org Log Sink Project
+// *****************************************/
+//module "org_log_sink_project_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/log-sink"
+//  project_friendly_name       = "Org Log Sink Project"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "prod"
+//  unique_project_identifier   = "orgsink"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.security_viewers
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//}
+//
+///******************************************
+//  Monitoring Project
+// *****************************************/
+//# Monitors all Shared Service Projects & Prod Projects
+//module "monitoring_project_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
+//  project_friendly_name       = "Prod Monitoring Project"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "prod"
+//  unique_project_identifier   = "monitoring"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.security_viewers
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//}
+//
+//# Monitors all Non-Prod Project
+//module "monitoring_project_non_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
+//  project_friendly_name       = "Non-Prod Monitoring Project"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "non-prod"
+//  unique_project_identifier   = "monitoring"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.security_viewers
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//}
+//
+//
+///******************************************
+//  Uncomment below after Host Projects
+//  & Host VPCs are set up (04 VPCs)
+// *****************************************/
+//
+///******************************************
+//  OS Images Projects
+// *****************************************/
+//
+//# Non-Prod, used to create approved images
+//module "os_images_project_non_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+//  project_friendly_name       = "OS Images - NonProd"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "non-prod"
+//  unique_project_identifier   = "osimage"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.operations_viewers
+//  shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_1_region
+//  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_1_name
+//  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_2_region
+//  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.non_prod_vpc_subnet_2_name
+//}
+//
+//# Prod, used to share
+//module "os_images_project_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+//  project_friendly_name       = "OS Images - Prod"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "prod"
+//  unique_project_identifier   = "osimage"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.operations_viewers
+//  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_region
+//  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_1_name
+//  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_2_region
+//  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.prod_vpc_subnet_2_name
+//}

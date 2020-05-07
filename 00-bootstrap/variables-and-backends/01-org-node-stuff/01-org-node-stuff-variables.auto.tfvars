@@ -43,3 +43,24 @@ organization_id           = ""
 domain_identity_primary   = ""
 domain_identity_secondary = ""
 billing_account_id        = ""
+
+/******************************************
+  Org Sinks
+ *****************************************/
+gcs_org_sink_prod_age_to_move_to_nearline = 180
+gcs_org_sink_prod_age_to_move_to_coldline = 365
+gcs_org_sink_prod_sink_name               = ""
+gcs_org_sink_prod_bucket_name             = ""
+
+bq_org_sink_prod_dataset_friendly_name  = ""
+bq_org_sink_prod_dataset_id             = ""
+bq_org_sink_prod_sink_name              = ""
+
+/******************************************
+  Billing Sink
+ *****************************************/
+
+gcs_billing_sink_prod_age_to_move_to_nearline = 180
+gcs_billing_sink_prod_age_to_move_to_coldline = 365
+gcs_billing_sink_prod_sink_name               = ""
+gcs_billing_sink_prod_bucket_name             = ""
