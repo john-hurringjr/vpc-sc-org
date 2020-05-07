@@ -21,7 +21,7 @@
   Subnets Prod
  *****************************************/
 output "prod_vpc_subnet_1_region" {
-  value = var.prod_vpc_subnet_1_region
+  value = var.region_1
 }
 
 output "prod_vpc_subnet_1_name" {
@@ -37,7 +37,7 @@ output "prod_vpc_subnet_1_id" {
 }
 
 output "prod_vpc_subnet_2_region" {
-  value = var.prod_vpc_subnet_2_region
+  value = var.region_2
 }
 
 output "prod_vpc_subnet_2_name" {
@@ -56,7 +56,7 @@ output "prod_vpc_subnet_2_id" {
   Subnets Non Prod
  *****************************************/
 output "non_prod_vpc_subnet_1_region" {
-  value = var.non_prod_vpc_subnet_1_region
+  value = var.region_1
 }
 
 output "non_prod_vpc_subnet_1_name" {
@@ -72,7 +72,7 @@ output "non_prod_vpc_subnet_1_id" {
 }
 
 output "non_prod_vpc_subnet_2_region" {
-  value = var.non_prod_vpc_subnet_2_region
+  value = var.region_2
 }
 
 output "non_prod_vpc_subnet_2_name" {
