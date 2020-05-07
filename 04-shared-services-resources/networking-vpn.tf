@@ -67,11 +67,11 @@ module "ha_vpn_on_prem_with_prod_vpc_region_2" {
   On Prem HA VPN with Non-Prod VPC
  *****************************************/
 
-module "vpc_sc_ha_vpn_on_prem_with_dev_vpc_region_1" {
+module "vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
   source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
   project_1_id              = var.on_prem_project_id
-  network_1_self_link       = google_compute_network.on_prem_vpc_prod.self_link
-  network_1_name            = google_compute_network.on_prem_vpc_prod.name
+  network_1_self_link       = google_compute_network.on_prem_vpc_non_prod.self_link
+  network_1_name            = google_compute_network.on_prem_vpc_non_prod.name
   network_1_router_bgp_asn  = var.on_prem_vpc_router_region_1_asn
   project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_2_self_link       = google_compute_network.non_prod_vpc.self_link
@@ -83,11 +83,11 @@ module "vpc_sc_ha_vpn_on_prem_with_dev_vpc_region_1" {
   custom_range              = "199.36.153.8/30" #Restricted: 199.36.153.4/30 OR Private: 199.36.153.8/30
 }
 
-module "vpc_sc_ha_vpn_on_prem_with_dev_vpc_region_2" {
+module "vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_2" {
   source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
   project_1_id              = var.on_prem_project_id
-  network_1_self_link       = google_compute_network.on_prem_vpc_prod.self_link
-  network_1_name            = google_compute_network.on_prem_vpc_prod.name
+  network_1_self_link       = google_compute_network.on_prem_vpc_non_prod.self_link
+  network_1_name            = google_compute_network.on_prem_vpc_non_prod.name
   network_1_router_bgp_asn  = var.on_prem_vpc_router_region_2_asn
   project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_2_self_link       = google_compute_network.non_prod_vpc.self_link
