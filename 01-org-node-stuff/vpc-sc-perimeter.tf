@@ -87,7 +87,9 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
     # Below will need to be added later after you have deployed  necessary projects it will be referencing and
     # created the necessary access levels
     access_levels = [
-      google_access_context_manager_access_level.allow_all_tf_service_accounts.id
+      google_access_context_manager_access_level.allow_all_tf_service_accounts.id,
+      #Comment line below in/out as you need to troubleshoot
+      google_access_context_manager_access_level.allow_my_account.id
     ]
 
   }
