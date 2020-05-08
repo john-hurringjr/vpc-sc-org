@@ -41,7 +41,7 @@ resource "google_access_context_manager_access_level" "allow_all_tf_service_acco
 # Often troubleshooting requires you to be able to access from outside the perimeter. This can be useful to turn on/off
 resource "google_access_context_manager_access_level" "allow_my_account" {
   parent = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}"
-  name   = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}/accessLevels/terraform_service_accounts"
+  name   = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}/accessLevels/my_account_special_access"
   title  = "my_account_special_access"
   basic {
     conditions {
