@@ -35,7 +35,7 @@ module "org_sink_gcs_prod" {
 /******************************************
   Org Log Sink - BigQuery
  *****************************************/
-//
+
 //module "org_sink_bigquery" {
 //  source                          = "github.com/john-hurringjr/test-modules/org-sinks/bigquery"
 //  project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
