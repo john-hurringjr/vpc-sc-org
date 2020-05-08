@@ -35,16 +35,16 @@ module "org_sink_gcs_prod" {
 /******************************************
   Org Log Sink - BigQuery
  *****************************************/
-
-module "org_sink_bigquery" {
-  source                          = "github.com/john-hurringjr/test-modules/org-sinks/bigquery"
-  project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
-  bigquery_dataset_friendly_name  = var.org_log_sink_prod_bq_dataset_friendly_name
-  bigquery_dataset_id             = var.org_log_sink_prod_bq_dataset_id
-  bigquery_dataset_location       = var.org_log_sink_prod_bq_dataset_location
-  sink_name                       = var.org_log_sink_prod_bq_sink_name
-  organization_id                 = var.organization_id
-}
+//
+//module "org_sink_bigquery" {
+//  source                          = "github.com/john-hurringjr/test-modules/org-sinks/bigquery"
+//  project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
+//  bigquery_dataset_friendly_name  = var.org_log_sink_prod_bq_dataset_friendly_name
+//  bigquery_dataset_id             = var.org_log_sink_prod_bq_dataset_id
+//  bigquery_dataset_location       = var.org_log_sink_prod_bq_dataset_location
+//  sink_name                       = var.org_log_sink_prod_bq_sink_name
+//  organization_id                 = var.organization_id
+//}
 
 /******************************************
   Billing Account Log Sink - GCS
