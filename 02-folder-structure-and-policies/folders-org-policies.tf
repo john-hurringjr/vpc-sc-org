@@ -17,17 +17,33 @@
   Shared VPC Restrict to Specific Host Prj
  *****************************************/
 # This must be applied after Shared Service Projects is run:
-//resource "google_folder_organization_policy" "prod_restrict_vpc_host" {
-//  constraint  = "constraints/compute.restrictSharedVpcHostProjects"
-//  folder      = google_folder.production.id
-//
-//  list_policy {
-//    allow {
-//      values = ["projects/${data.terraform_remote_state.03_shared_services_projects.outputs.project_id}"]
-//    }
-//  }
-//
-//}
+resource "google_folder_organization_policy" "prod_restrict_vpc_host" {
+  constraint  = "constraints/compute.restrictSharedVpcHostProjects"
+  folder      = google_folder.production.id
+
+  list_policy {
+    allow {
+      values = [
+        "projects/${data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id}",
+      ]
+    }
+  }
+
+}
+
+resource "google_folder_organization_policy" "non_prod_restrict_vpc_host" {
+  constraint  = "constraints/compute.restrictSharedVpcHostProjects"
+  folder      = google_folder.non_production.id
+
+  list_policy {
+    allow {
+      values = [
+        "projects/${data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id}",
+      ]
+    }
+  }
+
+}
 
 /******************************************
   Trusted Image
@@ -47,14 +63,18 @@ resource "google_folder_organization_policy" "prod_bu_1_folder_trusted_image_pro
   }
 }
 
+# Trusted Images can be the publicly available images
 resource "google_folder_organization_policy" "non_prod_bu_1_folder_trusted_image_project" {
   constraint  = "constraints/compute.trustedImageProjects"
   folder      = google_folder.non_production_bu_1.id
   list_policy {
     allow {
       values = [
-      "projects/${data.terraform_remote_state.rs03_shared_services_projects.outputs.os_images_prod_project_id}",
-        ]
+      "projects/cos-cloud",
+      "projects/debian-cloud",
+      "projects/centos-cloud",
+      "projects/coreos-cloud",
+      ]
     }
   }
 }
