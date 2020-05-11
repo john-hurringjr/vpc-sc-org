@@ -36,15 +36,15 @@ module "org_sink_gcs_prod" {
   Org Log Sink - BigQuery
  *****************************************/
 
-//module "org_sink_bigquery" {
-//  source                          = "github.com/john-hurringjr/test-modules/org-sinks/bigquery"
-//  project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
-//  bigquery_dataset_friendly_name  = var.org_log_sink_prod_bq_dataset_friendly_name
-//  bigquery_dataset_id             = var.org_log_sink_prod_bq_dataset_id
-//  bigquery_dataset_location       = var.org_log_sink_prod_bq_dataset_location
-//  sink_name                       = var.org_log_sink_prod_bq_sink_name
-//  organization_id                 = var.organization_id
-//}
+module "org_sink_bigquery" {
+  source                          = "github.com/john-hurringjr/test-modules/org-sinks/bigquery"
+  project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
+  bigquery_dataset_friendly_name  = var.org_log_sink_prod_bq_dataset_friendly_name
+  bigquery_dataset_id             = var.org_log_sink_prod_bq_dataset_id
+  bigquery_dataset_location       = var.org_log_sink_prod_bq_dataset_location
+  sink_name                       = var.org_log_sink_prod_bq_sink_name
+  organization_id                 = var.organization_id
+}
 
 /******************************************
   Billing Account Log Sink - GCS
@@ -73,4 +73,70 @@ module "billing_charges_export_bigquery" {
   bigquery_dataset_id             = var.billing_charges_export_prod_bq_dataset_id
   organization_id                 = var.organization_id
   billing_account_id              = var.billing_account_id
+}
+
+
+
+/******************************************
+  Logging Project IAM Policy Data
+ *****************************************/
+
+data "google_iam_policy" "org_log_sink_project_iam_policy_data" {
+
+  binding {
+    role = "roles/viewer"
+    members = [
+      "group:${var.security_viewers}",
+    ]
+  }
+
+  binding {
+    role = "roles/bigquery.dataEditor"
+    members = [
+      module.org_sink_bigquery.sink_writer_identity
+    ]
+  }
+
+
+}
+
+/******************************************
+  Logging Project IAM Policy Applied
+ *****************************************/
+
+resource "google_project_iam_policy" "org_log_sink_project_iam_policy" {
+  depends_on = [module.org_sink_bigquery]
+  policy_data = data.google_iam_policy.org_log_sink_project_iam_policy_data.policy_data
+  project     = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
+}
+
+/******************************************
+  Billing Charges Export Project IAM Policy Data
+ *****************************************/
+
+data "google_iam_policy" "billing_charges_export_project_iam_policy_data" {
+
+  binding {
+    role = "roles/viewer"
+    members = [
+      "group:${var.billing_admins_group}",
+    ]
+  }
+
+  binding {
+    role = "roles/bigquery.dataEditor"
+    members = [
+
+    ]
+  }
+
+}
+
+/******************************************
+  Logging Project IAM Policy Applied
+ *****************************************/
+
+resource "google_project_iam_policy" "billing_charges_export_project_iam_policy" {
+  policy_data = data.google_iam_policy.billing_charges_export_project_iam_policy_data.policy_data
+  project     = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
 }
