@@ -45,7 +45,7 @@ module "bu_2_sample_project_1_non_prod" {
   environment                 = "non-prod"
   folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.non_prod_bu_2_folder_id
   billing_account_id          = var.billing_account_id
-  label_business_unit         = "bu-12"
+  label_business_unit         = "bu-2"
   label_restrictions          = "none"
   unique_project_identifier   = "bu-2-prj-1"
   project_viewer_group        = var.business_unit_2_developers
