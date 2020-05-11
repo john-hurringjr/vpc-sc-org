@@ -34,17 +34,19 @@
  *****************************************/
 # Restrict BU 1 to only get GCE images from specific project
 
-# Uncomment after Service Projects Created
+//# Uncomment after Service Projects Created
 //resource "google_folder_organization_policy" "prod_bu_1_folder_trusted_image_project" {
 //  constraint  = "constraints/compute.trustedImageProjects"
 //  folder      = google_folder.production_bu_1.id
 //  list_policy {
 //    allow {
-//      values = ["projects/${?????}",]
+//      values = [
+//        "projects/${data.terraform_remote_state.rs03_shared_services_projects.outputs.}",
+//      ]
 //    }
 //  }
 //}
-
+//
 //resource "google_folder_organization_policy" "non_prod_bu_1_folder_trusted_image_project" {
 //  constraint  = "constraints/compute.trustedImageProjects"
 //  folder      = google_folder.non_production_bu_1.id
