@@ -43,40 +43,40 @@
 //  service_perimeter_name    = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
 //}
 //
-/******************************************
-  Billing Charges Export Project
- *****************************************/
-
-module "billing_charges_export_project" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/billing"
-  project_friendly_name       = "Billing Charges Export"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "billing2"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.billing_admins_group
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-}
-
-/******************************************
-  Org Log Sink Project
- *****************************************/
-module "org_log_sink_project_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/log-sink"
-  project_friendly_name       = "Org Log Sink Project"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "orgsink"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.security_viewers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-}
+///******************************************
+//  Billing Charges Export Project
+// *****************************************/
+//
+//module "billing_charges_export_project" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/billing"
+//  project_friendly_name       = "Billing Charges Export"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "prod"
+//  unique_project_identifier   = "billing2"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.billing_admins_group
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//}
+//
+///******************************************
+//  Org Log Sink Project
+// *****************************************/
+//module "org_log_sink_project_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/log-sink"
+//  project_friendly_name       = "Org Log Sink Project"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "prod"
+//  unique_project_identifier   = "orgsink"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.security_viewers
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//}
 //
 ///******************************************
 //  Monitoring Project
