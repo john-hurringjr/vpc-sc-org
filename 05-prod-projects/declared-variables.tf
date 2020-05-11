@@ -14,5 +14,13 @@
  */
 
 /******************************************
-  TBD
+  Groups
  *****************************************/
+variable "business_unit_1_developers" {}
+variable "business_unit_2_developers" {}
+
+/******************************************
+  Misc
+ *****************************************/
+variable "billing_account_id" {}
+variable "project_unique_shared_id" {}
