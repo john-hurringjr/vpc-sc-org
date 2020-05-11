@@ -15,3 +15,7 @@
 /******************************************
   Outputs
  *****************************************/
+
+output "bu_1_sample_project_1_non_prod_prject_id" {
+  value = module.bu_1_sample_project_1_non_prod.project_id
+}

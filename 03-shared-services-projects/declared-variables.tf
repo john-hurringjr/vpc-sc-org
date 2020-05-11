@@ -17,8 +17,6 @@
   Groups
  *****************************************/
 variable "billing_admins_group" {}
-variable "business_unit_1_developers" {}
-variable "business_unit_2_developers" {}
 variable "network_viewers" {}
 variable "operations_viewers" {}
 variable "security_viewers" {}
