@@ -53,17 +53,17 @@ resource "google_access_context_manager_access_level" "allow_my_account" {
 }
 
 # Uncomment this section after creating your Org Log Sink(s)
-resource "google_access_context_manager_access_level" "org_sinks_service_accounts" {
-  parent = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}"
-  name   = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}/accessLevels/org_sinks_service_accounts"
-  title  = "org_sinks_service_accounts"
-  basic {
-    conditions {
-      members = [
-        module.org_log_sink_prod_bigquery.sink_writer_identity,
-        module.org_log_sink_prod_gcs.sink_writer_identity,
-      ]
-    }
-  }
-}
+//resource "google_access_context_manager_access_level" "org_sinks_service_accounts" {
+//  parent = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}"
+//  name   = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}/accessLevels/org_sinks_service_accounts"
+//  title  = "org_sinks_service_accounts"
+//  basic {
+//    conditions {
+//      members = [
+//        module.org_log_sink_prod_bigquery.sink_writer_identity,
+//        module.org_log_sink_prod_gcs.sink_writer_identity,
+//      ]
+//    }
+//  }
+//}
 
