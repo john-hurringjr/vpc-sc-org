@@ -38,7 +38,7 @@ module "bu_1_sample_project_1_non_prod" {
 /******************************************
   BU 2
  *****************************************/
-module "bu_1_sample_project_2_non_prod" {
+module "bu_2_sample_project_1_non_prod" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
   project_friendly_name       = "BU2 NonProd - 1"
   unique_shared_id            = var.project_unique_shared_id
