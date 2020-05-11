@@ -17,3 +17,8 @@ easier if I could grant myself access to the perimeter. However, don't forget yo
 when testing out VPC SC functionality. I recommend logging into one of the identities you created for your domain to 
 test out how things function for a specific user/group.
 
+Steps to apply repo:
+1. Run repo (without uncommenting anything)
+2. Run repos 02 and 03 (follow instructions in each respectively)
+3. Run Log sink and billing charges tf 
+4. Add in access level for org log sink (see access level to uncomment section and vpc sc perimeter to uncomment section)
