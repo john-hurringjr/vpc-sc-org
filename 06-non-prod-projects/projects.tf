@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-/******************************************
-  BU 1
- *****************************************/
+///******************************************
+//  BU 1
+// *****************************************/
 //module "bu_1_sample_project_1_non_prod" {
 //  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
 //  project_friendly_name       = "BU1 NonProd - 1"

@@ -28,10 +28,10 @@ Network Admin & Compute Security Admin
 */
 //
 ///******************************************
-//  On Prem HA VPN with Prod VPC
+//  Restricted On Prem HA VPN with Prod VPC
 // *****************************************/
 //
-//module "ha_vpn_on_prem_with_prod_vpc_region_1" {
+//module "restricted_ha_vpn_on_prem_with_prod_vpc_region_1" {
 //  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
 //  project_1_id              = var.on_prem_project_id
 //  network_1_self_link       = google_compute_network.on_prem_vpc_prod.self_link
@@ -47,7 +47,7 @@ Network Admin & Compute Security Admin
 //  custom_range              = "199.36.153.8/30" #Restricted: 199.36.153.4/30 OR Private: 199.36.153.8/30
 //}
 //
-//module "ha_vpn_on_prem_with_prod_vpc_region_2" {
+//module "restricted_ha_vpn_on_prem_with_prod_vpc_region_2" {
 //  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
 //  project_1_id              = var.on_prem_project_id
 //  network_1_self_link       = google_compute_network.on_prem_vpc_prod.self_link
@@ -64,10 +64,10 @@ Network Admin & Compute Security Admin
 //}
 //
 ///******************************************
-//  On Prem HA VPN with Non-Prod VPC
+//  Restricted On Prem HA VPN with Non-Prod VPC
 // *****************************************/
 //
-//module "vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
+//module "restricted_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
 //  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
 //  project_1_id              = var.on_prem_project_id
 //  network_1_self_link       = google_compute_network.on_prem_vpc_non_prod.self_link
@@ -83,7 +83,7 @@ Network Admin & Compute Security Admin
 //  custom_range              = "199.36.153.8/30" #Restricted: 199.36.153.4/30 OR Private: 199.36.153.8/30
 //}
 //
-//module "vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_2" {
+//module "restricted_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_2" {
 //  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
 //  project_1_id              = var.on_prem_project_id
 //  network_1_self_link       = google_compute_network.on_prem_vpc_non_prod.self_link
