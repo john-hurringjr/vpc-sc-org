@@ -108,6 +108,8 @@ variable "private_on_prem_non_prod_vpc_flow_log_sampling" {}
  *****************************************/
 variable "restricted_on_prem_prod_vpc_router_region_1_asn" {}
 variable "restricted_on_prem_prod_vpc_router_region_2_asn" {}
+variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {}
+variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {}
 
 variable "restricted_prod_vpc_router_region_1_asn" {}
 variable "restricted_prod_vpc_router_region_2_asn" {}
@@ -130,6 +132,8 @@ variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
  *****************************************/
 variable "private_on_prem_prod_vpc_router_region_1_asn" {}
 variable "private_on_prem_prod_vpc_router_region_2_asn" {}
+variable "private_on_prem_non_prod_vpc_router_region_1_asn" {}
+variable "private_on_prem_non_prod_vpc_router_region_2_asn" {}
 
 variable "private_prod_vpc_router_region_1_asn" {}
 variable "private_prod_vpc_router_region_2_asn" {}
