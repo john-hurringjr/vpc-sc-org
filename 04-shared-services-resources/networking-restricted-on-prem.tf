@@ -65,7 +65,7 @@ module "restricted_on_prem_vpc_prod_firewall_allow_ingress_rfc1918_limited" {
 
 module "restricted_on_prem_prod_vpc_restricted_apis_dns" {
   source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-restricted-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  project_id        = var.on_prem_project_id
   network_self_link = google_compute_network.restricted_on_prem_vpc_prod.self_link
 }
 
@@ -122,6 +122,6 @@ module "restricted_on_prem_non_prod_vpc_firewall_allow_ingress_rfc1918_limited" 
 
 module "restricted_on_prem_non_prod_vpc_restricted_apis_dns" {
   source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-restricted-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  project_id        = var.on_prem_project_id
   network_self_link = google_compute_network.restricted_on_prem_vpc_non_prod.self_link
 }
