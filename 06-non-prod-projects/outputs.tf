@@ -16,10 +16,10 @@
   Outputs
  *****************************************/
 
-output "bu_1_sample_project_1_non_prod_prject_id" {
-  value = module.bu_1_sample_project_1_non_prod.project_id
-}
-
-output "bu_2_sample_project_1_non_prod_prject_id" {
-  value = module.bu_2_sample_project_1_non_prod.project_id
-}
+//output "bu_1_sample_project_1_non_prod_prject_id" {
+//  value = module.bu_1_sample_project_1_non_prod.project_id
+//}
+//
+//output "bu_2_sample_project_1_non_prod_prject_id" {
+//  value = module.bu_2_sample_project_1_non_prod.project_id
+//}
