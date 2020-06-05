@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "googlecompute",
-      "project_id": "my project",
+      "project_id": "$PROJECT_ID",
       "source_image_family": "debian-10",
       "zone": "us-central1-a",
       "instance_name": "testpackerimage1",
