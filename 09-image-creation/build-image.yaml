@@ -18,7 +18,8 @@ steps:
         "ssh_username": "packer",
         "disable_default_service_account": "true",
         "subnetwork": "${_SUBNET}",
-        "omit_external_ip": "true"
+        "omit_external_ip": "true",
+        "use_internal_ip": "true"
       }
       ]
     }
