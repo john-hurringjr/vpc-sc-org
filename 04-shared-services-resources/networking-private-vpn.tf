@@ -26,74 +26,74 @@ account the appropriate permissions to your "on prem" gcp project.
 Network Admin & Compute Security Admin
 
 */
-///******************************************
-//  Private On Prem HA VPN with Prod VPC
-// *****************************************/
-//
-//module "private_ha_vpn_on_prem_with_prod_vpc_region_1" {
-//  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
-//  project_1_id              = var.on_prem_project_id
-//  network_1_self_link       = google_compute_network.private_on_prem_vpc_prod.self_link
-//  network_1_name            = google_compute_network.private_on_prem_vpc_prod.name
-//  network_1_router_bgp_asn  = var.private_on_prem_prod_vpc_router_region_1_asn
-//  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-//  network_2_self_link       = google_compute_network.private_prod_vpc.self_link
-//  network_2_name            = google_compute_network.private_prod_vpc.name
-//  network_2_router_bgp_asn  = var.private_prod_vpc_router_region_1_asn
-//  shared_secret_tunnel_1    = var.vpn_on_prem_private_prod_region_1_shared_secret_tunnel_1
-//  shared_secret_tunnel_2    = var.vpn_on_prem_private_prod_region_1_shared_secret_tunnel_2
-//  region                    = var.region_1
-//  custom_range              = "199.36.153.8/30" #Private: 199.36.153.8/30
-//}
-//
-//module "private_ha_vpn_on_prem_with_prod_vpc_region_2" {
-//  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
-//  project_1_id              = var.on_prem_project_id
-//  network_1_self_link       = google_compute_network.private_on_prem_vpc_prod.self_link
-//  network_1_name            = google_compute_network.private_on_prem_vpc_prod.name
-//  network_1_router_bgp_asn  = var.private_on_prem_prod_vpc_router_region_2_asn
-//  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-//  network_2_self_link       = google_compute_network.private_prod_vpc.self_link
-//  network_2_name            = google_compute_network.private_prod_vpc.name
-//  network_2_router_bgp_asn  = var.private_prod_vpc_router_region_2_asn
-//  shared_secret_tunnel_1    = var.vpn_on_prem_private_prod_region_2_shared_secret_tunnel_1
-//  shared_secret_tunnel_2    = var.vpn_on_prem_private_prod_region_2_shared_secret_tunnel_2
-//  region                    = var.region_2
-//  custom_range              = "199.36.153.8/30" #Private: 199.36.153.8/30
-//}
-//
-///******************************************
-//  Private On Prem HA VPN with Non-Prod VPC
-// *****************************************/
-//
-//module "private_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
-//  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
-//  project_1_id              = var.on_prem_project_id
-//  network_1_self_link       = google_compute_network.private_on_prem_vpc_non_prod.self_link
-//  network_1_name            = google_compute_network.private_on_prem_vpc_non_prod.name
-//  network_1_router_bgp_asn  = var.private_on_prem_non_prod_vpc_router_region_1_asn
-//  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_2_self_link       = google_compute_network.private_non_prod_vpc.self_link
-//  network_2_name            = google_compute_network.private_non_prod_vpc.name
-//  network_2_router_bgp_asn  = var.private_non_prod_vpc_router_region_1_asn
-//  shared_secret_tunnel_1    = var.vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_1
-//  shared_secret_tunnel_2    = var.vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_2
-//  region                    = var.region_1
-//  custom_range              = "199.36.153.8/30" #Private: 199.36.153.8/30
-//}
-//
-//module "private_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_2" {
-//  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
-//  project_1_id              = var.on_prem_project_id
-//  network_1_self_link       = google_compute_network.private_on_prem_vpc_non_prod.self_link
-//  network_1_name            = google_compute_network.private_on_prem_vpc_non_prod.name
-//  network_1_router_bgp_asn  = var.private_on_prem_non_prod_vpc_router_region_2_asn
-//  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_2_self_link       = google_compute_network.private_non_prod_vpc.self_link
-//  network_2_name            = google_compute_network.private_non_prod_vpc.name
-//  network_2_router_bgp_asn  = var.private_non_prod_vpc_router_region_2_asn
-//  shared_secret_tunnel_1    = var.vpn_on_prem_private_non_prod_region_2_shared_secret_tunnel_1
-//  shared_secret_tunnel_2    = var.vpn_on_prem_private_non_prod_region_2_shared_secret_tunnel_2
-//  region                    = var.region_2
-//  custom_range              = "199.36.153.8/30" #RPrivate: 199.36.153.8/30
-//}
+/******************************************
+  Private On Prem HA VPN with Prod VPC
+ *****************************************/
+
+module "private_ha_vpn_on_prem_with_prod_vpc_region_1" {
+  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
+  project_1_id              = var.on_prem_project_id
+  network_1_self_link       = google_compute_network.private_on_prem_vpc_prod.self_link
+  network_1_name            = google_compute_network.private_on_prem_vpc_prod.name
+  network_1_router_bgp_asn  = var.private_on_prem_prod_vpc_router_region_1_asn
+  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  network_2_self_link       = google_compute_network.private_prod_vpc.self_link
+  network_2_name            = google_compute_network.private_prod_vpc.name
+  network_2_router_bgp_asn  = var.private_prod_vpc_router_region_1_asn
+  shared_secret_tunnel_1    = var.vpn_on_prem_private_prod_region_1_shared_secret_tunnel_1
+  shared_secret_tunnel_2    = var.vpn_on_prem_private_prod_region_1_shared_secret_tunnel_2
+  region                    = var.region_1
+  custom_range              = "199.36.153.8/30" #Private: 199.36.153.8/30
+}
+
+module "private_ha_vpn_on_prem_with_prod_vpc_region_2" {
+  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
+  project_1_id              = var.on_prem_project_id
+  network_1_self_link       = google_compute_network.private_on_prem_vpc_prod.self_link
+  network_1_name            = google_compute_network.private_on_prem_vpc_prod.name
+  network_1_router_bgp_asn  = var.private_on_prem_prod_vpc_router_region_2_asn
+  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  network_2_self_link       = google_compute_network.private_prod_vpc.self_link
+  network_2_name            = google_compute_network.private_prod_vpc.name
+  network_2_router_bgp_asn  = var.private_prod_vpc_router_region_2_asn
+  shared_secret_tunnel_1    = var.vpn_on_prem_private_prod_region_2_shared_secret_tunnel_1
+  shared_secret_tunnel_2    = var.vpn_on_prem_private_prod_region_2_shared_secret_tunnel_2
+  region                    = var.region_2
+  custom_range              = "199.36.153.8/30" #Private: 199.36.153.8/30
+}
+
+/******************************************
+  Private On Prem HA VPN with Non-Prod VPC
+ *****************************************/
+
+module "private_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
+  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
+  project_1_id              = var.on_prem_project_id
+  network_1_self_link       = google_compute_network.private_on_prem_vpc_non_prod.self_link
+  network_1_name            = google_compute_network.private_on_prem_vpc_non_prod.name
+  network_1_router_bgp_asn  = var.private_on_prem_non_prod_vpc_router_region_1_asn
+  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_2_self_link       = google_compute_network.private_non_prod_vpc.self_link
+  network_2_name            = google_compute_network.private_non_prod_vpc.name
+  network_2_router_bgp_asn  = var.private_non_prod_vpc_router_region_1_asn
+  shared_secret_tunnel_1    = var.vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_1
+  shared_secret_tunnel_2    = var.vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_2
+  region                    = var.region_1
+  custom_range              = "199.36.153.8/30" #Private: 199.36.153.8/30
+}
+
+module "private_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_2" {
+  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
+  project_1_id              = var.on_prem_project_id
+  network_1_self_link       = google_compute_network.private_on_prem_vpc_non_prod.self_link
+  network_1_name            = google_compute_network.private_on_prem_vpc_non_prod.name
+  network_1_router_bgp_asn  = var.private_on_prem_non_prod_vpc_router_region_2_asn
+  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_2_self_link       = google_compute_network.private_non_prod_vpc.self_link
+  network_2_name            = google_compute_network.private_non_prod_vpc.name
+  network_2_router_bgp_asn  = var.private_non_prod_vpc_router_region_2_asn
+  shared_secret_tunnel_1    = var.vpn_on_prem_private_non_prod_region_2_shared_secret_tunnel_1
+  shared_secret_tunnel_2    = var.vpn_on_prem_private_non_prod_region_2_shared_secret_tunnel_2
+  region                    = var.region_2
+  custom_range              = "199.36.153.8/30" #RPrivate: 199.36.153.8/30
+}
