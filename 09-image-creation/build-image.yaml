@@ -15,7 +15,7 @@ steps:
         "source_image_family": "debian-10",
         "zone": "us-central1-a",
         "instance_name": "testpackerimage-1",
-        "ssh_username": "packer",
+        "ssh_username": "root",
         "disable_default_service_account": "true",
         "subnetwork": "${_SUBNET}",
         "omit_external_ip": "true",
