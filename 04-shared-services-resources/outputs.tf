@@ -86,3 +86,73 @@ output "restricted_non_prod_vpc_subnet_2_self_link" {
 output "restricted_non_prod_vpc_subnet_2_id" {
   value = module.restricted_non_prod_vpc_subnet_2.subnet_id
 }
+
+/******************************************
+  Private Subnets Prod
+ *****************************************/
+output "private_prod_vpc_subnet_1_region" {
+  value = var.region_1
+}
+
+output "private_prod_vpc_subnet_1_name" {
+  value = module.private_prod_vpc_subnet_1.subnet_name
+}
+
+output "private_prod_vpc_subnet_1_self_link" {
+  value = module.private_prod_vpc_subnet_1.subnet_self_link
+}
+
+output "private_prod_vpc_subnet_1_id" {
+  value = module.private_prod_vpc_subnet_1.subnet_id
+}
+
+output "private_prod_vpc_subnet_2_region" {
+  value = var.region_2
+}
+
+output "private_prod_vpc_subnet_2_name" {
+  value = module.private_prod_vpc_subnet_2.subnet_name
+}
+
+output "private_prod_vpc_subnet_2_self_link" {
+  value = module.private_prod_vpc_subnet_2.subnet_self_link
+}
+
+output "private_prod_vpc_subnet_2_id" {
+  value = module.private_prod_vpc_subnet_2.subnet_id
+}
+
+/******************************************
+  Private Subnets Non Prod
+ *****************************************/
+output "private_non_prod_vpc_subnet_1_region" {
+  value = var.region_1
+}
+
+output "private_non_prod_vpc_subnet_1_name" {
+  value = module.private_non_prod_vpc_subnet_1.subnet_name
+}
+
+output "private_non_prod_vpc_subnet_1_self_link" {
+  value = module.private_non_prod_vpc_subnet_1.subnet_self_link
+}
+
+output "private_non_prod_vpc_subnet_1_id" {
+  value = module.private_non_prod_vpc_subnet_1.subnet_id
+}
+
+output "private_on_prod_vpc_subnet_2_region" {
+  value = var.region_2
+}
+
+output "private_non_prod_vpc_subnet_2_name" {
+  value = module.private_non_prod_vpc_subnet_2.subnet_name
+}
+
+output "private_non_prod_vpc_subnet_2_self_link" {
+  value = module.private_non_prod_vpc_subnet_2.subnet_self_link
+}
+
+output "private_non_prod_vpc_subnet_2_id" {
+  value = module.private_non_prod_vpc_subnet_2.subnet_id
+}
