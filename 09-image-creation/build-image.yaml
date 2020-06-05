@@ -16,7 +16,6 @@ steps:
         "zone": "us-central1-a",
         "instance_name": "testpackerimage-1",
         "ssh_username": "packer"
-        ]
       }
       ]
     }
