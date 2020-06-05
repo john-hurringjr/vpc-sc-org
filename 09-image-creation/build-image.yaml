@@ -1,0 +1,35 @@
+steps:
+- name: ubuntu
+  dir: './${_FOLDER}/'
+  id: 'create_image_spec'
+  entrypoint: "bash"
+  args:
+  - '-c'
+  - |
+    cat <<END>packer.json
+    {
+    "builders": [
+      {
+        "type": "googlecompute",
+        "project_id": "$PROJECT_ID",
+        "source_image_family": "debian-10",
+        "zone": "us-central1-a",
+        "instance_name": "testpackerimage-1",
+        "ssh_username": "packer",
+        "disable_default_service_account": "true",
+        "subnetwork": "${_SUBNET}",
+        "omit_external_ip": "true",
+        "use_internal_ip": "true"
+      }
+      ]
+    }
+    END
+- name: 'gcr.io/$PROJECT_ID/packer'
+  dir: './${_FOLDER}/'
+  env:
+  - 'PROJECT_ID=$PROJECT_ID'
+  args:
+  - build
+  - -var
+  - project_id=$PROJECT_ID
+  - packer.json
