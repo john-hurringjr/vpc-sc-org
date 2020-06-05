@@ -1,0 +1,11 @@
+{
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "my project",
+      "source_image_family": "debian",
+      "zone": "us-central1-a",
+      "instance_name": "testpackerimage",
+    }
+  ]
+}
