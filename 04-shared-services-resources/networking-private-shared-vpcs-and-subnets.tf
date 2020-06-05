@@ -12,78 +12,76 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-///******************************************
-//  Restricted Shared VPC Host - Prod - VPC and Subnets
-// *****************************************/
-//
-//# Network
-//resource "google_compute_network" "prod_vpc" {
-//  project                         = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-//  name                            = "restricted-prod-vpc"
-//  routing_mode                    = "GLOBAL"
-//  auto_create_subnetworks         = false
-//  delete_default_routes_on_create = true
-//}
-//
-//# Subnets
-//module "prod_vpc_subnet_1" {
-//  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-//  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-//  network_self_link     = google_compute_network.prod_vpc.self_link
-//  network_name          = google_compute_network.prod_vpc.name
-//  region                = var.region_1
-//  cidr                  = var.prod_vpc_subnet_1_cidr
-//  vpc_flow_log_interval = var.prod_vpc_flow_log_interval
-//  vpc_flow_log_sampling = var.prod_vpc_flow_log_sampling
-//  subnet_number         = "1"
-//}
-//
-//module "prod_vpc_subnet_2" {
-//  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-//  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-//  network_self_link     = google_compute_network.prod_vpc.self_link
-//  network_name          = google_compute_network.prod_vpc.name
-//  region                = var.region_2
-//  cidr                  = var.prod_vpc_subnet_2_cidr
-//  vpc_flow_log_interval = var.prod_vpc_flow_log_interval
-//  vpc_flow_log_sampling = var.prod_vpc_flow_log_sampling
-//  subnet_number         = "1"
-//}
-//
-///******************************************
-//  Restricted Shared VPC Host - Non-Prod - VPC and Subnets
-// *****************************************/
-//
-//# Network
-//resource "google_compute_network" "non_prod_vpc" {
-//  project                         = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  name                            = "restricted-non-prod-vpc"
-//  routing_mode                    = "GLOBAL"
-//  auto_create_subnetworks         = false
-//  delete_default_routes_on_create = true
-//}
-//
-//# Subnets
-//module "non_prod_vpc_subnet_1" {
-//  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-//  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_self_link     = google_compute_network.non_prod_vpc.self_link
-//  network_name          = google_compute_network.non_prod_vpc.name
-//  region                = var.region_1
-//  cidr                  = var.non_prod_vpc_subnet_1_cidr
-//  vpc_flow_log_interval = var.non_prod_vpc_flow_log_interval
-//  vpc_flow_log_sampling = var.non_prod_vpc_flow_log_sampling
-//  subnet_number         = "1"
-//}
-//
-//module "non_prod_vpc_subnet_2" {
-//  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
-//  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_self_link     = google_compute_network.non_prod_vpc.self_link
-//  network_name          = google_compute_network.non_prod_vpc.name
-//  region                = var.region_2
-//  cidr                  = var.non_prod_vpc_subnet_2_cidr
-//  vpc_flow_log_interval = var.non_prod_vpc_flow_log_interval
-//  vpc_flow_log_sampling = var.non_prod_vpc_flow_log_sampling
-//  subnet_number         = "1"
-//}
+/******************************************
+  Private Shared VPC Host - Prod - VPC and Subnets
+ *****************************************/
+# Network
+resource "google_compute_network" "private_prod_vpc" {
+  project                         = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  name                            = "private-prod-vpc"
+  routing_mode                    = "GLOBAL"
+  auto_create_subnetworks         = false
+  delete_default_routes_on_create = true
+}
+
+# Subnets
+module "private_prod_vpc_subnet_1" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  network_self_link     = google_compute_network.private_prod_vpc.self_link
+  network_name          = google_compute_network.private_prod_vpc.name
+  region                = var.region_1
+  cidr                  = var.private_prod_vpc_subnet_1_cidr
+  vpc_flow_log_interval = var.private_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.private_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+}
+
+module "private_prod_vpc_subnet_2" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  network_self_link     = google_compute_network.private_prod_vpc.self_link
+  network_name          = google_compute_network.private_prod_vpc.name
+  region                = var.region_2
+  cidr                  = var.private_prod_vpc_subnet_2_cidr
+  vpc_flow_log_interval = var.private_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.private_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+}
+
+/******************************************
+  Private Shared VPC Host - Non-Prod - VPC and Subnets
+ *****************************************/
+# Network
+resource "google_compute_network" "private_non_prod_vpc" {
+  project                         = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  name                            = "private-non-prod-vpc"
+  routing_mode                    = "GLOBAL"
+  auto_create_subnetworks         = false
+  delete_default_routes_on_create = true
+}
+
+# Subnets
+module "private_non_prod_vpc_subnet_1" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_self_link     = google_compute_network.private_non_prod_vpc.self_link
+  network_name          = google_compute_network.private_non_prod_vpc.name
+  region                = var.region_1
+  cidr                  = var.private_non_prod_vpc_subnet_1_cidr
+  vpc_flow_log_interval = var.private_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.private_non_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+}
+
+module "private_non_prod_vpc_subnet_2" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_self_link     = google_compute_network.private_non_prod_vpc.self_link
+  network_name          = google_compute_network.private_non_prod_vpc.name
+  region                = var.region_2
+  cidr                  = var.private_non_prod_vpc_subnet_2_cidr
+  vpc_flow_log_interval = var.private_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.private_non_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+}
