@@ -5,7 +5,7 @@
       "project_id": "$PROJECT_ID",
       "source_image_family": "debian-10",
       "zone": "us-central1-a",
-      "instance_name": "testpackerimage1",
+      "instance_name": "testpackerimage-1",
       "ssh_username": "packer"
     }
   ]
