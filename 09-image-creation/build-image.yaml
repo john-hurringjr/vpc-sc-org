@@ -1,0 +1,30 @@
+steps:
+- name: ubuntu
+  id: 'create_image_spec'
+  entrypoint: "bash"
+  args:
+  - '-c'
+  - |
+    cat <<END>packer.json
+  {
+    "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "$PROJECT_ID",
+      "source_image_family": "debian-10",
+      "zone": "us-central1-a",
+      "instance_name": "testpackerimage-1",
+      "ssh_username": "packer"
+    }
+    ]
+  }
+    END
+- name: 'gcr.io/$PROJECT_ID/packer'
+  dir: './${_FOLDER}/'
+  env:
+  - 'PROJECT_ID=$PROJECT_ID'
+  args:
+  - build
+  - -var
+  - project_id=$PROJECT_ID
+  - packer.json
