@@ -3,5 +3,6 @@ steps:
   dir: './${_FOLDER}/'
   args:
   - build
+  - -var
   - project_id=$PROJECT_ID
   - packer.json
