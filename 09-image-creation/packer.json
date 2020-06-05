@@ -3,7 +3,7 @@
     {
       "type": "googlecompute",
       "project_id": "my project",
-      "source_image_family": "debian-cloud",
+      "source_image_family": "debian-10",
       "zone": "us-central1-a",
       "instance_name": "testpackerimage1",
       "ssh_username": "packer"
