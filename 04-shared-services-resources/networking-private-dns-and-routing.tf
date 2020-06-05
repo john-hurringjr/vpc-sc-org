@@ -12,32 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-///******************************************
-//  Restricted Shared VPC Host - Prod - DNS & Routing
-// *****************************************/
-//module "prod_vpc_restricted_apis_dns" {
-//  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-restricted-apis"
-//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-//  network_self_link = google_compute_network.prod_vpc.self_link
-//}
-//
-//module "prod_vpc_restricted_apis_routing" {
-//  source            = "github.com/john-hurringjr/test-modules/networking/routing/restricted-apis"
-//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-//  network_self_link = google_compute_network.prod_vpc.self_link
-//}
-//
-///******************************************
-//  Restricted Shared VPC Host - Non-Prod - DNS & Routing
-// *****************************************/
-//module "non_prod_vpc_restricted_apis_dns" {
-//  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-restricted-apis"
-//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_self_link = google_compute_network.non_prod_vpc.self_link
-//}
-//
-//module "non_prod_vpc_restricted_apis_routing" {
-//  source            = "github.com/john-hurringjr/test-modules/networking/routing/restricted-apis"
-//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_self_link = google_compute_network.non_prod_vpc.self_link
-//}
+/******************************************
+  Private Shared VPC Host - Prod - DNS & Routing
+ *****************************************/
+module "private_prod_vpc_private_apis_dns" {
+  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-private-apis"
+  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  network_self_link = google_compute_network.private_prod_vpc.self_link
+}
+
+module "private_prod_vpc_private_apis_routing" {
+  source            = "github.com/john-hurringjr/test-modules/networking/routing/private-apis"
+  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+  network_self_link = google_compute_network.private_prod_vpc.self_link
+}
+
+/******************************************
+  Private Shared VPC Host - Non-Prod - DNS & Routing
+ *****************************************/
+module "private_non_prod_vpc_private_apis_dns" {
+  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-private-apis"
+  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+}
+
+module "private_non_prod_vpc_private_apis_routing" {
+  source            = "github.com/john-hurringjr/test-modules/networking/routing/private-apis"
+  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+}
