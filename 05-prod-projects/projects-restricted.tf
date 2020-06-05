@@ -54,5 +54,5 @@ module "bu_2_sample_project_1_prod_restricted" {
   subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_region
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
   subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
-  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.prestricted_prod_vpc_subnet_2_name
+  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
 }
