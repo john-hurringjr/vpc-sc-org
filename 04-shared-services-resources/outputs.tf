@@ -141,7 +141,7 @@ output "private_non_prod_vpc_subnet_1_id" {
   value = module.private_non_prod_vpc_subnet_1.subnet_id
 }
 
-output "private_on_prod_vpc_subnet_2_region" {
+output "private_non_prod_vpc_subnet_2_region" {
   value = var.region_2
 }
 

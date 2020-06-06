@@ -15,7 +15,6 @@
 /******************************************
 Private Shared VPC Host - Prod - Firewalls
 *****************************************/
-
 # Denies all egress on all VMs. Also enables logging for this FW rule.
 module "private_prod_vpc_firewall_deny_all_egress" {
 source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-egress-all-port-proto"
@@ -45,7 +44,6 @@ network_name      = google_compute_network.private_prod_vpc.name
 /******************************************
   Private Shared VPC Host - Non-Prod - Firewalls
  *****************************************/
-
 # Denies all egress on all VMs. Also enables logging for this FW rule.
 module "private_non_prod_vpc_firewall_deny_all_egress" {
 source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-egress-all-port-proto"
