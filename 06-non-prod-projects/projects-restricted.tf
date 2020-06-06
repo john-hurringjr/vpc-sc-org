@@ -25,7 +25,7 @@ module "bu_1_sample_project_1_non_prod_restricted" {
   billing_account_id          = var.billing_account_id
   label_business_unit         = "bu-1"
   label_restrictions          = "none"
-  unique_project_identifier   = "bu-1-prj-1-restricted"
+  unique_project_identifier   = "bu-1-prj-1-rest"
   project_viewer_group        = var.business_unit_1_developers
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
   shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
@@ -47,7 +47,7 @@ module "bu_2_sample_project_1_non_prod_restricted" {
   billing_account_id          = var.billing_account_id
   label_business_unit         = "bu-2"
   label_restrictions          = "none"
-  unique_project_identifier   = "bu-2-prj-1-restricted"
+  unique_project_identifier   = "bu-2-prj-1-rest"
   project_viewer_group        = var.business_unit_2_developers
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
   shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
