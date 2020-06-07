@@ -14,11 +14,11 @@
  */
 
 /******************************************
-  BU 1 - Restricted
+  BU 1
  *****************************************/
 module "bu_1_sample_project_2_non_prod" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-  project_friendly_name       = "BU1 Non-Prod - 1"
+  project_friendly_name       = "BU1 Non-Prod - 2"
   unique_shared_id            = var.project_unique_shared_id
   environment                 = "non-prod"
   folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.non_prod_bu_1_folder_id
@@ -36,11 +36,11 @@ module "bu_1_sample_project_2_non_prod" {
 }
 
 /******************************************
-  BU 2 - Restricted
+  BU 2
  *****************************************/
 module "bu_2_sample_project_2_non_prod" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-  project_friendly_name       = "BU2 Non-Prod - 1 - Restricted"
+  project_friendly_name       = "BU2 Non-Prod - 2"
   unique_shared_id            = var.project_unique_shared_id
   environment                 = "non-prod"
   folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.non_prod_bu_2_folder_id
