@@ -171,7 +171,7 @@ module "os_images_project_non_prod_restricted" {
   project_friendly_name       = "OS Images - Restricted"
   unique_shared_id            = var.project_unique_shared_id
   environment                 = "non-prod"
-  unique_project_identifier   = "osimage-restricted"
+  unique_project_identifier   = "osimage-restr"
   folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id          = var.billing_account_id
   label_business_unit         = ""
