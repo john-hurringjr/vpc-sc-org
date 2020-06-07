@@ -205,90 +205,90 @@ module "os_images_project_prod_restricted" {
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
 }
 
-///******************************************
-//  GKE Clusters - Private
-// *****************************************/
-//
-//# Non-Prod
-//module "gke_cluster_project_non_prod_private" {
-//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-//  project_friendly_name       = "GKE - Private"
-//  unique_shared_id            = var.project_unique_shared_id
-//  environment                 = "non-prod"
-//  unique_project_identifier   = "gke-private"
-//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-//  billing_account_id          = var.billing_account_id
-//  label_business_unit         = ""
-//  label_restrictions          = ""
-//  project_viewer_group        = var.operations_viewers
-//  shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
-//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-//  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_1_region
-//  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_1_name
-//  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_2_region
-//  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_2_name
-//}
-//
-//# Prod
-//module "gke_cluster_project_prod_private" {
-//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-//  project_friendly_name       = "GKE - Private"
-//  unique_shared_id            = var.project_unique_shared_id
-//  environment                 = "prod"
-//  unique_project_identifier   = "gke-private"
-//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-//  billing_account_id          = var.billing_account_id
-//  label_business_unit         = ""
-//  label_restrictions          = ""
-//  project_viewer_group        = var.operations_viewers
-//  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
-//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-//  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_1_region
-//  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_1_name
-//  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_2_region
-//  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_2_name
-//}
-//
-///******************************************
-//  GKE Clusters - Retricted
-// *****************************************/
-//
-//# Non-Prod
-//module "gke_cluster_project_non_prod_restricted" {
-//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-//  project_friendly_name       = "GKE - Restricted"
-//  unique_shared_id            = var.project_unique_shared_id
-//  environment                 = "non-prod"
-//  unique_project_identifier   = "gke-restricted"
-//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-//  billing_account_id          = var.billing_account_id
-//  label_business_unit         = ""
-//  label_restrictions          = ""
-//  project_viewer_group        = var.operations_viewers
-//  shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
-//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-//  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_region
-//  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_name
-//  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_region
-//  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_name
-//}
-//
-//# Prod
-//module "gke_cluster_project_prod_restricted" {
-//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-//  project_friendly_name       = "GKE - Restricted"
-//  unique_shared_id            = var.project_unique_shared_id
-//  environment                 = "prod"
-//  unique_project_identifier   = "gke-restricted"
-//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-//  billing_account_id          = var.billing_account_id
-//  label_business_unit         = ""
-//  label_restrictions          = ""
-//  project_viewer_group        = var.operations_viewers
-//  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
-//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-//  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_region
-//  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
-//  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
-//  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
-//}
+/******************************************
+  GKE Clusters - Private
+ *****************************************/
+
+# Non-Prod
+module "gke_cluster_project_non_prod_private" {
+  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+  project_friendly_name       = "GKE - Private"
+  unique_shared_id            = var.project_unique_shared_id
+  environment                 = "non-prod"
+  unique_project_identifier   = "gke-priv"
+  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+  billing_account_id          = var.billing_account_id
+  label_business_unit         = ""
+  label_restrictions          = ""
+  project_viewer_group        = var.operations_viewers
+  shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
+  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_1_region
+  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_1_name
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_2_region
+  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_non_prod_vpc_subnet_2_name
+}
+
+# Prod
+module "gke_cluster_project_prod_private" {
+  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+  project_friendly_name       = "GKE - Private"
+  unique_shared_id            = var.project_unique_shared_id
+  environment                 = "prod"
+  unique_project_identifier   = "gke-priv"
+  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+  billing_account_id          = var.billing_account_id
+  label_business_unit         = ""
+  label_restrictions          = ""
+  project_viewer_group        = var.operations_viewers
+  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
+  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_1_region
+  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_1_name
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_2_region
+  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.private_prod_vpc_subnet_2_name
+}
+
+/******************************************
+  GKE Clusters - Retricted
+ *****************************************/
+
+# Non-Prod
+module "gke_cluster_project_non_prod_restricted" {
+  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+  project_friendly_name       = "GKE - Restricted"
+  unique_shared_id            = var.project_unique_shared_id
+  environment                 = "non-prod"
+  unique_project_identifier   = "gke-restr"
+  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+  billing_account_id          = var.billing_account_id
+  label_business_unit         = ""
+  label_restrictions          = ""
+  project_viewer_group        = var.operations_viewers
+  shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
+  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_region
+  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_name
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_region
+  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_name
+}
+
+# Prod
+module "gke_cluster_project_prod_restricted" {
+  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+  project_friendly_name       = "GKE - Restricted"
+  unique_shared_id            = var.project_unique_shared_id
+  environment                 = "prod"
+  unique_project_identifier   = "gke-restr"
+  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+  billing_account_id          = var.billing_account_id
+  label_business_unit         = ""
+  label_restrictions          = ""
+  project_viewer_group        = var.operations_viewers
+  shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
+  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_region
+  subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
+  subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
+}
