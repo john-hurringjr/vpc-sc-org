@@ -50,34 +50,58 @@ resource "google_folder_organization_policy" "non_prod_restrict_vpc_host" {
  *****************************************/
 # Restrict BU 1 to only get GCE images from specific project
 
-//# Uncomment after Service Projects Created
-//resource "google_folder_organization_policy" "prod_bu_1_folder_trusted_image_project" {
-//  constraint  = "constraints/compute.trustedImageProjects"
-//  folder      = google_folder.production_bu_1.id
-//  list_policy {
-//    allow {
-//      values = [
-//        "projects/${data.terraform_remote_state.rs03_shared_services_projects.outputs.os_images_prod_project_id}",
-//      ]
-//    }
-//  }
-//}
-//
-//# Trusted Images can be the publicly available images
-//resource "google_folder_organization_policy" "non_prod_bu_1_folder_trusted_image_project" {
-//  constraint  = "constraints/compute.trustedImageProjects"
-//  folder      = google_folder.non_production_bu_1.id
-//  list_policy {
-//    allow {
-//      values = [
-//      "projects/cos-cloud",
-//      "projects/debian-cloud",
-//      "projects/centos-cloud",
-//      "projects/coreos-cloud",
-//      ]
-//    }
-//  }
-//}
+# Uncomment after Service Projects Created
+resource "google_folder_organization_policy" "prod_bu_1_folder_trusted_image_project" {
+  constraint  = "constraints/compute.trustedImageProjects"
+  folder      = google_folder.production_bu_1.id
+  list_policy {
+    allow {
+      values = [
+        "projects/${data.terraform_remote_state.rs03_shared_services_projects.outputs.os_images_prod_project_id}",
+      ]
+    }
+  }
+}
+
+# Trusted Images can be the publicly available images
+resource "google_folder_organization_policy" "non_prod_bu_1_folder_trusted_image_project" {
+  constraint  = "constraints/compute.trustedImageProjects"
+  folder      = google_folder.non_production_bu_1.id
+  list_policy {
+    allow {
+      values = [
+      "projects/cos-cloud",
+      "projects/debian-cloud",
+      "projects/centos-cloud",
+      "projects/coreos-cloud",
+      ]
+    }
+  }
+}
+
+/******************************************
+  GKE Project (Stop Requiring OS Login)
+ *****************************************/
+# Uncomment after GKE Projects Created
+
+resource "google_project_organization_policy" "prod_gke_cluster_project" {
+  constraint  = "constraints/compute.requireOsLogin"
+  project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_prod_project_id
+
+  boolean_policy {
+    enforced = false
+  }
+}
+
+resource "google_project_organization_policy" "non_prod_gke_cluster_project" {
+  constraint  = "constraints/compute.requireOsLogin"
+  project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
+
+  boolean_policy {
+    enforced = false
+  }
+}
+
 
 /******************************************
   Location Restriction
