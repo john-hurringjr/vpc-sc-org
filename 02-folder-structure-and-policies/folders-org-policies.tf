@@ -143,8 +143,8 @@ resource "google_project_organization_policy" "prod_gke_cluster_project_allow_ip
   project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_prod_project_id
 
   list_policy {
-    deny {
-      all = false
+    allow {
+      all = true
     }
   }
 
@@ -155,8 +155,8 @@ resource "google_project_organization_policy" "non_prod_gke_cluster_project_allo
   project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
 
   list_policy {
-    deny {
-      all = false
+    allow {
+      all = true
     }
   }
 }
