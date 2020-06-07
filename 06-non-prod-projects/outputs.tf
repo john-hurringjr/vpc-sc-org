@@ -13,25 +13,13 @@
  * limitations under the License.
  */
 /******************************************
-  Outputs - Private
+  Outputs
  *****************************************/
 
-output "bu_1_sample_project_1_non_prod_prject_id_private" {
-  value = module.bu_1_sample_project_1_non_prod_private.project_id
+output "bu_1_sample_project_2_non_prod_prject_id" {
+  value = module.bu_1_sample_project_2_non_prod.project_id
 }
 
-output "bu_2_sample_project_1_non_prod_prject_id_private" {
-  value = module.bu_2_sample_project_1_non_prod_private.project_id
-}
-
-/******************************************
-  Outputs - Private
- *****************************************/
-
-output "bu_1_sample_project_1_non_prod_prject_id_restricted" {
-  value = module.bu_1_sample_project_1_non_prod_restricted.project_id
-}
-
-output "bu_2_sample_project_1_non_prod_prject_id_restricted" {
-  value = module.bu_2_sample_project_1_non_prod_restricted.project_id
+output "bu_2_sample_project_2_non_prod_prject_id" {
+  value = module.bu_2_sample_project_2_non_prod.project_id
 }

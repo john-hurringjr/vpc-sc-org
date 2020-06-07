@@ -41,35 +41,19 @@ output "monitoring_non_prod_project_id" {
 }
 
 # Uncomment below after created OS image projects
-output "os_images_prod_project_id_restricted" {
-  value = module.os_images_project_prod_restricted.project_id
+output "os_images_prod_project_id" {
+  value = module.os_images_project_prod.project_id
 }
 
-output "os_images_non_prod_project_id_restricted" {
-  value = module.os_images_project_non_prod_restricted.project_id
-}
-
-output "os_images_prod_project_id_private" {
-  value = module.os_images_project_prod_private.project_id
-}
-
-output "os_images_non_prod_project_id_private" {
-  value = module.os_images_project_non_prod_private.project_id
+output "os_images_non_prod_project_id" {
+  value = module.os_images_project_non_prod.project_id
 }
 
 # Uncomment below after created GKE projects
-output "gke_cluster_prod_project_id_restricted" {
-  value = module.gke_cluster_project_prod_restricted.project_id
+output "gke_cluster_prod_project_id" {
+  value = module.gke_cluster_project_prod.project_id
 }
 
-output "gke_cluster_non_prod_project_id_restricted" {
-  value = module.gke_cluster_project_non_prod_restricted.project_id
-}
-
-output "gke_clusters_prod_project_id_private" {
-  value = module.gke_cluster_project_prod_private.project_id
-}
-
-output "gke_cluster_non_prod_project_id_private" {
-  value = module.gke_cluster_project_non_prod_private.project_id
+output "gke_cluster_non_prod_project_id" {
+  value = module.gke_cluster_project_non_prod.project_id
 }
