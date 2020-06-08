@@ -84,7 +84,7 @@ data "google_iam_policy" "org_log_sink_project_iam_policy_data" {
   binding {
     role = "roles/viewer"
     members = [
-      "group:${var.security_viewers}",
+      "group:${var.security_viewer_group}",
     ]
   }
 

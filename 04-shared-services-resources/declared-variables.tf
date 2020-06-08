@@ -15,32 +15,54 @@
 /******************************************
   Regions
  *****************************************/
-variable "region_1" {}
-variable "region_2" {}
+variable "region_1" {
+  default = "us-east4"
+
+}variable "region_2" {
+  default = "us-central1"
+}
 
 /******************************************
   Subnets Prod
  *****************************************/
 # Restricted
-variable "restricted_prod_vpc_subnet_1_cidr" {}
-variable "restricted_prod_vpc_subnet_2_cidr" {}
+variable "restricted_prod_vpc_subnet_1_cidr" {
+  default = "10.0.0.0/19"
+}
+variable "restricted_prod_vpc_subnet_2_cidr" {
+  default = "10.128.0.0/19"
+}
 
-variable "restricted_prod_vpc_flow_log_interval" {}
-variable "restricted_prod_vpc_flow_log_sampling" {}
+variable "restricted_prod_vpc_flow_log_interval" {
+  default = "INTERVAL_5_MIN"
+}
+variable "restricted_prod_vpc_flow_log_sampling" {
+  default =  0.8
+}
 
 # Private
-variable "private_prod_vpc_subnet_1_cidr" {}
-variable "private_prod_vpc_subnet_2_cidr" {}
+variable "private_prod_vpc_subnet_1_cidr" {
+  default = "10.0.0.0/19"
+}
+variable "private_prod_vpc_subnet_2_cidr" {
+  default = "10.128.0.0/19"
+}
 
-variable "private_prod_vpc_flow_log_interval" {}
-variable "private_prod_vpc_flow_log_sampling" {}
+variable "private_prod_vpc_flow_log_interval" {
+  default = "INTERVAL_5_MIN"
+}
+variable "private_prod_vpc_flow_log_sampling" {
+  default =  0.8
+}
 
 /******************************************
   Subnets Non-Prod
  *****************************************/
 
 # Restricted
-variable "restricted_non_prod_vpc_subnet_1_cidr" {}
+variable "restricted_non_prod_vpc_subnet_1_cidr" {
+  default = "172.16.0.0/19"
+}
 variable "restricted_non_prod_vpc_subnet_2_cidr" {}
 
 variable "restricted_non_prod_vpc_flow_log_interval" {}
