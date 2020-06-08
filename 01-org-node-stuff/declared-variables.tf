@@ -21,7 +21,6 @@ variable "external_user_os_login_group" {}
 variable "security_viewer_group" {}
 variable "billing_admins_group" {}
 variable "my_id_just_in_case" {}
-variable "security_viewers" {}
 
 /******************************************
   Terraform Service Accounts
