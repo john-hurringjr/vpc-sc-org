@@ -29,9 +29,9 @@ module "private_on_prem_vpc_prod_subnet_1" {
   network_self_link     = google_compute_network.private_on_prem_vpc_prod.self_link
   network_name          = google_compute_network.private_on_prem_vpc_prod.name
   region                = var.region_1
-  cidr                  = var.private_on_prem_prod_vpc_subnet_1_cidr
-  vpc_flow_log_interval = var.private_on_prem_prod_vpc_flow_log_interval
-  vpc_flow_log_sampling = var.private_on_prem_prod_vpc_flow_log_sampling
+  cidr                  = var.on_prem_prod_vpc_subnet_1_cidr
+  vpc_flow_log_interval = var.on_prem_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_prod_vpc_flow_log_sampling
   subnet_number         = "1"
   private_google_access = "false"
 }
@@ -42,9 +42,35 @@ module "private_on_prem_vpc_prod_subnet_2" {
   network_self_link     = google_compute_network.private_on_prem_vpc_prod.self_link
   network_name          = google_compute_network.private_on_prem_vpc_prod.name
   region                = var.region_2
-  cidr                  = var.private_on_prem_prod_vpc_subnet_2_cidr
-  vpc_flow_log_interval = var.private_on_prem_prod_vpc_flow_log_interval
-  vpc_flow_log_sampling = var.private_on_prem_prod_vpc_flow_log_sampling
+  cidr                  = var.on_prem_prod_vpc_subnet_2_cidr
+  vpc_flow_log_interval = var.on_prem_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+  private_google_access = "false"
+}
+
+module "private_on_prem_vpc_prod_subnet_3" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = var.on_prem_project_id
+  network_self_link     = google_compute_network.private_on_prem_vpc_prod.self_link
+  network_name          = google_compute_network.private_on_prem_vpc_prod.name
+  region                = var.region_3
+  cidr                  = var.on_prem_prod_vpc_subnet_3_cidr
+  vpc_flow_log_interval = var.on_prem_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+  private_google_access = "false"
+}
+
+module "private_on_prem_vpc_prod_subnet_4" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = var.on_prem_project_id
+  network_self_link     = google_compute_network.private_on_prem_vpc_prod.self_link
+  network_name          = google_compute_network.private_on_prem_vpc_prod.name
+  region                = var.region_4
+  cidr                  = var.on_prem_prod_vpc_subnet_4_cidr
+  vpc_flow_log_interval = var.on_prem_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_prod_vpc_flow_log_sampling
   subnet_number         = "1"
   private_google_access = "false"
 }
@@ -87,9 +113,9 @@ module "private_on_prem_non_prod_vpc_subnet_1" {
   network_self_link     = google_compute_network.private_on_prem_vpc_non_prod.self_link
   network_name          = google_compute_network.private_on_prem_vpc_non_prod.name
   region                = var.region_1
-  cidr                  = var.private_on_prem_non_prod_vpc_subnet_1_cidr
-  vpc_flow_log_interval = var.private_on_prem_non_prod_vpc_flow_log_interval
-  vpc_flow_log_sampling = var.private_on_prem_non_prod_vpc_flow_log_sampling
+  cidr                  = var.on_prem_non_prod_vpc_subnet_1_cidr
+  vpc_flow_log_interval = var.on_prem_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_non_prod_vpc_flow_log_sampling
   subnet_number         = "1"
   private_google_access = "false"
 }
@@ -100,9 +126,35 @@ module "private_on_prem_non_prod_vpc_subnet_2" {
   network_self_link     = google_compute_network.private_on_prem_vpc_non_prod.self_link
   network_name          = google_compute_network.private_on_prem_vpc_non_prod.name
   region                = var.region_2
-  cidr                  = var.private_on_prem_non_prod_vpc_subnet_2_cidr
-  vpc_flow_log_interval = var.private_on_prem_non_prod_vpc_flow_log_interval
-  vpc_flow_log_sampling = var.private_on_prem_non_prod_vpc_flow_log_sampling
+  cidr                  = var.on_prem_non_prod_vpc_subnet_2_cidr
+  vpc_flow_log_interval = var.on_prem_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_non_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+  private_google_access = "false"
+}
+
+module "private_on_prem_non_prod_vpc_subnet_3" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = var.on_prem_project_id
+  network_self_link     = google_compute_network.private_on_prem_vpc_non_prod.self_link
+  network_name          = google_compute_network.private_on_prem_vpc_non_prod.name
+  region                = var.region_3
+  cidr                  = var.on_prem_non_prod_vpc_subnet_3_cidr
+  vpc_flow_log_interval = var.on_prem_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_non_prod_vpc_flow_log_sampling
+  subnet_number         = "1"
+  private_google_access = "false"
+}
+
+module "private_on_prem_non_prod_vpc_subnet_4" {
+  source                = "github.com/john-hurringjr/test-modules/networking/subnet/generic"
+  project_id            = var.on_prem_project_id
+  network_self_link     = google_compute_network.private_on_prem_vpc_non_prod.self_link
+  network_name          = google_compute_network.private_on_prem_vpc_non_prod.name
+  region                = var.region_2
+  cidr                  = var.on_prem_non_prod_vpc_subnet_3_cidr
+  vpc_flow_log_interval = var.on_prem_non_prod_vpc_flow_log_interval
+  vpc_flow_log_sampling = var.on_prem_non_prod_vpc_flow_log_sampling
   subnet_number         = "1"
   private_google_access = "false"
 }
