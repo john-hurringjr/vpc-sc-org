@@ -254,8 +254,16 @@ variable "on_prem_non_prod_vpc_subnet_4_cidr" {
 
 # Logging
 variable "on_prem_prod_vpc_flow_log_interval" {
-  default = "INTERVAL_15_MIN"
+  default = "INTERVAL_5_MIN"
 }
 variable "on_prem_prod_vpc_flow_log_sampling" {
+  default = 0.8
+}
+
+# Logging
+variable "on_prem_non_prod_vpc_flow_log_interval" {
+  default = "INTERVAL_15_MIN"
+}
+variable "on_prem_non_prod_vpc_flow_log_sampling" {
   default = 0.2
 }

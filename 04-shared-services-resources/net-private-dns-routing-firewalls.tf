@@ -51,7 +51,7 @@ module "private_prod_vpc_firewall_deny_all_egress" {
   project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
   network_self_link = google_compute_network.private_prod_vpc.self_link
   network_name      = google_compute_network.private_prod_vpc.name
-  priority          = var.private_prod_deny_all_egress_priority
+  priority          = var.prod_deny_all_egress_priority
 }
 
 # Denies all ingress on all VMs. Also enables logging for this FW rule.
@@ -60,7 +60,7 @@ module "private_prod_vpc_firewall_deny_all_ingress" {
   project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
   network_self_link = google_compute_network.private_prod_vpc.self_link
   network_name      = google_compute_network.private_prod_vpc.name
-  priority          = var.private_prod_deny_all_ingress_priority
+  priority          = var.prod_deny_all_ingress_priority
 }
 
 # Allows egress for all VMs to restrict apis vips
@@ -80,7 +80,7 @@ module "private_non_prod_vpc_firewall_deny_all_egress" {
   project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_self_link = google_compute_network.private_non_prod_vpc.self_link
   network_name      = google_compute_network.private_non_prod_vpc.name
-  priority          = var.private_non_prod_deny_all_egress_priority
+  priority          = var.non_prod_deny_all_egress_priority
 }
 
 # Denies all ingress on all VMs. Also enables logging for this FW rule.
@@ -89,7 +89,7 @@ module "private_non_prod_vpc_firewall_deny_all_ingress" {
   project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
   network_self_link = google_compute_network.private_non_prod_vpc.self_link
   network_name      = google_compute_network.private_non_prod_vpc.name
-  priority          = var.private_non_prod_deny_all_ingress_priority
+  priority          = var.non_prod_deny_all_ingress_priority
 }
 
 # Allows ingress on 22, 3389, 443 on all VMs from all rfc1918
