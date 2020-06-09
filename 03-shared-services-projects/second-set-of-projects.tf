@@ -19,7 +19,7 @@
  *****************************************/
 
 /******************************************
-  OS Images Projects - Restricted
+  OS Images Projects
  *****************************************/
 
 # Non-Prod
@@ -63,7 +63,7 @@ module "os_images_project_prod" {
 }
 
 /******************************************
-  GKE Clusters - Retricted
+  GKE Clusters
  *****************************************/
 
 # Non-Prod
@@ -104,4 +104,23 @@ module "gke_cluster_project_prod" {
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
   subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
+}
+
+/******************************************
+  Outputs
+ *****************************************/
+output "os_images_prod_project_id" {
+  value = module.os_images_project_prod.project_id
+}
+
+output "os_images_non_prod_project_id" {
+  value = module.os_images_project_non_prod.project_id
+}
+
+output "gke_cluster_prod_project_id" {
+  value = module.gke_cluster_project_prod.project_id
+}
+
+output "gke_cluster_non_prod_project_id" {
+  value = module.gke_cluster_project_non_prod.project_id
 }

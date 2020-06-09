@@ -14,7 +14,7 @@
  */
 
 /******************************************
-  Acceess Context Manager Access Policy
+  Access Context Manager Access Policy
  *****************************************/
 
 resource "google_access_context_manager_access_policy" "access_policy" {
@@ -103,4 +103,12 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
     ignore_changes = [status[0].resources]
   }
 
+}
+
+/******************************************
+  Outputs
+ *****************************************/
+
+output "vpc_sc_perimeter_name" {
+  value = google_access_context_manager_service_perimeter.service_perimeter_configuration.name
 }

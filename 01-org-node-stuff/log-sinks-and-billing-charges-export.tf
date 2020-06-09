@@ -138,3 +138,9 @@ resource "google_project_iam_policy" "billing_charges_export_project_iam_policy"
   policy_data = data.google_iam_policy.billing_charges_export_project_iam_policy_data.policy_data
   project     = data.terraform_remote_state.rs03_shared_services_projects.outputs.billing_charges_export_project_id
 }
+
+
+/******************************************
+  Outputs
+ *****************************************/
+

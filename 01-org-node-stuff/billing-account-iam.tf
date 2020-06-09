@@ -54,3 +54,8 @@ resource "google_billing_account_iam_policy" "billing_account_iam" {
   billing_account_id  = var.billing_account_id
   policy_data         = data.google_iam_policy.billing_account_policy_data.policy_data
 }
+
+/******************************************
+  Outputs
+ *****************************************/
+
