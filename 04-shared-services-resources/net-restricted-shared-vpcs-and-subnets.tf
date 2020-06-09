@@ -149,3 +149,112 @@ module "restricted_non_prod_vpc_subnet_4" {
   vpc_flow_log_sampling   = var.non_prod_vpc_flow_log_sampling
   subnet_number           = "1"
 }
+
+/******************************************
+  Outputs
+ *****************************************/
+output "subnet_1_region" {
+  value = var.region_1
+}
+
+output "subnet_2_region" {
+  value = var.region_1
+}
+
+output "subnet_3_region" {
+  value = var.region_1
+}
+
+output "subnet_4_region" {
+  value = var.region_1
+}
+
+/******************************************
+  Restricted Subnets Prod
+ *****************************************/
+output "restricted_prod_vpc_subnet_1_name" {
+  value = module.restricted_prod_vpc_subnet_1.subnet_name
+}
+
+output "restricted_prod_vpc_subnet_1_self_link" {
+  value = module.restricted_prod_vpc_subnet_1.subnet_self_link
+}
+
+output "restricted_prod_vpc_subnet_1_id" {
+  value = module.restricted_prod_vpc_subnet_1.subnet_id
+}
+
+output "restricted_prod_vpc_subnet_2_name" {
+  value = module.restricted_prod_vpc_subnet_2.subnet_name
+}
+
+output "restricted_prod_vpc_subnet_2_self_link" {
+  value = module.restricted_prod_vpc_subnet_2.subnet_self_link
+}
+
+output "restricted_prod_vpc_subnet_2_id" {
+  value = module.restricted_prod_vpc_subnet_2.subnet_id
+}
+
+output "restricted_prod_vpc_subnet_3_name" {
+  value = module.restricted_prod_vpc_subnet_3.subnet_name
+}
+
+output "restricted_prod_vpc_subnet_3_self_link" {
+  value = module.restricted_prod_vpc_subnet_3.subnet_self_link
+}
+
+output "restricted_prod_vpc_subnet_3_id" {
+  value = module.restricted_prod_vpc_subnet_3.subnet_id
+}
+
+output "restricted_prod_vpc_subnet_4_name" {
+  value = module.restricted_prod_vpc_subnet_4.subnet_name
+}
+
+output "restricted_prod_vpc_subnet_4_self_link" {
+  value = module.restricted_prod_vpc_subnet_4.subnet_self_link
+}
+
+output "restricted_prod_vpc_subnet_4_id" {
+  value = module.restricted_prod_vpc_subnet_4.subnet_id
+}
+
+/******************************************
+  Restricted Subnets Non Prod
+ *****************************************/
+output "restricted_non_prod_vpc_subnet_1_name" {
+  value = module.restricted_non_prod_vpc_subnet_1.subnet_name
+}
+
+output "restricted_non_prod_vpc_subnet_1_self_link" {
+  value = module.restricted_non_prod_vpc_subnet_1.subnet_self_link
+}
+
+output "restricted_non_prod_vpc_subnet_1_id" {
+  value = module.restricted_non_prod_vpc_subnet_1.subnet_id
+}
+
+output "restricted_non_prod_vpc_subnet_2_name" {
+  value = module.restricted_non_prod_vpc_subnet_2.subnet_name
+}
+
+output "restricted_non_prod_vpc_subnet_2_self_link" {
+  value = module.restricted_non_prod_vpc_subnet_2.subnet_self_link
+}
+
+output "restricted_non_prod_vpc_subnet_2_id" {
+  value = module.restricted_non_prod_vpc_subnet_2.subnet_id
+}
+
+output "restricted_non_prod_vpc_subnet_3_name" {
+  value = module.restricted_non_prod_vpc_subnet_3.subnet_name
+}
+
+output "restricted_non_prod_vpc_subnet_3_self_link" {
+  value = module.restricted_non_prod_vpc_subnet_3.subnet_self_link
+}
+
+output "restricted_non_prod_vpc_subnet_3_id" {
+  value = module.restricted_non_prod_vpc_subnet_3.subnet_id
+}

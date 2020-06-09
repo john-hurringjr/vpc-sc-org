@@ -149,3 +149,111 @@ module "private_non_prod_vpc_subnet_4" {
   vpc_flow_log_sampling   = var.non_prod_vpc_flow_log_sampling
   subnet_number           = "1"
 }
+
+/******************************************
+  Outputs
+ *****************************************/
+
+// Subnet regions are output'd in the restricted shared vpcs and subnets tf
+
+/******************************************
+  Private Subnets Prod
+ *****************************************/
+output "private_prod_vpc_subnet_1_name" {
+  value = module.private_prod_vpc_subnet_1.subnet_name
+}
+
+output "private_prod_vpc_subnet_1_self_link" {
+  value = module.private_prod_vpc_subnet_1.subnet_self_link
+}
+
+output "private_prod_vpc_subnet_1_id" {
+  value = module.private_prod_vpc_subnet_1.subnet_id
+}
+
+output "private_prod_vpc_subnet_2_name" {
+  value = module.private_prod_vpc_subnet_2.subnet_name
+}
+
+output "private_prod_vpc_subnet_2_self_link" {
+  value = module.private_prod_vpc_subnet_2.subnet_self_link
+}
+
+output "private_prod_vpc_subnet_2_id" {
+  value = module.private_prod_vpc_subnet_2.subnet_id
+}
+
+output "private_prod_vpc_subnet_3_name" {
+  value = module.private_prod_vpc_subnet_3.subnet_name
+}
+
+output "private_prod_vpc_subnet_3_self_link" {
+  value = module.private_prod_vpc_subnet_3.subnet_self_link
+}
+
+output "private_prod_vpc_subnet_3_id" {
+  value = module.private_prod_vpc_subnet_3.subnet_id
+}
+
+output "private_prod_vpc_subnet_4_name" {
+  value = module.private_prod_vpc_subnet_4.subnet_name
+}
+
+output "private_prod_vpc_subnet_4_self_link" {
+  value = module.private_prod_vpc_subnet_4.subnet_self_link
+}
+
+output "private_prod_vpc_subnet_4_id" {
+  value = module.private_prod_vpc_subnet_4.subnet_id
+}
+
+/******************************************
+  Private Subnets Non Prod
+ *****************************************/
+output "private_non_prod_vpc_subnet_1_name" {
+  value = module.private_non_prod_vpc_subnet_1.subnet_name
+}
+
+output "private_non_prod_vpc_subnet_1_self_link" {
+  value = module.private_non_prod_vpc_subnet_1.subnet_self_link
+}
+
+output "private_non_prod_vpc_subnet_1_id" {
+  value = module.private_non_prod_vpc_subnet_1.subnet_id
+}
+
+output "private_non_prod_vpc_subnet_2_name" {
+  value = module.private_non_prod_vpc_subnet_2.subnet_name
+}
+
+output "private_non_prod_vpc_subnet_2_self_link" {
+  value = module.private_non_prod_vpc_subnet_2.subnet_self_link
+}
+
+output "private_non_prod_vpc_subnet_2_id" {
+  value = module.private_non_prod_vpc_subnet_2.subnet_id
+}
+
+output "private_non_prod_vpc_subnet_3_name" {
+  value = module.private_non_prod_vpc_subnet_3.subnet_name
+}
+
+output "private_non_prod_vpc_subnet_3_self_link" {
+  value = module.private_non_prod_vpc_subnet_3.subnet_self_link
+}
+
+output "private_non_prod_vpc_subnet_3_id" {
+  value = module.private_non_prod_vpc_subnet_3.subnet_id
+}
+
+output "private_non_prod_vpc_subnet_4_name" {
+  value = module.private_non_prod_vpc_subnet_4.subnet_name
+}
+
+output "private_non_prod_vpc_subnet_4_self_link" {
+  value = module.private_non_prod_vpc_subnet_4.subnet_self_link
+}
+
+output "private_non_prod_vpc_subnet_4_id" {
+  value = module.private_non_prod_vpc_subnet_4.subnet_id
+}

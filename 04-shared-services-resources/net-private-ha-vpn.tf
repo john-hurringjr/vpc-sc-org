@@ -32,11 +32,19 @@
 // Declared Variable - Private HA VPN
 // *****************************************/
 //# Prod
-//variable "private_on_prem_prod_vpc_router_region_1_asn" {}
-//variable "private_on_prem_prod_vpc_router_region_2_asn" {}
+//variable "private_on_prem_prod_vpc_router_region_1_asn" {
+//  default = 4200000300
+//}
+//variable "private_on_prem_prod_vpc_router_region_2_asn" {
+//  default = 4200000301
+//}
 //
-//variable "private_prod_vpc_router_region_1_asn" {}
-//variable "private_prod_vpc_router_region_2_asn" {}
+//variable "private_prod_vpc_router_region_1_asn" {
+//  default = 4200000800
+//}
+//variable "private_prod_vpc_router_region_2_asn" {
+//  default = 4200000801
+//}
 //
 //variable "vpn_on_prem_private_prod_region_1_shared_secret_tunnel_1" {}
 //variable "vpn_on_prem_private_prod_region_1_shared_secret_tunnel_2" {}
@@ -44,11 +52,19 @@
 //variable "vpn_on_prem_private_prod_region_2_shared_secret_tunnel_2" {}
 //
 //# Non-Prod
-//variable "private_on_prem_non_prod_vpc_router_region_1_asn" {}
-//variable "private_on_prem_non_prod_vpc_router_region_2_asn" {}
+//variable "private_on_prem_non_prod_vpc_router_region_1_asn" {
+//  default = 4200000400
+//}
+//variable "private_on_prem_non_prod_vpc_router_region_2_asn" {
+//  default = 4200000501
+//}
 //
-//variable "private_non_prod_vpc_router_region_1_asn" {}
-//variable "private_non_prod_vpc_router_region_2_asn" {}
+//variable "private_non_prod_vpc_router_region_1_asn" {
+//  default = 4200000900
+//}
+//variable "private_non_prod_vpc_router_region_2_asn" {
+//  default = 4200000901
+//}
 //
 //variable "vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_1" {}
 //variable "vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_2" {}

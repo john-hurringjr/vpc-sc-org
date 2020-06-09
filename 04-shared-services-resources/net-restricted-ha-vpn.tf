@@ -28,18 +28,29 @@
   Therefore, it is highly recommend and asked that you use this file
   to comment the VPN in/out as needed. Declared variables are included
   in this file as Terraform will stop supporting declared variables that
-  are unused (and if you comment out the code they will be unused).
+  are unused (and if you comment out the code they will be unused). I've also
+  only decided to connect two regions. You may wish to connect more, but
+  for the purposes of this deployment, I decided to allow global routing to
+  cover my access to non-directly-connected regions.
 */
 
 ///******************************************
 // Declared Variable - Restricted HA VPN
 // *****************************************/
 //# Prod
-//variable "restricted_on_prem_prod_vpc_router_region_1_asn" {}
-//variable "restricted_on_prem_prod_vpc_router_region_2_asn" {}
+//variable "restricted_on_prem_prod_vpc_router_region_1_asn" {
+//  default = 4200000100
+//}
+//variable "restricted_on_prem_prod_vpc_router_region_2_asn" {
+//  default = 4200000101
+//}
 //
-//variable "restricted_prod_vpc_router_region_1_asn" {}
-//variable "restricted_prod_vpc_router_region_2_asn" {}
+//variable "restricted_prod_vpc_router_region_1_asn" {
+//  default = 4200000600
+//}
+//variable "restricted_prod_vpc_router_region_2_asn" {
+//  default = 4200000601
+//}
 //
 //variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_1" {}
 //variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_2" {}
@@ -47,11 +58,19 @@
 //variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_2" {}
 //
 //# Non-Prod
-//variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {}
-//variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {}
+//variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {
+//  default = 420000200
+//}
+//variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {
+//  default = 4200000201
+//}
 //
-//variable "restricted_non_prod_vpc_router_region_1_asn" {}
-//variable "restricted_non_prod_vpc_router_region_2_asn" {}
+//variable "restricted_non_prod_vpc_router_region_1_asn" {
+//  default = 4200000700
+//}
+//variable "restricted_non_prod_vpc_router_region_2_asn" {
+//  default = 4200000701
+//}
 //
 //variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1" {}
 //variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2" {}
@@ -129,4 +148,3 @@
 //  region                    = var.region_2
 //  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
 //}
-
