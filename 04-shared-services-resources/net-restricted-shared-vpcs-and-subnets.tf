@@ -101,8 +101,8 @@ module "restricted_non_prod_vpc_subnet_1" {
   network_name            = google_compute_network.restricted_non_prod_vpc.name
   region                  = var.region_1
   primary_cidr            = var.non_prod_vpc_subnet_1_cidr_primary
-  alias_gke_pod_cidr      = var.non_prod_vpc_subnet_4_cidr_pods
-  alias_gke_service_cidr  = var.non_prod_vpc_subnet_4_cidr_services
+  alias_gke_pod_cidr      = var.non_prod_vpc_subnet_1_cidr_pods
+  alias_gke_service_cidr  = var.non_prod_vpc_subnet_1_cidr_services
   vpc_flow_log_interval   = var.non_prod_vpc_flow_log_interval
   vpc_flow_log_sampling   = var.non_prod_vpc_flow_log_sampling
   subnet_number           = "1"
