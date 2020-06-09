@@ -68,8 +68,8 @@ module "org_log_sink_project" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/log-sink"
   project_friendly_name       = "Org Log Sink Project"
   unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "orgsink-2"
+  environment                 = ""
+  unique_project_identifier   = "orgsink"
   folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id          = var.billing_account_id
   label_business_unit         = ""
