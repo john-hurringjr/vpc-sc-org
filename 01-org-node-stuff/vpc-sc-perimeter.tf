@@ -23,13 +23,13 @@ resource "google_access_context_manager_access_policy" "access_policy" {
 }
 
 /*
-Be very careful using the aboce block. If your org already has an access policy this will clear it out and make a new one
+Be very careful using the above block. If your org already has an access policy this will clear it out and make a new one
 Clearing out a policy like this will remove any access levels already created.
 */
 
 
 /******************************************
-  Acceess Context Manager Perimeter (VPC Service Controls)
+  Access Context Manager Perimeter (VPC Service Controls)
  *****************************************/
 resource "google_access_context_manager_service_perimeter" "service_perimeter_configuration" {
   parent = "accessPolicies/${google_access_context_manager_access_policy.access_policy.name}"
@@ -96,6 +96,9 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
 
   }
 
+  # The below is required so we can dynamically add new projects to perimeter
+  # Without this block, if we create new projects and add them, this resource
+  # will wipe out those additions and revert to whatever we list here
   lifecycle {
     ignore_changes = [status[0].resources]
   }
