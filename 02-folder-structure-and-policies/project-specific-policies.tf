@@ -96,3 +96,8 @@ resource "google_project_organization_policy" "non_prod_gke_cluster_project_allo
     }
   }
 }
+
+/******************************************
+  Outputs
+ *****************************************/
+
