@@ -14,19 +14,50 @@
  */
 
 /*
+  Many of the same variables are used for private api access and for
+  restricted api access. So, they are only declared once here
+  and then reused in both deployments. A few need to be unique
+  and so you will see "private" or "restricted" listed in the variable
+  name for those. For example, in the projects we will create
+  both restricted and private so we need to distinguish between them
+  by calling it out in the VPC Name.
+ */
 
-I use a GCP project hosted in another Org for my fake "On Prem"
-environment. You may ignore this if you want to configure your own VPN.
-
-Note, I use thise file to comment in/out my VPN to help reduce cost
-when I am not using the VPN for testing.
-
-As mentioned in the readme, you will need to grant your TF service
-account the appropriate permissions to your "on prem" gcp project.
-Network Admin & Compute Security Admin
-
+/*
+  HA VPN can become costs if left up 24x7 for a simple test environment
+  Therefore, it is highly recommend and asked that you use this file
+  to comment the VPN in/out as needed. Declared variables are included
+  in this file as Terraform will stop supporting declared variables that
+  are unused (and if you comment out the code they will be unused).
 */
 
+///******************************************
+// Declared Variable - Restricted HA VPN
+// *****************************************/
+//# Prod
+//variable "restricted_on_prem_prod_vpc_router_region_1_asn" {}
+//variable "restricted_on_prem_prod_vpc_router_region_2_asn" {}
+//
+//variable "restricted_prod_vpc_router_region_1_asn" {}
+//variable "restricted_prod_vpc_router_region_2_asn" {}
+//
+//variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_2" {}
+//variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_2" {}
+//
+//# Non-Prod
+//variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {}
+//variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {}
+//
+//variable "restricted_non_prod_vpc_router_region_1_asn" {}
+//variable "restricted_non_prod_vpc_router_region_2_asn" {}
+//
+//variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2" {}
+//variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
+//
 ///******************************************
 //  Restricted On Prem HA VPN with Prod VPC
 // *****************************************/
@@ -98,3 +129,4 @@ Network Admin & Compute Security Admin
 //  region                    = var.region_2
 //  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
 //}
+

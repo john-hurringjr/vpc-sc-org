@@ -23,21 +23,63 @@ variable "region_2" {
   default = "us-central1"
 }
 
-variable "region_3" {}
+variable "region_3" {
+  default = "us-west4"
+}
 
-variable "region_4" {}
+variable "region_4" {
+  default = "northamerica-northeast1"
+}
 
 /******************************************
-  Subnets Prod
+  Prod - Subnets
  *****************************************/
-# Restricted
-variable "restricted_prod_vpc_subnet_1_cidr" {
+# Restricted - Primary
+variable "restricted_prod_vpc_subnet_1_cidr_primary" {
   default = "10.0.0.0/19"
 }
-variable "restricted_prod_vpc_subnet_2_cidr" {
+variable "restricted_prod_vpc_subnet_2_cidr_primary" {
   default = "10.128.0.0/19"
 }
 
+variable "restricted_prod_vpc_subnet_3_cidr_primary" {
+  default = "10.0.0.0/19"
+}
+variable "restricted_prod_vpc_subnet_4_cidr_primary" {
+  default = "10.128.0.0/19"
+}
+
+# Restricted - Secondary Pod IPs
+variable "restricted_prod_vpc_subnet_1_cidr_pods" {
+  default = "10.0.0.0/19"
+}
+variable "restricted_prod_vpc_subnet_2_cidr_pods" {
+  default = "10.128.0.0/19"
+}
+
+variable "restricted_prod_vpc_subnet_3_cidr_pods" {
+  default = "10.0.0.0/19"
+}
+variable "restricted_prod_vpc_subnet_4_cidr_pods" {
+  default = "10.128.0.0/19"
+}
+
+# Restricted - Secondary Services IPs
+variable "restricted_prod_vpc_subnet_1_cidr_services" {
+  default = "10.0.0.0/19"
+}
+variable "restricted_prod_vpc_subnet_2_cidr_services" {
+  default = "10.128.0.0/19"
+}
+
+variable "restricted_prod_vpc_subnet_3_cidr_services" {
+  default = "10.0.0.0/19"
+}
+variable "restricted_prod_vpc_subnet_4_cidr_services" {
+  default = "10.128.0.0/19"
+}
+
+# Restricted - Logging Settings
 variable "restricted_prod_vpc_flow_log_interval" {
   default = "INTERVAL_5_MIN"
 }
@@ -45,14 +87,52 @@ variable "restricted_prod_vpc_flow_log_sampling" {
   default =  0.8
 }
 
-# Private
-variable "private_prod_vpc_subnet_1_cidr" {
+# Private - Primary
+variable "private_prod_vpc_subnet_1_cidr_primary" {
   default = "10.0.0.0/19"
 }
-variable "private_prod_vpc_subnet_2_cidr" {
+variable "private_prod_vpc_subnet_2_cidr_primary" {
   default = "10.128.0.0/19"
 }
 
+variable "private_prod_vpc_subnet_3_cidr_primary" {
+  default = "10.0.0.0/19"
+}
+variable "private_prod_vpc_subnet_4_cidr_primary" {
+  default = "10.128.0.0/19"
+}
+
+# Private - Secondary Pod IPs
+variable "private_prod_vpc_subnet_1_cidr_pods" {
+  default = "10.0.0.0/19"
+}
+variable "private_prod_vpc_subnet_2_cidr_pods" {
+  default = "10.128.0.0/19"
+}
+
+variable "private_prod_vpc_subnet_3_cidr_pods" {
+  default = "10.0.0.0/19"
+}
+variable "private_prod_vpc_subnet_4_cidr_pods" {
+  default = "10.128.0.0/19"
+}
+
+# Private - Secondary Services IPs
+variable "private_prod_vpc_subnet_1_cidr_services" {
+  default = "10.0.0.0/19"
+}
+variable "private_prod_vpc_subnet_2_cidr_services" {
+  default = "10.128.0.0/19"
+}
+
+variable "private_prod_vpc_subnet_3_cidr_services" {
+  default = "10.0.0.0/19"
+}
+variable "private_prod_vpc_subnet_4_cidr_services" {
+  default = "10.128.0.0/19"
+}
+
+# Private - Logging Settings
 variable "private_prod_vpc_flow_log_interval" {
   default = "INTERVAL_5_MIN"
 }
@@ -61,27 +141,32 @@ variable "private_prod_vpc_flow_log_sampling" {
 }
 
 /******************************************
-  Subnets Non-Prod
+  Non-Prod - Subnets
  *****************************************/
 
 # Restricted
-variable "restricted_non_prod_vpc_subnet_1_cidr" {
+variable "restricted_non_prod_vpc_subnet_1_cidr_primary" {
   default = "172.16.0.0/19"
 }
-variable "restricted_non_prod_vpc_subnet_2_cidr" {}
+variable "restricted_non_prod_vpc_subnet_2_cidr_primary" {}
+variable "restricted_non_prod_vpc_subnet_3_cidr_primary" {}
+variable "restricted_non_prod_vpc_subnet_4_cidr_primary" {}
+
 
 variable "restricted_non_prod_vpc_flow_log_interval" {}
 variable "restricted_non_prod_vpc_flow_log_sampling" {}
 
 # Private
-variable "private_non_prod_vpc_subnet_1_cidr" {}
-variable "private_non_prod_vpc_subnet_2_cidr" {}
+variable "private_non_prod_vpc_subnet_1_cidr_primary" {}
+variable "private_non_prod_vpc_subnet_2_cidr_primary" {}
+variable "private_non_prod_vpc_subnet_3_cidr_primary" {}
+variable "private_non_prod_vpc_subnet_4_cidr_primary" {}
 
 variable "private_non_prod_vpc_flow_log_interval" {}
 variable "private_non_prod_vpc_flow_log_sampling" {}
 
 /******************************************
-  Firewalls
+  Prod & Non-Prod - Firewalls
  *****************************************/
 
 # Restricted
@@ -106,6 +191,8 @@ variable "on_prem_project_id" {}
 variable "restricted_on_prem_prod_vpc_name" {}
 variable "restricted_on_prem_prod_vpc_subnet_1_cidr" {}
 variable "restricted_on_prem_prod_vpc_subnet_2_cidr" {}
+variable "restricted_on_prem_prod_vpc_subnet_3_cidr" {}
+variable "restricted_on_prem_prod_vpc_subnet_4_cidr" {}
 variable "restricted_on_prem_prod_vpc_flow_log_interval" {}
 variable "restricted_on_prem_prod_vpc_flow_log_sampling" {}
 
@@ -113,6 +200,8 @@ variable "restricted_on_prem_prod_vpc_flow_log_sampling" {}
 variable "restricted_on_prem_non_prod_vpc_name" {}
 variable "restricted_on_prem_non_prod_vpc_subnet_1_cidr" {}
 variable "restricted_on_prem_non_prod_vpc_subnet_2_cidr" {}
+variable "restricted_on_prem_non_prod_vpc_subnet_3_cidr" {}
+variable "restricted_on_prem_non_prod_vpc_subnet_4_cidr" {}
 variable "restricted_on_prem_non_prod_vpc_flow_log_interval" {}
 variable "restricted_on_prem_non_prod_vpc_flow_log_sampling" {}
 
@@ -120,6 +209,8 @@ variable "restricted_on_prem_non_prod_vpc_flow_log_sampling" {}
 variable "private_on_prem_prod_vpc_name" {}
 variable "private_on_prem_prod_vpc_subnet_1_cidr" {}
 variable "private_on_prem_prod_vpc_subnet_2_cidr" {}
+variable "private_on_prem_prod_vpc_subnet_3_cidr" {}
+variable "private_on_prem_prod_vpc_subnet_4_cidr" {}
 variable "private_on_prem_prod_vpc_flow_log_interval" {}
 variable "private_on_prem_prod_vpc_flow_log_sampling" {}
 
@@ -127,6 +218,8 @@ variable "private_on_prem_prod_vpc_flow_log_sampling" {}
 variable "private_on_prem_non_prod_vpc_name" {}
 variable "private_on_prem_non_prod_vpc_subnet_1_cidr" {}
 variable "private_on_prem_non_prod_vpc_subnet_2_cidr" {}
+variable "private_on_prem_non_prod_vpc_subnet_3_cidr" {}
+variable "private_on_prem_non_prod_vpc_subnet_4_cidr" {}
 variable "private_on_prem_non_prod_vpc_flow_log_interval" {}
 variable "private_on_prem_non_prod_vpc_flow_log_sampling" {}
 
@@ -154,26 +247,3 @@ variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2" {}
 variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1" {}
 variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
 
-/******************************************
- Private HA VPN
- *****************************************/
-variable "private_on_prem_prod_vpc_router_region_1_asn" {}
-variable "private_on_prem_prod_vpc_router_region_2_asn" {}
-variable "private_on_prem_non_prod_vpc_router_region_1_asn" {}
-variable "private_on_prem_non_prod_vpc_router_region_2_asn" {}
-
-variable "private_prod_vpc_router_region_1_asn" {}
-variable "private_prod_vpc_router_region_2_asn" {}
-
-variable "private_non_prod_vpc_router_region_1_asn" {}
-variable "private_non_prod_vpc_router_region_2_asn" {}
-
-variable "vpn_on_prem_private_prod_region_1_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_private_prod_region_1_shared_secret_tunnel_2" {}
-variable "vpn_on_prem_private_prod_region_2_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_private_prod_region_2_shared_secret_tunnel_2" {}
-
-variable "vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_private_non_prod_region_1_shared_secret_tunnel_2" {}
-variable "vpn_on_prem_private_non_prod_region_2_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_private_non_prod_region_2_shared_secret_tunnel_2" {}
