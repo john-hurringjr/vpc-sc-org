@@ -69,7 +69,7 @@ module "org_log_sink_project" {
   project_friendly_name       = "Org Log Sink Project"
   unique_shared_id            = var.project_unique_shared_id
   environment                 = "prod"
-  unique_project_identifier   = "orgsink"
+  unique_project_identifier   = "orgsink-2"
   folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id          = var.billing_account_id
   label_business_unit         = ""
