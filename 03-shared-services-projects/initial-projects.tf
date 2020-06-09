@@ -84,7 +84,7 @@ module "org_log_sink_project" {
 # Monitors all Shared Service Projects
 module "monitoring_project_shared_services" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
-  project_friendly_name       = "Shared Services Monitoring Project"
+  project_friendly_name       = "SS Monitoring Project"
   unique_shared_id            = var.project_unique_shared_id
   environment                 = ""
   unique_project_identifier   = "ss-monitoring"
