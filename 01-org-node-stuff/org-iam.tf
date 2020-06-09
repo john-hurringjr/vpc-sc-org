@@ -28,3 +28,7 @@ module "org_iam" {
   billing_admins_group                            = var.billing_admins_group
   organization_id                                 = var.organization_id
 }
+
+/******************************************
+  Outputs
+ *****************************************/

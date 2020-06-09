@@ -23,3 +23,8 @@ module "org_policies" {
   domain_identity_secondary = var.domain_identity_secondary
   organization_id           = var.organization_id
 }
+
+/******************************************
+  Outputs
+ *****************************************/
+

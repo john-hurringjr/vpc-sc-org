@@ -64,11 +64,11 @@ module "billing_charges_export_project" {
 /******************************************
   Org Log Sink Project
  *****************************************/
-module "org_log_sink_project_prod" {
+module "org_log_sink_project" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/log-sink"
   project_friendly_name       = "Org Log Sink Project"
   unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
+  environment                 = ""
   unique_project_identifier   = "orgsink"
   folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id          = var.billing_account_id
@@ -81,32 +81,42 @@ module "org_log_sink_project_prod" {
 /******************************************
   Monitoring Project
  *****************************************/
-# Monitors all Shared Service Projects & Prod Projects
-module "monitoring_project_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
-  project_friendly_name       = "Prod Monitoring Project"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "prod"
-  unique_project_identifier   = "monitoring"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.security_viewers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+# Monitors all Shared Service Projects
+//module "monitoring_project_shared_services" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
+//  project_friendly_name       = "Shared Services Monitoring Project"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = ""
+//  unique_project_identifier   = "ss-monitoring"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+//  billing_account_id          = var.billing_account_id
+//  label_business_unit         = ""
+//  label_restrictions          = ""
+//  project_viewer_group        = var.security_viewers
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//}
+
+
+/******************************************
+  Outputs
+ *****************************************/
+
+output "shared_vpc_prod_project_id" {
+  value = module.shared_vpc_host_project_prod.project_id
 }
 
-# Monitors all Non-Prod Project
-module "monitoring_project_non_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
-  project_friendly_name       = "Non-Prod Monitoring Project"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "non-prod"
-  unique_project_identifier   = "monitoring"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-  billing_account_id          = var.billing_account_id
-  label_business_unit         = ""
-  label_restrictions          = ""
-  project_viewer_group        = var.security_viewers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+output "shared_vpc_non_prod_project_id" {
+  value = module.shared_vpc_host_project_non_prod.project_id
 }
+
+output "billing_charges_export_project_id" {
+  value = module.billing_charges_export_project.project_id
+}
+
+output "org_log_sink_prod_project_id" {
+  value = module.org_log_sink_project.project_id
+}
+
+//output "monitoring_prod_project_id" {
+//  value = module.monitoring_project_shared_services.project_id
+//}

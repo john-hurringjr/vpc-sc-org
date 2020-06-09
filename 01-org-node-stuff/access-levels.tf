@@ -67,3 +67,7 @@ resource "google_access_context_manager_access_level" "org_sinks_service_account
   }
 }
 
+/******************************************
+  Outputs
+ *****************************************/
+
