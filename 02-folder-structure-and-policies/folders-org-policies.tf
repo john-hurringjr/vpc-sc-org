@@ -45,8 +45,6 @@ resource "google_folder_organization_policy" "non_prod_restrict_vpc_host" {
 
 }
 
-
-
 /******************************************
   Location Restriction
  *****************************************/
@@ -75,3 +73,7 @@ resource "google_folder_organization_policy" "non_prod_bu_1_folder_location_rest
   }
 
 }
+
+/******************************************
+  Outputs
+ *****************************************/
