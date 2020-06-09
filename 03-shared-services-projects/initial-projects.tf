@@ -82,20 +82,19 @@ module "org_log_sink_project" {
   Monitoring Project
  *****************************************/
 # Monitors all Shared Service Projects
-//module "monitoring_project_shared_services" {
-//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
-//  project_friendly_name       = "Shared Services Monitoring Project"
-//  unique_shared_id            = var.project_unique_shared_id
-//  environment                 = ""
-//  unique_project_identifier   = "ss-monitoring"
-//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
-//  billing_account_id          = var.billing_account_id
-//  label_business_unit         = ""
-//  label_restrictions          = ""
-//  project_viewer_group        = var.security_viewers
-//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-//}
-
+module "monitoring_project_shared_services" {
+  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/monitoring"
+  project_friendly_name       = "SS Monitoring Project"
+  unique_shared_id            = var.project_unique_shared_id
+  environment                 = ""
+  unique_project_identifier   = "ss-monitoring"
+  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
+  billing_account_id          = var.billing_account_id
+  label_business_unit         = ""
+  label_restrictions          = ""
+  project_viewer_group        = var.security_viewers
+  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+}
 
 /******************************************
   Outputs
@@ -117,6 +116,6 @@ output "org_log_sink_prod_project_id" {
   value = module.org_log_sink_project.project_id
 }
 
-//output "monitoring_prod_project_id" {
-//  value = module.monitoring_project_shared_services.project_id
-//}
+output "monitoring_prod_project_id" {
+  value = module.monitoring_project_shared_services.project_id
+}
