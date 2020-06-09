@@ -49,28 +49,52 @@ variable "domain_identity_secondary" {}
 /******************************************
   Org Sinks
  *****************************************/
-variable "org_log_sink_prod_gcs_age_to_move_to_nearline" {}
-variable "org_log_sink_prod_gcs_age_to_move_to_coldine" {}
+variable "org_log_sink_prod_gcs_age_to_move_to_nearline" {
+  default = 180
+}
+variable "org_log_sink_prod_gcs_age_to_move_to_coldine" {
+  default = 365
+}
 variable "org_log_sink_prod_gcs_sink_name" {}
 variable "org_log_sink_prod_gcs_bucket_name" {}
 
-variable "org_log_sink_prod_bq_dataset_friendly_name" {}
-variable "org_log_sink_prod_bq_dataset_id" {}
-variable "org_log_sink_prod_bq_dataset_location" {}
-variable "org_log_sink_prod_bq_sink_name" {}
+variable "org_log_sink_prod_bq_dataset_friendly_name" {
+  default = "Org Sink"
+}
+variable "org_log_sink_prod_bq_dataset_id" {
+  default = "org_sink_prod"
+}
+variable "org_log_sink_prod_bq_dataset_location" {
+  default = "US"
+}
+variable "org_log_sink_prod_bq_sink_name" {
+  default = "bigquery-org-sink-prod"
+}
 
 /******************************************
   Billing Log Sink - GCS
  *****************************************/
-variable "billing_log_sink_prod_gcs_age_to_move_to_nearline" {}
-variable "billing_log_sink_prod_gcs_age_to_move_to_coldline" {}
+variable "billing_log_sink_prod_gcs_age_to_move_to_nearline" {
+  default = 180
+}
+variable "billing_log_sink_prod_gcs_age_to_move_to_coldline" {
+  default = 365
+}
 variable "billing_log_sink_prod_gcs_sink_name" {}
 variable "billing_log_sink_prod_gcs_bucket_name" {}
 
 /******************************************
   Billing Export - BigQuery
  *****************************************/
-variable "billing_charges_export_prod_bq_dataset_friendly_name" {}
-variable "billing_charges_export_prod_bq_dataset_location" {}
-variable "billing_charges_export_prod_bq_sink_name" {}
-variable "billing_charges_export_prod_bq_dataset_id" {}
+variable "billing_charges_export_prod_bq_dataset_friendly_name" {
+  default = "Billing Charges Export"
+}
+variable "billing_charges_export_prod_bq_dataset_location" {
+  default = "US"
+}
+variable "billing_charges_export_prod_bq_sink_name" {
+  default = "billing-charges-bq-export"
+}
+variable "billing_charges_export_prod_bq_dataset_id" {
+  default = "billing_charges_export"
+}

@@ -17,10 +17,15 @@
  *****************************************/
 variable "region_1" {
   default = "us-east4"
+}
 
-}variable "region_2" {
+variable "region_2" {
   default = "us-central1"
 }
+
+variable "region_3" {}
+
+variable "region_4" {}
 
 /******************************************
   Subnets Prod
