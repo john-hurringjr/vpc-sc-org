@@ -151,8 +151,8 @@ module "private_on_prem_non_prod_vpc_subnet_4" {
   project_id            = var.on_prem_project_id
   network_self_link     = google_compute_network.private_on_prem_vpc_non_prod.self_link
   network_name          = google_compute_network.private_on_prem_vpc_non_prod.name
-  region                = var.region_2
-  cidr                  = var.on_prem_non_prod_vpc_subnet_3_cidr
+  region                = var.region_4
+  cidr                  = var.on_prem_non_prod_vpc_subnet_4_cidr
   vpc_flow_log_interval = var.on_prem_non_prod_vpc_flow_log_interval
   vpc_flow_log_sampling = var.on_prem_non_prod_vpc_flow_log_sampling
   subnet_number         = "1"
