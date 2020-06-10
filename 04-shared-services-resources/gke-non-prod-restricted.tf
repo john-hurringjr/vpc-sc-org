@@ -79,6 +79,7 @@ resource "google_service_account" "gke_cluster_1_node_pool_1_service_account" {
   account_id  = "gke-node-pool-1"
 }
 
+
 /******************************************
   GKE - Node Pool - 1
  *****************************************/
