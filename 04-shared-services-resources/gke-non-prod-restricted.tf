@@ -16,7 +16,6 @@
 /******************************************
   Cluster (Placing in restricted APIs prj)
  *****************************************/
-
 //resource "google_container_cluster" "gke_cluster_1" {
 //  provider                  = google-beta
 //  project                   = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
