@@ -71,3 +71,14 @@ module "bu_2_sample_project_1_prod" {
   subnet_4_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_4_region
   subnet_4_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_4_name
 }
+
+/******************************************
+  Outputs
+ *****************************************/
+output "bu_1_sample_project_1_prod_prject_id" {
+  value = module.bu_1_sample_project_1_prod.project_id
+}
+
+output "bu_2_sample_project_1_prod_prject_id" {
+  value = module.bu_2_sample_project_1_prod.project_id
+}
