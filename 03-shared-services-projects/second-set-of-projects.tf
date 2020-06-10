@@ -111,6 +111,12 @@ resource "google_project_iam_member" "allow_gke_permission_to_vpc_host_non_prod"
   member =  "serviceAccount:service-${module.gke_cluster_project_non_prod.project_number}@container-engine-robot.iam.gserviceaccount.com"
 }
 
+resource "google_project_iam_member" "allow_gke_permission_to_vpc_host_networks_non_prod" {
+  project = module.shared_vpc_host_project_non_prod.project_id
+  role    = "roles/compute.networkUser"
+  member =  "serviceAccount:service-${module.gke_cluster_project_non_prod.project_number}@container-engine-robot.iam.gserviceaccount.com"
+}
+
 # Prod
 module "gke_cluster_project_prod" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
@@ -141,6 +147,12 @@ resource "google_project_iam_member" "allow_gke_permission_to_vpc_host_prod" {
   project = module.shared_vpc_host_project_prod.project_id
   role    = "roles/container.hostServiceAgentUser"
   member =  "serviceAccount:service-${module.gke_cluster_project_prod.project_number}@container-engine-robot.iam.gserviceaccount.com"
+}
+
+resource "google_project_iam_member" "allow_gke_permission_to_vpc_host_networks_non_prod" {
+  project = module.shared_vpc_host_project_non_prod.project_id
+  role    = "roles/compute.networkUser"
+  member =  "serviceAccount:service-${module.gke_cluster_project_non_prod.project_number}@container-engine-robot.iam.gserviceaccount.com"
 }
 
 /******************************************
