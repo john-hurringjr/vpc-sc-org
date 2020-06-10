@@ -14,7 +14,5 @@
  */
 
 /******************************************
-  GKE
+  TBD
  *****************************************/
-//variable "gke_cluster_test_1_name" {}
-//variable "gke_cluster_test_1_location" {}

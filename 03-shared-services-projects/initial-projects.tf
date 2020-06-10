@@ -38,7 +38,7 @@ module "shared_vpc_host_project_non_prod" {
   folder_id                 = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.shared_services_folder_id
   billing_account_id        = var.billing_account_id
   label_business_unit       = "shared-services"
-  label_restrictions        = "highlyconfidential"
+  label_restrictions        = ""
   network_viewer_group_id   = var.network_viewers
   service_perimeter_name    = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
 }

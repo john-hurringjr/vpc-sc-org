@@ -79,7 +79,7 @@ variable "region_4" {
 }
 
 /******************************************
-  Prod - Subnets
+  Prod - Subnet - CIDR Ranges
  *****************************************/
 # Primary
 variable "prod_vpc_subnet_1_cidr_primary" {
@@ -140,7 +140,7 @@ variable "prod_vpc_flow_log_sampling" {
 }
 
 /******************************************
-  Non-Prod - Subnets
+  Non-Prod - Subnet - CIDR Ranges
  *****************************************/
 # Primary
 variable "non_prod_vpc_subnet_1_cidr_primary" {
@@ -267,3 +267,24 @@ variable "on_prem_non_prod_vpc_flow_log_interval" {
 variable "on_prem_non_prod_vpc_flow_log_sampling" {
   default = 0.2
 }
+
+/******************************************
+  GKE
+ *****************************************/
+variable "gke_cluster_test_1_name" {
+  default = "gke-cluster-1-test"
+}
+
+variable "gke_cluster_test_1_master_authorized_cidr_1" {
+  default = "192.168.0.0/16"
+}
+
+variable "gke_cluster_test_1_master_authorized_cidr_2" {
+  default = "172.16.0.0/12"
+}
+
+variable "gke_cluster_test_1_master_cidr" {
+  default = "172.31.254.0/28"
+}
+variable "gke_cluster_test_1_username" {}
+variable "gke_cluster_test_1_password" {}
