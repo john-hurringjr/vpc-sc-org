@@ -24,7 +24,7 @@ resource "google_container_cluster" "gke_cluster_1" {
   location                  = var.region_1
   remove_default_node_pool  = true
   network                   = google_compute_network.restricted_non_prod_vpc.self_link
-  subnetwork                = module.restricted_prod_vpc_subnet_1.subnet_self_link
+  subnetwork                = module.restricted_non_prod_vpc_subnet_1.subnet_self_link
   initial_node_count        = 1
 
   // For testing purposes I've opened up all of non-prod and on prem IP addresses
