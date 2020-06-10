@@ -169,9 +169,6 @@ output "subnet_4_region" {
   value = var.region_4
 }
 
-/******************************************
-  Restricted Subnets Prod
- *****************************************/
 output "restricted_prod_vpc_network_self_link" {
   value = google_compute_network.restricted_prod_vpc.self_link
 }
@@ -180,6 +177,17 @@ output "restricted_prod_vpc_network_name" {
   value = google_compute_network.restricted_prod_vpc.name
 }
 
+output "restricted_non_prod_vpc_network_self_link" {
+  value = google_compute_network.restricted_non_prod_vpc.self_link
+}
+
+output "restricted_non_prod_vpc_network_name" {
+  value = google_compute_network.restricted_non_prod_vpc.name
+}
+
+/******************************************
+  Restricted Subnets Prod
+ *****************************************/
 output "restricted_prod_vpc_subnet_1_name" {
   value = module.restricted_prod_vpc_subnet_1.subnet_name
 }
@@ -231,14 +239,6 @@ output "restricted_prod_vpc_subnet_4_id" {
 /******************************************
   Restricted Subnets Non Prod
  *****************************************/
-output "restricted_non_prod_vpc_network_self_link" {
-  value = google_compute_network.restricted_non_prod_vpc.self_link
-}
-
-output "restricted_non_prod_vpc_network_name" {
-  value = google_compute_network.restricted_non_prod_vpc.name
-}
-
 output "restricted_non_prod_vpc_subnet_1_name" {
   value = module.restricted_non_prod_vpc_subnet_1.subnet_name
 }
