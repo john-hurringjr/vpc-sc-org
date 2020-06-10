@@ -59,7 +59,7 @@ variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_2" {}
 
 # Non-Prod
 variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {
-  default = 420000200
+  default = 4200000200
 }
 variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {
   default = 4200000201
