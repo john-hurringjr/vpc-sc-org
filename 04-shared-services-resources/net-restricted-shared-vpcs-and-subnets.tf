@@ -158,15 +158,15 @@ output "subnet_1_region" {
 }
 
 output "subnet_2_region" {
-  value = var.region_1
+  value = var.region_2
 }
 
 output "subnet_3_region" {
-  value = var.region_1
+  value = var.region_3
 }
 
 output "subnet_4_region" {
-  value = var.region_1
+  value = var.region_4
 }
 
 /******************************************
