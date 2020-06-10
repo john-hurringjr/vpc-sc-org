@@ -159,6 +159,14 @@ module "private_non_prod_vpc_subnet_4" {
 /******************************************
   Private Subnets Prod
  *****************************************/
+output "private_prod_vpc_network_self_link" {
+  value = google_compute_network.private_prod_vpc.self_link
+}
+
+output "private_prod_vpc_network_name" {
+  value = google_compute_network.private_prod_vpc.name
+}
+
 output "private_prod_vpc_subnet_1_name" {
   value = module.private_prod_vpc_subnet_1.subnet_name
 }
@@ -210,6 +218,14 @@ output "private_prod_vpc_subnet_4_id" {
 /******************************************
   Private Subnets Non Prod
  *****************************************/
+output "private_non_prod_vpc_network_self_link" {
+  value = google_compute_network.private_non_prod_vpc.self_link
+}
+
+output "private_non_prod_vpc_network_name" {
+  value = google_compute_network.private_non_prod_vpc.name
+}
+
 output "private_non_prod_vpc_subnet_1_name" {
   value = module.private_non_prod_vpc_subnet_1.subnet_name
 }
