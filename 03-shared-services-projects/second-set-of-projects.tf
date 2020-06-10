@@ -36,10 +36,14 @@ module "os_images_project_non_prod" {
   project_viewer_group        = var.operations_viewers
   shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_region
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_1_region
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_region
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_2_region
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_name
+  subnet_3_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_3_region
+  subnet_3_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_3_name
+  subnet_4_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_4_region
+  subnet_4_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_4_name
 }
 
 # Prod
@@ -56,10 +60,14 @@ module "os_images_project_prod" {
   project_viewer_group        = var.operations_viewers
   shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_region
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_1_region
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_2_region
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
+  subnet_3_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_3_region
+  subnet_3_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_3_name
+  subnet_4_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_4_region
+  subnet_4_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_4_name
 }
 
 /******************************************
@@ -80,10 +88,14 @@ module "gke_cluster_project_non_prod" {
   project_viewer_group        = var.operations_viewers
   shared_vpc_host_project_id  = module.shared_vpc_host_project_non_prod.project_id
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_region
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_1_region
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_region
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_2_region
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_2_name
+  subnet_3_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_3_region
+  subnet_3_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_3_name
+  subnet_4_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_4_region
+  subnet_4_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_non_prod_vpc_subnet_4_name
 }
 
 # Prod
@@ -100,10 +112,14 @@ module "gke_cluster_project_prod" {
   project_viewer_group        = var.operations_viewers
   shared_vpc_host_project_id  = module.shared_vpc_host_project_prod.project_id
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_region
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_1_region
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_2_region
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
+  subnet_3_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_3_region
+  subnet_3_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_3_name
+  subnet_4_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_4_region
+  subnet_4_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_4_name
 }
 
 /******************************************

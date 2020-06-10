@@ -258,3 +258,15 @@ output "restricted_non_prod_vpc_subnet_3_self_link" {
 output "restricted_non_prod_vpc_subnet_3_id" {
   value = module.restricted_non_prod_vpc_subnet_3.subnet_id
 }
+
+output "restricted_non_prod_vpc_subnet_4_name" {
+  value = module.restricted_non_prod_vpc_subnet_4.subnet_name
+}
+
+output "restricted_non_prod_vpc_subnet_4_self_link" {
+  value = module.restricted_non_prod_vpc_subnet_4.subnet_self_link
+}
+
+output "restricted_non_prod_vpc_subnet_4_id" {
+  value = module.restricted_non_prod_vpc_subnet_4.subnet_id
+}
