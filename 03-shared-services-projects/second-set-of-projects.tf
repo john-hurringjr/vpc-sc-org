@@ -13,6 +13,13 @@
  * limitations under the License.
  */
 
+/*
+  The projects below have their service accounts added to subnet IAM for the
+  restricted API VPCs. In general, restricted APIs should be used if VPC SC
+  are used as it reduces the risk of data exfiltration. Private is configured
+  mainly for testing purposes.
+*/
+
 /******************************************
   Uncomment below after Host Projects
   & Host VPCs are set up (04 VPCs)
