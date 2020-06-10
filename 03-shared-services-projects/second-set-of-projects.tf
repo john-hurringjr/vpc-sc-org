@@ -21,7 +21,6 @@
 /******************************************
   OS Images Projects
  *****************************************/
-
 # Non-Prod
 module "os_images_project_non_prod" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
@@ -73,7 +72,6 @@ module "os_images_project_prod" {
 /******************************************
   GKE Clusters
  *****************************************/
-
 # Non-Prod
 module "gke_cluster_project_non_prod" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
