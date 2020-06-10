@@ -27,9 +27,11 @@ resource "google_container_cluster" "gke_cluster_1" {
   subnetwork                = module.restricted_prod_vpc_subnet_1.subnet_self_link
   initial_node_count        = 1
 
+  // For testing purposes I've opened up all of non-prod and on prem IP addresses
   master_authorized_networks_config {
     cidr_blocks {
-      cidr_block = var.gke_cluster_test_1_master_authorized_cidrs
+      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_1 # "On Prem" IPs
+      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_2 # Non-Prod IPS
     }
   }
 
