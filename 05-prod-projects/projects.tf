@@ -13,6 +13,13 @@
  * limitations under the License.
  */
 
+/*
+  The projects below have their service accounts added to subnet IAM for the
+  restricted API VPCs. In general, restricted APIs should be used if VPC SC
+  are used as it reduces the risk of data exfiltration. Private is configured
+  mainly for testing purposes.
+*/
+
 /******************************************
   BU 1
  *****************************************/
@@ -29,10 +36,14 @@ module "bu_1_sample_project_1_prod" {
   project_viewer_group        = var.business_unit_1_developers
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
   shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_region
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_1_region
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_2_region
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
+  subnet_3_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_3_region
+  subnet_3_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_3_name
+  subnet_4_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_4_region
+  subnet_4_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_4_name
 }
 
 /******************************************
@@ -51,8 +62,23 @@ module "bu_2_sample_project_1_prod" {
   project_viewer_group        = var.business_unit_2_developers
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
   shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_region
+  subnet_1_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_1_region
   subnet_1_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_1_name
-  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_region
+  subnet_2_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_2_region
   subnet_2_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_2_name
+  subnet_3_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_3_region
+  subnet_3_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_3_name
+  subnet_4_region             = data.terraform_remote_state.rs04_shared_services_resources.outputs.subnet_4_region
+  subnet_4_name               = data.terraform_remote_state.rs04_shared_services_resources.outputs.restricted_prod_vpc_subnet_4_name
+}
+
+/******************************************
+  Outputs
+ *****************************************/
+output "bu_1_sample_project_1_prod_prject_id" {
+  value = module.bu_1_sample_project_1_prod.project_id
+}
+
+output "bu_2_sample_project_1_prod_prject_id" {
+  value = module.bu_2_sample_project_1_prod.project_id
 }
