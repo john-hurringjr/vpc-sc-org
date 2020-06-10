@@ -30,8 +30,10 @@ resource "google_container_cluster" "gke_cluster_1" {
   // For testing purposes I've opened up all of non-prod and on prem IP addresses
   master_authorized_networks_config {
     cidr_blocks {
-      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_1 # "On Prem" IPs
-      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_2 # Non-Prod IPS
+      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_1
+    }
+    cidr_blocks {
+      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_2
     }
   }
 
