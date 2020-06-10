@@ -271,8 +271,9 @@ variable "on_prem_non_prod_vpc_flow_log_sampling" {
 /******************************************
   GKE
  *****************************************/
-variable "gke_cluster_test_1_name" {}
-variable "gke_cluster_test_1_location" {}
+variable "gke_cluster_test_1_name" {
+  default = "gke-cluster-1-test"
+}
 variable "gke_cluster_test_1_master_authorized_cidrs" {}
 variable "gke_cluster_test_1_master_cidr" {}
 variable "gke_cluster_test_1_username" {}

@@ -21,7 +21,7 @@ resource "google_container_cluster" "gke_cluster_1" {
   provider                  = google-beta
   project                   = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
   name                      = var.gke_cluster_test_1_name
-  location                  = var.gke_cluster_test_1_location
+  location                  = var.region_1
   remove_default_node_pool  = true
   network                   = google_compute_network.restricted_non_prod_vpc.self_link
   subnetwork                = module.restricted_prod_vpc_subnet_1.subnet_self_link
@@ -81,7 +81,7 @@ resource "google_service_account" "gke_cluster_1_node_pool_1_service_account" {
 
 resource "google_container_node_pool" "gke_cluster_1_node_pool_1" {
   project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
-  location = var.gke_cluster_test_1_location
+  location = var.region_1
   cluster = google_container_cluster.gke_cluster_1.name
   node_count = 5
 
