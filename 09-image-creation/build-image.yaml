@@ -1,5 +1,5 @@
 steps:
-- name: gcloud
+- name: gcr.io/cloud-builders/gcloud
   dir: './${_FOLDER}/'
   id: 'create_image_spec'
   entrypoint: "bash"
