@@ -13,62 +13,62 @@
  * limitations under the License.
  */
 
-/******************************************
-  Cluster (Placing in restricted APIs prj)
- *****************************************/
-resource "google_container_cluster" "gke_cluster_1" {
-  provider                  = google-beta
-  project                   = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
-  name                      = var.gke_cluster_test_1_name
-  location                  = var.region_2
-  remove_default_node_pool  = true
-  network                   = google_compute_network.restricted_non_prod_vpc.self_link
-  subnetwork                = module.restricted_non_prod_vpc_subnet_2.subnet_self_link
-  initial_node_count        = 1
-
-  // For testing purposes I've opened up all of non-prod and on prem IP addresses
-  master_authorized_networks_config {
-    cidr_blocks {
-      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_1
-    }
-    cidr_blocks {
-      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_2
-    }
-  }
-
-  private_cluster_config {
-    enable_private_endpoint = true
-    enable_private_nodes    = true
-    master_ipv4_cidr_block  = var.gke_cluster_test_1_master_cidr
-  }
-
-  // The name for the ranges was difficult. If you select IPs then it will
-  // create those secondary ranges for you. BUt we'll be using ones already
-  // created. Therefore we need to use name. I thought about how to thread these
-  // out, but when outputting, I could not find a way to select specific secondary
-  // ranges. So, I have a convention for naming which starts with the region
-  // and then adds either -pod-ips or -services-ips.
-  ip_allocation_policy {
-    cluster_secondary_range_name  = "${var.region_2}-pod-ips"
-    services_secondary_range_name = "${var.region_2}-services-ips"
-  }
-
-  master_auth {
-    username = var.gke_cluster_test_1_username
-    password = var.gke_cluster_test_1_password
-    client_certificate_config {
-      issue_client_certificate = false
-    }
-  }
-
-  addons_config {
-    istio_config {
-      disabled = false
-    }
-  }
-
-}
-
+///******************************************
+//  Cluster (Placing in restricted APIs prj)
+// *****************************************/
+//resource "google_container_cluster" "gke_cluster_1" {
+//  provider                  = google-beta
+//  project                   = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
+//  name                      = var.gke_cluster_test_1_name
+//  location                  = var.region_2
+//  remove_default_node_pool  = true
+//  network                   = google_compute_network.restricted_non_prod_vpc.self_link
+//  subnetwork                = module.restricted_non_prod_vpc_subnet_2.subnet_self_link
+//  initial_node_count        = 1
+//
+//  // For testing purposes I've opened up all of non-prod and on prem IP addresses
+//  master_authorized_networks_config {
+//    cidr_blocks {
+//      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_1
+//    }
+//    cidr_blocks {
+//      cidr_block = var.gke_cluster_test_1_master_authorized_cidr_2
+//    }
+//  }
+//
+//  private_cluster_config {
+//    enable_private_endpoint = true
+//    enable_private_nodes    = true
+//    master_ipv4_cidr_block  = var.gke_cluster_test_1_master_cidr
+//  }
+//
+//  // The name for the ranges was difficult. If you select IPs then it will
+//  // create those secondary ranges for you. BUt we'll be using ones already
+//  // created. Therefore we need to use name. I thought about how to thread these
+//  // out, but when outputting, I could not find a way to select specific secondary
+//  // ranges. So, I have a convention for naming which starts with the region
+//  // and then adds either -pod-ips or -services-ips.
+//  ip_allocation_policy {
+//    cluster_secondary_range_name  = "${var.region_2}-pod-ips"
+//    services_secondary_range_name = "${var.region_2}-services-ips"
+//  }
+//
+//  master_auth {
+//    username = var.gke_cluster_test_1_username
+//    password = var.gke_cluster_test_1_password
+//    client_certificate_config {
+//      issue_client_certificate = false
+//    }
+//  }
+//
+//  addons_config {
+//    istio_config {
+//      disabled = false
+//    }
+//  }
+//
+//}
+//
 ///******************************************
 //  GKE - Node Pool - 1 - Service Account
 // *****************************************/
