@@ -43,8 +43,9 @@ variable "organization_id" {}
 
 variable "billing_account_id" {}
 
-variable "domain_identity_primary" {}
-variable "domain_identity_secondary" {}
+variable "domain_identities" {
+  type = list(string)
+}
 
 /******************************************
   Org Sinks
