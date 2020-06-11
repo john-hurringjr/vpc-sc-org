@@ -85,7 +85,7 @@ resource "google_service_account" "gke_cluster_1_node_pool_1_service_account" {
 
 resource "google_container_node_pool" "gke_cluster_1_node_pool_1" {
   project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
-  location = var.region_1
+  location = var.region_2
   cluster = google_container_cluster.gke_cluster_1.name
   node_count = 5
 
