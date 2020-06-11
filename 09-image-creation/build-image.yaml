@@ -1,5 +1,5 @@
 steps:
-- name: ubuntu
+- name: gcr.io/cloud-builders/gcloud
   dir: './${_FOLDER}/'
   id: 'create_image_spec'
   entrypoint: "bash"
@@ -14,7 +14,7 @@ steps:
         "project_id": "$PROJECT_ID",
         "source_image_family": "debian-10",
         "zone": "us-central1-a",
-        "instance_name": "testpackerimage-1",
+        "instance_name": "testpacker-image-1",
         "ssh_username": "packer",
         "disable_default_service_account": "true",
         "subnetwork": "${_SUBNET}",

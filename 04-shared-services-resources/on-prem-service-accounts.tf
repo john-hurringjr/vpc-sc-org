@@ -13,17 +13,15 @@
  * limitations under the License.
  */
 
+/*
+  In order to connect from your on prem gce VM to a VM inside of your test
+  projects (retricted or private), you'll most likely want to just run
+  gcloud compute ssh. However, if you do not want to sign in and authn to the
+  on prem GCE vm, then you'll need the service account that the gce on prem vm
+  is running as to have permission to SSH to any VM in your test org. This is
+  why we've authorized our on prem gcp org.
+*/
+
 /******************************************
-  Org Policies - First Time
+
  *****************************************/
-
-module "org_policies" {
-  source              = "github.com/john-hurringjr/test-modules/org-policies"
-  domain_identities   = var.domain_identities
-  organization_id     = var.organization_id
-}
-
-/******************************************
-  Outputs
- *****************************************/
-
