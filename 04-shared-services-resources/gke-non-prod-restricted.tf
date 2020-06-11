@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-/******************************************
-  Cluster (Placing in restricted APIs prj)
- *****************************************/
+///******************************************
+//  Cluster (Placing in restricted APIs prj)
+// *****************************************/
 //resource "google_container_cluster" "gke_cluster_1" {
 //  provider                  = google-beta
 //  project                   = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
 //  name                      = var.gke_cluster_test_1_name
-//  location                  = var.region_1
+//  location                  = var.region_2
 //  remove_default_node_pool  = true
 //  network                   = google_compute_network.restricted_non_prod_vpc.self_link
-//  subnetwork                = module.restricted_non_prod_vpc_subnet_1.subnet_self_link
+//  subnetwork                = module.restricted_non_prod_vpc_subnet_2.subnet_self_link
 //  initial_node_count        = 1
 //
 //  // For testing purposes I've opened up all of non-prod and on prem IP addresses
@@ -49,8 +49,8 @@
 //  // ranges. So, I have a convention for naming which starts with the region
 //  // and then adds either -pod-ips or -services-ips.
 //  ip_allocation_policy {
-//    cluster_secondary_range_name  = "${var.region_1}-pod-ips"
-//    services_secondary_range_name = "${var.region_1}-services-ips"
+//    cluster_secondary_range_name  = "${var.region_2}-pod-ips"
+//    services_secondary_range_name = "${var.region_2}-services-ips"
 //  }
 //
 //  master_auth {
