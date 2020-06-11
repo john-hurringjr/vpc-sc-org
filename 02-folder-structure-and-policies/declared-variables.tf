@@ -27,6 +27,12 @@ variable "terraform_non_prod_prj_creator_service_account" {}
 variable "terraform_non_prod_resources_service_account" {}
 
 /******************************************
+  On Prem Service Accounts
+ *****************************************/
+variable "on_prem_non_prod_service_account" {}
+variable "on_prem_prod_service_account" {}
+
+/******************************************
   Misc
  *****************************************/
 variable "billing_account_id" {}

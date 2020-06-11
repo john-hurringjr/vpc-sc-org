@@ -80,6 +80,43 @@ resource "google_folder" "production_bu_2" {
   parent        = google_folder.production.id
 }
 
+
+/*
+  In order to connect from your on prem gce VM to a VM inside of your test
+  projects (restricted or private), you'll most likely want to just run
+  gcloud compute ssh. However, if you do not want to sign in and authn to the
+  on prem GCE vm, then you'll need the service account that the gce on prem vm
+  is running as to have permission to SSH to any VM in your test org.
+*/
+
+/******************************************
+  On Prem Service Account Access to BU Folders
+ *****************************************/
+
+module "on_prem_prod_service_account_bu_1" {
+  source          = "github.com/john-hurringjr/test-modules/folder-iam/service-account-ssh"
+  service_account = var.on_prem_prod_service_account
+  folder_id       = google_folder.production_bu_1.id
+}
+
+module "on_prem_prod_service_account_bu_2" {
+  source          = "github.com/john-hurringjr/test-modules/folder-iam/service-account-ssh"
+  service_account = var.on_prem_prod_service_account
+  folder_id       = google_folder.production_bu_2.id
+}
+
+module "on_prem_non_prod_service_account_bu_1" {
+  source          = "github.com/john-hurringjr/test-modules/folder-iam/service-account-ssh"
+  service_account = var.on_prem_non_prod_service_account
+  folder_id       = google_folder.non_production_bu_1.id
+}
+
+module "on_prem_non_prod_service_account_bu_2" {
+  source          = "github.com/john-hurringjr/test-modules/folder-iam/service-account-ssh"
+  service_account = var.on_prem_non_prod_service_account
+  folder_id       = google_folder.non_production_bu_2.id
+}
+
 /******************************************
   Outputs
  *****************************************/

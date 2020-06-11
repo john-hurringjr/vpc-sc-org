@@ -16,3 +16,4 @@ Permissions for creating resources in production and non-prod are given to on se
 
 While the Org has several policies in place, we are also adding additional org policies for specific folders. See the folders-org-polices.tf for details. 
 
+In order to make connecting to your test VMs easier, I recommend creating two Service Accounts in your "on prem" org. Then you may grant these the permissions necessary to access your test VMs (via gcloud compute ssh). 
