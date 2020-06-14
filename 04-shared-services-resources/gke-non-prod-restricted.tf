@@ -79,40 +79,40 @@ resource "google_service_account" "gke_cluster_1_node_pool_1_service_account" {
 }
 
 
-///******************************************
-//  GKE - Node Pool - 1
-// *****************************************/
-//
-//resource "google_container_node_pool" "gke_cluster_1_node_pool_1" {
-//  project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
-//  location = var.region_2
-//  cluster = google_container_cluster.gke_cluster_1.name
-//  node_count = 5
-//
-//  autoscaling {
-//    max_node_count = 10
-//    min_node_count = 3
-//  }
-//
-//  upgrade_settings {
-//    max_surge       = 2
-//    max_unavailable = 2
-//  }
-//
-//  management {
-//    auto_repair   = true
-//    auto_upgrade  = true
-//  }
-//
-//  node_config {
-//    disk_size_gb  = 25
-//    disk_type     = "pd-ssd"
-//    machine_type  = "n1-standard-2"
-//    labels = {
-//      node-pool = "test-node-pool-1"
-//    }
-//    service_account = google_service_account.gke_cluster_1_node_pool_1_service_account.email
-//
-//  }
-//
-//}
+/******************************************
+  GKE - Node Pool - 1
+ *****************************************/
+
+resource "google_container_node_pool" "gke_cluster_1_node_pool_1" {
+  project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
+  location = var.region_2
+  cluster = google_container_cluster.gke_cluster_1.name
+  node_count = 5
+
+  autoscaling {
+    max_node_count = 10
+    min_node_count = 3
+  }
+
+  upgrade_settings {
+    max_surge       = 2
+    max_unavailable = 2
+  }
+
+  management {
+    auto_repair   = true
+    auto_upgrade  = true
+  }
+
+  node_config {
+    disk_size_gb  = 25
+    disk_type     = "pd-ssd"
+    machine_type  = "n1-standard-2"
+    labels = {
+      node-pool = "test-node-pool-1"
+    }
+    service_account = google_service_account.gke_cluster_1_node_pool_1_service_account.email
+
+  }
+
+}
