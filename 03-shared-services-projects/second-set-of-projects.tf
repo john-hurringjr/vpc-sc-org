@@ -170,6 +170,14 @@ output "gke_cluster_prod_project_id" {
   value = module.gke_cluster_project_prod.project_id
 }
 
+output "gke_cluster_prod_project_default_service_account" {
+  value = module.gke_cluster_project_prod.service_account_email
+}
+
 output "gke_cluster_non_prod_project_id" {
   value = module.gke_cluster_project_non_prod.project_id
+}
+
+output "gke_cluster_non_prod_project_default_service_account" {
+  value = module.gke_cluster_project_non_prod.service_account_email
 }
