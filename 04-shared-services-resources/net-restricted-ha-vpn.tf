@@ -116,7 +116,6 @@ variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
 /******************************************
   Restricted On Prem HA VPN with Non-Prod VPC
  *****************************************/
-
 module "restricted_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
   source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
   project_1_id              = var.on_prem_project_id
