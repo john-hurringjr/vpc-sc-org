@@ -122,6 +122,7 @@ resource "google_container_node_pool" "gke_cluster_1_node_pool_1" {
  *****************************************/
 
 resource "google_compute_instance" "jump_to_control_gke" {
+  project = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_id
   name            = "test-jump"
   machine_type    = "n1-standard-2"
   zone            = "us-central1-a"
