@@ -56,31 +56,31 @@
 //variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_2" {}
 //variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_1" {}
 //variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_2" {}
-//
-//# Non-Prod
-//variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {
-//  default = 4200000200
-//}
-//variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {
-//  default = 4200000201
-//}
-//
-//variable "restricted_non_prod_vpc_router_region_1_asn" {
-//  default = 4200000700
-//}
-//variable "restricted_non_prod_vpc_router_region_2_asn" {
-//  default = 4200000701
-//}
-//
-//variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1" {}
-//variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2" {}
-//variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1" {}
-//variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
-//
-///******************************************
-//  Restricted On Prem HA VPN with Prod VPC
-// *****************************************/
-//
+
+# Non-Prod
+variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {
+  default = 4200000200
+}
+variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {
+  default = 4200000201
+}
+
+variable "restricted_non_prod_vpc_router_region_1_asn" {
+  default = 4200000700
+}
+variable "restricted_non_prod_vpc_router_region_2_asn" {
+  default = 4200000701
+}
+
+variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1" {}
+variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2" {}
+variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1" {}
+variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
+
+/******************************************
+  Restricted On Prem HA VPN with Prod VPC
+ *****************************************/
+
 //module "restricted_ha_vpn_on_prem_with_prod_vpc_region_1" {
 //  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
 //  project_1_id              = var.on_prem_project_id
@@ -112,39 +112,39 @@
 //  region                    = var.region_2
 //  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
 //}
-//
-///******************************************
-//  Restricted On Prem HA VPN with Non-Prod VPC
-// *****************************************/
-//
-//module "restricted_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
-//  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
-//  project_1_id              = var.on_prem_project_id
-//  network_1_self_link       = google_compute_network.restricted_on_prem_vpc_non_prod.self_link
-//  network_1_name            = google_compute_network.restricted_on_prem_vpc_non_prod.name
-//  network_1_router_bgp_asn  = var.restricted_on_prem_non_prod_vpc_router_region_1_asn
-//  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_2_self_link       = google_compute_network.restricted_non_prod_vpc.self_link
-//  network_2_name            = google_compute_network.restricted_non_prod_vpc.name
-//  network_2_router_bgp_asn  = var.restricted_non_prod_vpc_router_region_1_asn
-//  shared_secret_tunnel_1    = var.vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1
-//  shared_secret_tunnel_2    = var.vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2
-//  region                    = var.region_1
-//  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
-//}
-//
-//module "restricted_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_2" {
-//  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
-//  project_1_id              = var.on_prem_project_id
-//  network_1_self_link       = google_compute_network.restricted_on_prem_vpc_non_prod.self_link
-//  network_1_name            = google_compute_network.restricted_on_prem_vpc_non_prod.name
-//  network_1_router_bgp_asn  = var.restricted_on_prem_non_prod_vpc_router_region_2_asn
-//  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-//  network_2_self_link       = google_compute_network.restricted_non_prod_vpc.self_link
-//  network_2_name            = google_compute_network.restricted_non_prod_vpc.name
-//  network_2_router_bgp_asn  = var.restricted_non_prod_vpc_router_region_2_asn
-//  shared_secret_tunnel_1    = var.vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1
-//  shared_secret_tunnel_2    = var.vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2
-//  region                    = var.region_2
-//  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
-//}
+
+/******************************************
+  Restricted On Prem HA VPN with Non-Prod VPC
+ *****************************************/
+
+module "restricted_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_1" {
+  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
+  project_1_id              = var.on_prem_project_id
+  network_1_self_link       = google_compute_network.restricted_on_prem_vpc_non_prod.self_link
+  network_1_name            = google_compute_network.restricted_on_prem_vpc_non_prod.name
+  network_1_router_bgp_asn  = var.restricted_on_prem_non_prod_vpc_router_region_1_asn
+  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_2_self_link       = google_compute_network.restricted_non_prod_vpc.self_link
+  network_2_name            = google_compute_network.restricted_non_prod_vpc.name
+  network_2_router_bgp_asn  = var.restricted_non_prod_vpc_router_region_1_asn
+  shared_secret_tunnel_1    = var.vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1
+  shared_secret_tunnel_2    = var.vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2
+  region                    = var.region_1
+  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
+}
+
+module "restricted_vpc_sc_ha_vpn_on_prem_with_non_prod_vpc_region_2" {
+  source                    = "github.com/john-hurringjr/test-modules/networking/vpn-ha-gcp"
+  project_1_id              = var.on_prem_project_id
+  network_1_self_link       = google_compute_network.restricted_on_prem_vpc_non_prod.self_link
+  network_1_name            = google_compute_network.restricted_on_prem_vpc_non_prod.name
+  network_1_router_bgp_asn  = var.restricted_on_prem_non_prod_vpc_router_region_2_asn
+  project_2_id              = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+  network_2_self_link       = google_compute_network.restricted_non_prod_vpc.self_link
+  network_2_name            = google_compute_network.restricted_non_prod_vpc.name
+  network_2_router_bgp_asn  = var.restricted_non_prod_vpc_router_region_2_asn
+  shared_secret_tunnel_1    = var.vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1
+  shared_secret_tunnel_2    = var.vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2
+  region                    = var.region_2
+  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
+}
