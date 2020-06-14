@@ -87,6 +87,7 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
     # Below will need to be added later after you have deployed  necessary projects it will be referencing and
     # created the necessary access levels
     access_levels = [
+      google_access_context_manager_access_level.allow_all_rfc1918_cidr_ranges.id,
       google_access_context_manager_access_level.allow_all_tf_service_accounts.id,
       #Uncomment line below after you've set up your org log sinks
       google_access_context_manager_access_level.org_sinks_service_accounts.id,
