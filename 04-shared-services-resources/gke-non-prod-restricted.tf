@@ -138,7 +138,7 @@ resource "google_compute_instance" "jump_to_control_gke" {
   }
 
   service_account {
-    scopes = [cloud-platform]
+    scopes = ["cloud-platform"]
     email = data.terraform_remote_state.rs03_shared_services_projects.outputs.gke_cluster_non_prod_project_default_service_account
   }
 
