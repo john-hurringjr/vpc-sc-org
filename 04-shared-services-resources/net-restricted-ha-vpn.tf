@@ -146,4 +146,4 @@ variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
 //  shared_secret_tunnel_2    = var.vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2
 //  region                    = var.region_2
 //  custom_range              = "199.36.153.4/30" #Restricted: 199.36.153.4/30
-}
+//}
