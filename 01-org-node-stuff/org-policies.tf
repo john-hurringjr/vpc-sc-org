@@ -23,7 +23,6 @@ module "org_policies" {
   organization_id     = var.organization_id
 }
 
-
 /******************************************
   Outputs
  *****************************************/
