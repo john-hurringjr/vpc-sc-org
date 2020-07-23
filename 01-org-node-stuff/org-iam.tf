@@ -18,7 +18,7 @@
  *****************************************/
 
 module "org_iam" {
-  source                                          = "github.com/john-hurringjr/test-modules/org-iam/vpc-sc-limited"
+  source                                          = "github.com/john-hurringjr/test-modules/org-iam/vpc-sc-data-access-curated"
   group_break_glass                               = var.group_break_glass
   terraform_org_service_account                   = var.terraform_org_service_account
   terraform_prod_prj_creator_service_account      = var.terraform_prod_prj_creator_service_account
