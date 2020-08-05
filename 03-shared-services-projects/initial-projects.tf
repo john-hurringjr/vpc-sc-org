@@ -151,3 +151,11 @@ output "org_log_sink_prod_project_id" {
 output "monitoring_prod_project_id" {
   value = module.monitoring_project_shared_services.project_id
 }
+
+output "kms_prod_project_id" {
+  value = module.kms_prod_project_shared_services.project_id
+}
+
+output "kms_non_prod_project_id" {
+  value = module.kms_non_prod_project_shared_services.project_id
+}
