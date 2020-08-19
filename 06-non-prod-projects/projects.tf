@@ -14,7 +14,7 @@
  */
 
 /******************************************
-  BU 1
+  BU 1 - US Restricted
  *****************************************/
 module "bu_1_sample_project_2_non_prod" {
   source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
