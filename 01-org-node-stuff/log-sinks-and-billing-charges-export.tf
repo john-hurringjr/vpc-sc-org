@@ -75,6 +75,7 @@ module "billing_charges_export_bigquery" {
   billing_account_id              = var.billing_account_id
 }
 
+
 /******************************************
   Logging Project IAM Policy Data
  *****************************************/
