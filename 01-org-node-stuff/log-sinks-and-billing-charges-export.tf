@@ -110,23 +110,23 @@ resource "google_project_iam_policy" "org_log_sink_project_iam_policy" {
   Billing Charges Export Project IAM Policy Data
  *****************************************/
 
-data "google_iam_policy" "billing_charges_export_project_iam_policy_data" {
-
-  binding {
-    role = "roles/viewer"
-    members = [
-      "group:${var.billing_admins_group}",
-    ]
-  }
-
-  binding {
-    role = "roles/bigquery.dataEditor"
-    members = [
-      module.billing_charges_export_bigquery.sink_writer_identity
-    ]
-  }
-
-}
+//data "google_iam_policy" "billing_charges_export_project_iam_policy_data" {
+//
+//  binding {
+//    role = "roles/viewer"
+//    members = [
+//      "group:${var.billing_admins_group}",
+//    ]
+//  }
+//
+//  binding {
+//    role = "roles/bigquery.dataEditor"
+//    members = [
+//      module.billing_charges_export_bigquery.sink_writer_identity
+//    ]
+//  }
+//
+//}
 
 /******************************************
   Logging Project IAM Policy Applied
