@@ -105,3 +105,41 @@ resource "google_project_iam_policy" "org_log_sink_project_iam_policy" {
   policy_data = data.google_iam_policy.org_log_sink_project_iam_policy_data.policy_data
   project     = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id
 }
+
+/******************************************
+  Billing Charges Export Project IAM Policy Data
+ *****************************************/
+
+data "google_iam_policy" "billing_charges_export_project_iam_policy_data" {
+
+  binding {
+    role = "roles/viewer"
+    members = [
+      "group:${var.billing_admins_group}",
+    ]
+  }
+
+  binding {
+    role = "roles/bigquery.dataEditor"
+    members = [
+      module.billing_charges_export_bigquery.sink_writer_identity
+    ]
+  }
+
+}
+
+/******************************************
+  Logging Project IAM Policy Applied
+ *****************************************/
+
+//resource "google_project_iam_policy" "billing_charges_export_project_iam_policy" {
+//  depends_on = [module.billing_charges_export_bigquery]
+//  policy_data = data.google_iam_policy.billing_charges_export_project_iam_policy_data.policy_data
+//  project     = data.terraform_remote_state.rs03_shared_services_projects.outputs.billing_charges_export_project_id
+//}
+//
+
+/******************************************
+  Outputs
+ *****************************************/
+
