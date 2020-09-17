@@ -69,12 +69,10 @@ module "billing_charges_export_bigquery" {
   project_id                      = data.terraform_remote_state.rs03_shared_services_projects.outputs.billing_charges_export_project_id
   bigquery_dataset_friendly_name  = var.billing_charges_export_prod_bq_dataset_friendly_name
   bigquery_dataset_location       = var.billing_charges_export_prod_bq_dataset_location
-  sink_name                       = var.billing_charges_export_prod_bq_sink_name
   bigquery_dataset_id             = var.billing_charges_export_prod_bq_dataset_id
   organization_id                 = var.organization_id
   billing_account_id              = var.billing_account_id
 }
-
 
 /******************************************
   Logging Project IAM Policy Data
