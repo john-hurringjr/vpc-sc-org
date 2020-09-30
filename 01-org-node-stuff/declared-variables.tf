@@ -93,9 +93,6 @@ variable "billing_charges_export_prod_bq_dataset_friendly_name" {
 variable "billing_charges_export_prod_bq_dataset_location" {
   default = "US"
 }
-variable "billing_charges_export_prod_bq_sink_name" {
-  default = "billing-charges-bq-export"
-}
 variable "billing_charges_export_prod_bq_dataset_id" {
   default = "billing_charges_export"
 }
