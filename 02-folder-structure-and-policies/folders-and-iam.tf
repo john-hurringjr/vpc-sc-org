@@ -80,6 +80,10 @@ resource "google_folder" "production_bu_2" {
   parent        = google_folder.production.id
 }
 
+resource "google_folder" "production_bu_3" {
+  display_name  = "Prod-BU3"
+  parent        = google_folder.production.id
+}
 
 /*
   In order to connect from your on prem gce VM to a VM inside of your test
