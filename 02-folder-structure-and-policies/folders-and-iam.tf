@@ -80,7 +80,6 @@ resource "google_folder" "production_bu_2" {
   parent        = google_folder.production.id
 }
 
-
 /*
   In order to connect from your on prem gce VM to a VM inside of your test
   projects (restricted or private), you'll most likely want to just run
