@@ -29,7 +29,6 @@ module "org_iam" {
   organization_id                                 = var.organization_id
 }
 
-
 /******************************************
   Outputs
  *****************************************/
