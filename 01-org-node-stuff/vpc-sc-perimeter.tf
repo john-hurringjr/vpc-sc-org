@@ -71,7 +71,7 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "tpu.googleapis.com",
       "cloudtrace.googleapis.com",
       "vision.googleapis.com",
-      "compute.googleapi.com",
+      "compute.googleapis.com",
       "containeranalysis.googleapis.com",
       "containerregistry.googleapis.com",
       "datacatalog.googleapis.com",
