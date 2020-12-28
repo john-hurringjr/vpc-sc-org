@@ -48,7 +48,8 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "apigeeconnect.googleapis.com",
       "artifactregistry.googleapis.com",
       "automl.googleapis.com",
-      "eu-automl.googleapis.com",
+      # Despite being listed as supported, error is given for eu-automl
+      #"eu-automl.googleapis.com",
       "bigquery.googleapis.com",
       "bigquerydatatransfer.googleapis.com",
       "binaryauthorization.googleapis.com",
