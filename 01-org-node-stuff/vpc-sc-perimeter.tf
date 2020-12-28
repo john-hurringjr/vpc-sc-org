@@ -50,7 +50,7 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "automl.googleapis.com",
       "eu-automl.googleapis.com",
       "bigquery.googleapis.com",
-      "bigquerydatatransfergoogleapis.com",
+      "bigquerydatatransfer.googleapis.com",
       "binaryauthorization.googleapis.com",
       "privateca.googleapis.com",
       "cloudasset.googleapis.com",
