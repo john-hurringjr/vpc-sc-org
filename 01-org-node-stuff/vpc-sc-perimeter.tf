@@ -64,7 +64,7 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "cloudkms.googleapis.com",
       "logging.googleapis.com",
       "monitoring.googleapis.com",
-      "profiler.googleapis.com",
+      "cloudprofiler.googleapis.com",
       "spanner.googleapis.com",
       "sqladmin.googleapis.com",
       "storage.googleapis.com",
