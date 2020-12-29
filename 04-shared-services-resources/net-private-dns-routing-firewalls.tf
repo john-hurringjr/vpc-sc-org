@@ -15,103 +15,103 @@
 /******************************************
   Private Shared VPC Host - Prod - DNS & Routing
  *****************************************/
-module "private_prod_vpc_private_apis_dns" {
-  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-private-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-  network_self_link = google_compute_network.private_prod_vpc.self_link
-}
-
-module "private_prod_vpc_private_apis_routing" {
-  source            = "github.com/john-hurringjr/test-modules/networking/routing/private-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-  network_self_link = google_compute_network.private_prod_vpc.self_link
-}
-
-/******************************************
-  Private Shared VPC Host - Non-Prod - DNS & Routing
- *****************************************/
-module "private_non_prod_vpc_private_apis_dns" {
-  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-private-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-  network_self_link = google_compute_network.private_non_prod_vpc.self_link
-}
-
-module "private_non_prod_vpc_private_apis_routing" {
-  source            = "github.com/john-hurringjr/test-modules/networking/routing/private-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-  network_self_link = google_compute_network.private_non_prod_vpc.self_link
-}
-
-/******************************************
-Private Shared VPC Host - Prod - Firewalls
-*****************************************/
-# Denies all egress on all VMs. Also enables logging for this FW rule.
-module "private_prod_vpc_firewall_deny_all_egress" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-egress-all-port-proto"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-  network_self_link = google_compute_network.private_prod_vpc.self_link
-  network_name      = google_compute_network.private_prod_vpc.name
-  priority          = var.prod_deny_all_egress_priority
-}
-
-# Denies all ingress on all VMs. Also enables logging for this FW rule.
-module "private_prod_vpc_firewall_deny_all_ingress" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-ingress-all-port-proto"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-  network_self_link = google_compute_network.private_prod_vpc.self_link
-  network_name      = google_compute_network.private_prod_vpc.name
-  priority          = var.prod_deny_all_ingress_priority
-}
-
-# Allows egress for all VMs to restrict apis vips
-module "private_prod_vpc_firewall_allow_egress_private_apis" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-egress-private-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
-  network_self_link = google_compute_network.private_prod_vpc.self_link
-  network_name      = google_compute_network.private_prod_vpc.name
-}
-
-/******************************************
-  Private Shared VPC Host - Non-Prod - Firewalls
- *****************************************/
-# Denies all egress on all VMs. Also enables logging for this FW rule.
-module "private_non_prod_vpc_firewall_deny_all_egress" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-egress-all-port-proto"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-  network_self_link = google_compute_network.private_non_prod_vpc.self_link
-  network_name      = google_compute_network.private_non_prod_vpc.name
-  priority          = var.non_prod_deny_all_egress_priority
-}
-
-# Denies all ingress on all VMs. Also enables logging for this FW rule.
-module "private_non_prod_vpc_firewall_deny_all_ingress" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-ingress-all-port-proto"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-  network_self_link = google_compute_network.private_non_prod_vpc.self_link
-  network_name      = google_compute_network.private_non_prod_vpc.name
-  priority          = var.non_prod_deny_all_ingress_priority
-}
-
-# Allows ingress on 22, 3389, 443 on all VMs from all rfc1918
-module "private_non_prod_vpc_firewall_allow_ingress_rfc1918_limited" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-ingress-rfc1918-limited"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-  network_self_link = google_compute_network.private_non_prod_vpc.self_link
-  network_name      = google_compute_network.private_non_prod_vpc.name
-}
-
-# Allows egress on 22, 3389, 443 on all VMs to rfc1918
-module "private_non_prod_vpc_firewall_allow_egress_rfc1918_limited" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-egress-rfc1918-limited"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-  network_self_link = google_compute_network.private_non_prod_vpc.self_link
-  network_name      = google_compute_network.private_non_prod_vpc.name
-}
-
-# Allows egress for all VMs to restrict apis vips
-module "private_non_prod_vpc_firewall_allow_egress_private_apis" {
-  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-egress-private-apis"
-  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-  network_self_link = google_compute_network.private_non_prod_vpc.self_link
-  network_name      = google_compute_network.private_non_prod_vpc.name
-}
+//module "private_prod_vpc_private_apis_dns" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-private-apis"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+//  network_self_link = google_compute_network.private_prod_vpc.self_link
+//}
+//
+//module "private_prod_vpc_private_apis_routing" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/routing/private-apis"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+//  network_self_link = google_compute_network.private_prod_vpc.self_link
+//}
+//
+///******************************************
+//  Private Shared VPC Host - Non-Prod - DNS & Routing
+// *****************************************/
+//module "private_non_prod_vpc_private_apis_dns" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/dns/internal-private-apis"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+//}
+//
+//module "private_non_prod_vpc_private_apis_routing" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/routing/private-apis"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+//}
+//
+///******************************************
+//Private Shared VPC Host - Prod - Firewalls
+//*****************************************/
+//# Denies all egress on all VMs. Also enables logging for this FW rule.
+//module "private_prod_vpc_firewall_deny_all_egress" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-egress-all-port-proto"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+//  network_self_link = google_compute_network.private_prod_vpc.self_link
+//  network_name      = google_compute_network.private_prod_vpc.name
+//  priority          = var.prod_deny_all_egress_priority
+//}
+//
+//# Denies all ingress on all VMs. Also enables logging for this FW rule.
+//module "private_prod_vpc_firewall_deny_all_ingress" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-ingress-all-port-proto"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+//  network_self_link = google_compute_network.private_prod_vpc.self_link
+//  network_name      = google_compute_network.private_prod_vpc.name
+//  priority          = var.prod_deny_all_ingress_priority
+//}
+//
+//# Allows egress for all VMs to restrict apis vips
+//module "private_prod_vpc_firewall_allow_egress_private_apis" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-egress-private-apis"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_prod_project_id
+//  network_self_link = google_compute_network.private_prod_vpc.self_link
+//  network_name      = google_compute_network.private_prod_vpc.name
+//}
+//
+///******************************************
+//  Private Shared VPC Host - Non-Prod - Firewalls
+// *****************************************/
+//# Denies all egress on all VMs. Also enables logging for this FW rule.
+//module "private_non_prod_vpc_firewall_deny_all_egress" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-egress-all-port-proto"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+//  network_name      = google_compute_network.private_non_prod_vpc.name
+//  priority          = var.non_prod_deny_all_egress_priority
+//}
+//
+//# Denies all ingress on all VMs. Also enables logging for this FW rule.
+//module "private_non_prod_vpc_firewall_deny_all_ingress" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/deny-ingress-all-port-proto"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+//  network_name      = google_compute_network.private_non_prod_vpc.name
+//  priority          = var.non_prod_deny_all_ingress_priority
+//}
+//
+//# Allows ingress on 22, 3389, 443 on all VMs from all rfc1918
+//module "private_non_prod_vpc_firewall_allow_ingress_rfc1918_limited" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-ingress-rfc1918-limited"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+//  network_name      = google_compute_network.private_non_prod_vpc.name
+//}
+//
+//# Allows egress on 22, 3389, 443 on all VMs to rfc1918
+//module "private_non_prod_vpc_firewall_allow_egress_rfc1918_limited" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-egress-rfc1918-limited"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+//  network_name      = google_compute_network.private_non_prod_vpc.name
+//}
+//
+//# Allows egress for all VMs to restrict apis vips
+//module "private_non_prod_vpc_firewall_allow_egress_private_apis" {
+//  source            = "github.com/john-hurringjr/test-modules/networking/firewall-rules/all/allow-egress-private-apis"
+//  project_id        = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//  network_self_link = google_compute_network.private_non_prod_vpc.self_link
+//  network_name      = google_compute_network.private_non_prod_vpc.name
+//}

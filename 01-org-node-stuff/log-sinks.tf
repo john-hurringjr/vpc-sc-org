@@ -22,6 +22,7 @@
   Org Log Sink - GCS
  *****************************************/
 
+
 module "org_log_sink_prod_gcs" {
   source                       = "github.com/john-hurringjr/test-modules/org-sinks/gcs"
   project_id                   = data.terraform_remote_state.rs03_shared_services_projects.outputs.org_log_sink_prod_project_id

@@ -37,45 +37,45 @@
 /******************************************
  Declared Variable - Restricted HA VPN
  *****************************************/
-# Prod
-variable "restricted_on_prem_prod_vpc_router_region_1_asn" {
-  default = 4200000100
-}
-variable "restricted_on_prem_prod_vpc_router_region_2_asn" {
-  default = 4200000101
-}
-
-variable "restricted_prod_vpc_router_region_1_asn" {
-  default = 4200000600
-}
-variable "restricted_prod_vpc_router_region_2_asn" {
-  default = 4200000601
-}
-
-variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_2" {}
-variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_2" {}
-
-# Non-Prod
-variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {
-  default = 4200000200
-}
-variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {
-  default = 4200000201
-}
-
-variable "restricted_non_prod_vpc_router_region_1_asn" {
-  default = 4200000700
-}
-variable "restricted_non_prod_vpc_router_region_2_asn" {
-  default = 4200000701
-}
-
-variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2" {}
-variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1" {}
-variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
+//# Prod
+//variable "restricted_on_prem_prod_vpc_router_region_1_asn" {
+//  default = 4200000100
+//}
+//variable "restricted_on_prem_prod_vpc_router_region_2_asn" {
+//  default = 4200000101
+//}
+//
+//variable "restricted_prod_vpc_router_region_1_asn" {
+//  default = 4200000600
+//}
+//variable "restricted_prod_vpc_router_region_2_asn" {
+//  default = 4200000601
+//}
+//
+//variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_prod_region_1_shared_secret_tunnel_2" {}
+//variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_prod_region_2_shared_secret_tunnel_2" {}
+//
+//# Non-Prod
+//variable "restricted_on_prem_non_prod_vpc_router_region_1_asn" {
+//  default = 4200000200
+//}
+//variable "restricted_on_prem_non_prod_vpc_router_region_2_asn" {
+//  default = 4200000201
+//}
+//
+//variable "restricted_non_prod_vpc_router_region_1_asn" {
+//  default = 4200000700
+//}
+//variable "restricted_non_prod_vpc_router_region_2_asn" {
+//  default = 4200000701
+//}
+//
+//variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_non_prod_region_1_shared_secret_tunnel_2" {}
+//variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_1" {}
+//variable "vpn_on_prem_restricted_non_prod_region_2_shared_secret_tunnel_2" {}
 
 /******************************************
   Restricted On Prem HA VPN with Prod VPC
