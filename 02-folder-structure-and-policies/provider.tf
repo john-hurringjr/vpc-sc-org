@@ -13,4 +13,11 @@
  * limitations under the License.
  */
 
-provider "google" {}
+terraform {
+  required_providers {
+    google = {
+      source - "hashicorp/google"
+      version - "~>3.51.0"
+    }
+  }
+}
