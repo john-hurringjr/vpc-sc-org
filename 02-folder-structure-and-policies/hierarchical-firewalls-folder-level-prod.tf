@@ -42,9 +42,10 @@ resource "google_compute_organization_security_policy_rule" "prod_hfw_policy_iap
     }
   }
 
-  log_config {
-    metadata = "INCLUDE_ALL_METADATA"
-  }
+//  log_config {
+//    metadata = "INCLUDE_ALL_METADATA"
+//  }
+  enable_logging = true
 
   priority = 50
 
@@ -68,9 +69,10 @@ resource "google_compute_organization_security_policy_rule" "prod_hfw_policy_res
     }
   }
 
-  log_config {
-    metadata = "INCLUDE_ALL_METADATA"
-  }
+//  log_config {
+//    metadata = "INCLUDE_ALL_METADATA"
+//  }
+  enable_logging = true
 
   priority = 45
 
@@ -96,9 +98,10 @@ resource "google_compute_organization_security_policy_rule" "prod_hfw_policy_rfc
     }
   }
 
-  log_config {
-    metadata = "INCLUDE_ALL_METADATA"
-  }
+//  log_config {
+//    metadata = "INCLUDE_ALL_METADATA"
+//  }
+  enable_logging = true
 
   priority = 90
 
@@ -124,9 +127,10 @@ resource "google_compute_organization_security_policy_rule" "prod_hfw_policy_rfc
     }
   }
 
-  log_config {
-    metadata = "INCLUDE_ALL_METADATA"
-  }
+//  log_config {
+//    metadata = "INCLUDE_ALL_METADATA"
+//  }
+  enable_logging = true
 
   priority = 80
 
@@ -152,9 +156,10 @@ resource "google_compute_organization_security_policy_rule" "prod_hfw_policy_all
     }
   }
 
-  log_config {
-    metadata = "INCLUDE_ALL_METADATA"
-  }
+//  log_config {
+//    metadata = "INCLUDE_ALL_METADATA"
+//  }
+  enable_logging = true
 
   priority = 100
 
@@ -180,9 +185,10 @@ resource "google_compute_organization_security_policy_rule" "prod_hfw_policy_all
     }
   }
 
-  log_config {
-    metadata = "INCLUDE_ALL_METADATA"
-  }
+//  log_config {
+//    metadata = "INCLUDE_ALL_METADATA"
+//  }
+  enable_logging = true
 
   priority = 110
 
