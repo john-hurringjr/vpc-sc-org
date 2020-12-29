@@ -21,6 +21,11 @@ terraform {
       source = "hashicorp/google"
       version = "~>3.51.0"
     }
+
+    google-beta = {
+      source = "hashicorp/google-beta"
+    }
+
   }
 
 }
