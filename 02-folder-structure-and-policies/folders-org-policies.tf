@@ -56,7 +56,7 @@ resource "google_folder_organization_policy" "prod_bu_1_folder_location_restrict
 
   list_policy {
     allow {
-      values = ["us-locations"]
+      values = ["in:us-locations"]
     }
   }
 
@@ -68,7 +68,7 @@ resource "google_folder_organization_policy" "non_prod_bu_1_folder_location_rest
 
   list_policy {
     allow {
-      values = ["us-locations"]
+      values = ["in:us-locations"]
     }
   }
 
