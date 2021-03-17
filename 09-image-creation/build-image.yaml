@@ -20,7 +20,10 @@ steps:
         "subnetwork": "${_SUBNET}",
         "omit_external_ip": "true",
         "use_internal_ip": "true",
-        "use_iap": "true"
+        "use_iap": "true",
+        "enable_secure_boot": "true",
+        "enable_vtpm": "true",
+        "enable_integrity_monitoring": "true"
       }
       ]
     }
