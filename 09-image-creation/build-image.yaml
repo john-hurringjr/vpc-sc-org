@@ -20,7 +20,7 @@ steps:
         "subnetwork": "${_SUBNET}",
         "omit_external_ip": "true",
         "use_internal_ip": "true",
-        "use_iap": "true",
+        "use_iap": "true"
       }
       ]
     }
