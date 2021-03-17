@@ -12,7 +12,7 @@ steps:
       {
         "type": "googlecompute",
         "project_id": "$PROJECT_ID",
-        "source_image": "debian-10",
+        "source_image_family": "debian-10",
         "zone": "us-central1-a",
         "instance_name": "testpacker-image-1",
         "ssh_username": "packer",
