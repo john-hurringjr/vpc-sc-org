@@ -21,7 +21,7 @@ steps:
         "omit_external_ip": "true",
         "use_internal_ip": "true",
         "use_iap": "true",
-        "iap_tunnel_launch_wait": "120"
+        "use_os_login": "true"
       }
       ]
     }
