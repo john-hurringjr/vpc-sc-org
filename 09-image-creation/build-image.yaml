@@ -12,7 +12,7 @@ steps:
       {
         "type": "googlecompute",
         "project_id": "$PROJECT_ID",
-        "source_image_family": "ubuntu-minimal-2004-lts",
+        "source_image": "ubuntu-2004-focal-v20200720",
         "zone": "us-central1-a",
         "instance_name": "testpacker-image-1",
         "ssh_username": "packer",
