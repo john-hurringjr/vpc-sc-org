@@ -12,7 +12,7 @@ steps:
       {
         "type": "googlecompute",
         "project_id": "$PROJECT_ID",
-        "source_image_family": "confidential-vm-images/global/images/ubuntu-2004-focal-v20201014",
+        "source_image_family": "debian-10",
         "zone": "us-central1-a",
         "instance_name": "testpacker-image-1",
         "ssh_username": "packer",
@@ -20,7 +20,9 @@ steps:
         "subnetwork": "${_SUBNET}",
         "omit_external_ip": "true",
         "use_internal_ip": "true",
-        "use_iap": "true"
+        "use_iap": "true",
+        "iap_tunnel_launch_wait": "120",
+        "use_os_login": "true"
       }
       ]
     }
