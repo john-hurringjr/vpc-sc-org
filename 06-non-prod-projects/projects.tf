@@ -32,34 +32,34 @@ module "bu_1_sample_project_2_non_prod" {
 /******************************************
   BU 1 - US Restricted - Test Firebase
  *****************************************/
-module "bu_1_sample_project_fb_1_non_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-  project_friendly_name       = "BU1 Non-Prod FB 1"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "non-prod"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.non_prod_bu_1_folder_id
-  billing_account_id          = var.billing_account_id
-  unique_project_identifier   = "bu-1-prj-fb-1"
-  project_viewer_group        = var.business_unit_1_developers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-}
-
-/******************************************
-  BU 1 - US Restricted - Test Firebase
- *****************************************/
-module "bu_1_sample_project_fb_2_non_prod" {
-  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
-  project_friendly_name       = "BU1 Non-Prod FB 2"
-  unique_shared_id            = var.project_unique_shared_id
-  environment                 = "non-prod"
-  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.non_prod_bu_1_folder_id
-  billing_account_id          = var.billing_account_id
-  unique_project_identifier   = "bu-1-prj-fb-2"
-  project_viewer_group        = var.business_unit_1_developers
-  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
-  shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
-}
+//module "bu_1_sample_project_fb_1_non_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+//  project_friendly_name       = "BU1 Non-Prod FB 1"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "non-prod"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.non_prod_bu_1_folder_id
+//  billing_account_id          = var.billing_account_id
+//  unique_project_identifier   = "bu-1-prj-fb-1"
+//  project_viewer_group        = var.business_unit_1_developers
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//  shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//}
+//
+///******************************************
+//  BU 1 - US Restricted - Test Firebase
+// *****************************************/
+//module "bu_1_sample_project_fb_2_non_prod" {
+//  source                      = "github.com/john-hurringjr/test-modules/project-creation/vpc-sc-restricted-access/shared-vpc-service"
+//  project_friendly_name       = "BU1 Non-Prod FB 2"
+//  unique_shared_id            = var.project_unique_shared_id
+//  environment                 = "non-prod"
+//  folder_id                   = data.terraform_remote_state.rs02_folder_structure_and_policies.outputs.non_prod_bu_1_folder_id
+//  billing_account_id          = var.billing_account_id
+//  unique_project_identifier   = "bu-1-prj-fb-2"
+//  project_viewer_group        = var.business_unit_1_developers
+//  service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
+//  shared_vpc_host_project_id  = data.terraform_remote_state.rs03_shared_services_projects.outputs.shared_vpc_non_prod_project_id
+//}
 
 
 /******************************************
