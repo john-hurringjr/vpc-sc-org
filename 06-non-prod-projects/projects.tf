@@ -59,6 +59,11 @@ module "bu_1_sample_project_fb_2_non_prod" {
   service_perimeter_name      = data.terraform_remote_state.rs01_org_node_stuff.outputs.vpc_sc_perimeter_name
 }
 
+resource "google_firebase_project" "test_fb_project_bu_fb_2" {
+  provider = "google-beta"
+  project = module.bu_1_sample_project_fb_2_non_prod.project_id
+}
+
 
 /******************************************
   BU 2
