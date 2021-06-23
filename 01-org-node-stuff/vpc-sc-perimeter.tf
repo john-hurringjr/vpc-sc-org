@@ -100,7 +100,9 @@ resource "google_access_context_manager_service_perimeter" "service_perimeter_co
       "texttospeech.googleapis.com",
       "translate.googleapis.com",
       "videointelligence.googleapis.com",
-      "osconfig.googleapis.com"
+      "osconfig.googleapis.com",
+      "run.googleapis.com",
+      "iam.googleapis.com"
     ]
 
     # Below will need to be added later after you have deployed  necessary projects it will be referencing and
